@@ -1,0 +1,17 @@
+stages:
+  - lint
+
+.ruby:
+  image: "ruby:3.4"
+  before_script: &ruby_before_script
+    - ruby --version
+    - bundle --version
+    - gem --version
+    - bundle install
+
+rubocop:
+  extends:
+    - .ruby
+  stage: lint
+  script:
+    - bin/rubocop
