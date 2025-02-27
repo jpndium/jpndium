@@ -1,5 +1,6 @@
 stages:
   - lint
+  - test
 
 .ruby:
   image: "ruby:3.4"
@@ -15,3 +16,10 @@ rubocop:
   stage: lint
   script:
     - bin/rubocop
+
+rspec:
+  extends:
+    - .ruby
+  stage: test
+  script:
+    - bin/rspec
