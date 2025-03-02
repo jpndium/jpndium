@@ -9,4 +9,5 @@ group :development do
   gem "rspec", "~> 3.13"
   gem "rubocop", "~> 1.72", require: false
   gem "rubocop-rake", "~> 0.7.1", require: false
+  gem "simplecov", "~> 0.22.0", require: false
 end

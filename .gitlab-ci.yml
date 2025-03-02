@@ -23,3 +23,4 @@ rspec:
   stage: test
   script:
     - bin/rspec
+  coverage: "/Line Coverage: (\\d+\\.\\d+)%.*/"
