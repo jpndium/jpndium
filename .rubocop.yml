@@ -1,5 +1,6 @@
 plugins:
   - rubocop-rake
+  - rubocop-rspec
 
 AllCops:
   NewCops: enable
@@ -7,6 +8,23 @@ AllCops:
 
 Layout/LineLength:
   Max: 80
+
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+Metrics/ClassLength:
+  CountAsOne:
+    - array
+    - hash
+    - heredoc
+    - method_call
+
+Metrics/MethodLength:
+  CountAsOne:
+    - array
+    - hash
+    - heredoc
+    - method_call
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
