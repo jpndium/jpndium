@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
+require "json"
 require "open-uri"
 require "zlib"
+require_relative "xml_reader"
 
 KANJIDIC_URL = "http://www.edrdg.org/kanjidic/kanjidic2.xml.gz"
 
@@ -9,16 +11,35 @@ TMP_DIR = ENV.fetch("TMP_DIR", "tmp")
 directory TMP_DIR
 
 KANJIDIC_XML = File.join(TMP_DIR, "kanjidic.xml")
-file KANJIDIC_XML do
-  Rake::Task["kanjidic:download"]
-end
+file(KANJIDIC_XML) { Rake::Task["kanjidic:download"].execute }
+
+DATA_DIR = ENV.fetch("DATA_DIR", "data")
+directory DATA_DIR
+
+KANJIDIC_DIR = File.join(DATA_DIR, "kanjidic")
+directory KANJIDIC_DIR => DATA_DIR
+
+KANJIDIC_JSONL = File.join(KANJIDIC_DIR, "data.jsonl")
 
 namespace :kanjidic do
-  task build: %w[clean download]
+  desc "Build kanjidic data file"
+  task build: %w[clean update]
 
-  desc "Clean up kanjidic files"
+  desc "Clean up kanjidic temporary files"
   task :clean do
     rm_rf KANJIDIC_XML
+  end
+
+  desc "Update kanjidic data file"
+  task update: [KANJIDIC_XML, KANJIDIC_DIR] do
+    puts "Updating kanjidic ..."
+    File.open(KANJIDIC_XML) do |xml|
+      File.open(KANJIDIC_JSONL, "w") do |jsonl|
+        JD::Kanjidic::XmlReader.new.read_file(xml) do |character|
+          jsonl.write(JSON.dump(character), "\n")
+        end
+      end
+    end
   end
 
   desc "Download kanjidic"

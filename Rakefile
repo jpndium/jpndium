@@ -4,8 +4,8 @@ Dir.glob("lib/**/*.rake").each { |path| load path }
 
 task default: :build
 
-desc "Clean up all files"
+desc "Clean up temporary files"
 task clean: %w[kanjidic:clean]
 
-desc "Build all files"
+desc "Build all data files"
 task build: %w[kanjidic:build]

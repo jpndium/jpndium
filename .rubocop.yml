@@ -12,6 +12,10 @@ Layout/LineLength:
 Layout/FirstHashElementIndentation:
   EnforcedStyle: consistent
 
+Metrics/BlockLength:
+  Exclude:
+    - lib/**/*.rake
+
 Metrics/ClassLength:
   CountAsOne:
     - array
