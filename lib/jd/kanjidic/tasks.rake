@@ -11,7 +11,9 @@ TMP_DIR = ENV.fetch("TMP_DIR", "tmp")
 directory TMP_DIR
 
 KANJIDIC_XML = File.join(TMP_DIR, "kanjidic.xml")
-file(KANJIDIC_XML) { Rake::Task["kanjidic:download"].execute }
+file KANJIDIC_XML => TMP_DIR do
+  Rake::Task["kanjidic:download"].execute
+end
 
 DATA_DIR = ENV.fetch("DATA_DIR", "data")
 directory DATA_DIR
