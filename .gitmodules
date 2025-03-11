@@ -1,0 +1,3 @@
+[submodule "data/kanjidic"]
+	path = data/kanjidic
+	url = git@gitlab.com:mrpudn/jd-kanjidic.git
