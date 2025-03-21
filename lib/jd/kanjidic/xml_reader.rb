@@ -33,7 +33,7 @@ module JD
 
       def read_cp_value(element)
         compact({
-          content: compact_content(element),
+          value: compact_content(element),
           cp_type: element.attr("cp_type")
         })
       end
@@ -46,7 +46,7 @@ module JD
 
       def read_rad_value(element)
         compact({
-          content: compact_content(element)&.to_i,
+          value: compact_content(element)&.to_i,
           rad_type: element.attr("rad_type")
         })
       end
@@ -64,7 +64,7 @@ module JD
 
       def read_variant(element)
         compact({
-          content: compact_content(element),
+          value: compact_content(element),
           var_type: element.attr("var_type")
         })
       end
@@ -77,7 +77,7 @@ module JD
 
       def read_dic_ref(element)
         compact({
-          content: compact_content(element)&.to_i,
+          value: compact_content(element)&.to_i,
           dr_type: element.attr("dr_type"),
           m_vol: element.attr("m_vol")&.to_i,
           m_page: element.attr("m_page")&.to_i
@@ -92,7 +92,7 @@ module JD
 
       def read_q_code(element)
         compact({
-          content: compact_content(element),
+          value: compact_content(element),
           qc_type: element.attr("qc_type"),
           skip_misclass: element.attr("skip_misclass")
         })
@@ -114,7 +114,7 @@ module JD
 
       def read_reading(element)
         compact({
-          content: compact_content(element),
+          value: compact_content(element),
           r_type: element.attr("r_type"),
           on_type: element.attr("on_type"),
           r_status: element.attr("r_status")
@@ -123,7 +123,7 @@ module JD
 
       def read_meaning(element)
         compact({
-          content: compact_content(element),
+          value: compact_content(element),
           m_lang: element.attr("m_lang")
         })
       end

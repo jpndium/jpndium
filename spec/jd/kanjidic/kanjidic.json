@@ -3,79 +3,79 @@
     "literal": "火",
     "codepoint": {
       "cp_value": [
-        { "content": "706b", "cp_type": "ucs" },
-        { "content": "1-18-48", "cp_type": "jis208" }
+        { "value": "706b", "cp_type": "ucs" },
+        { "value": "1-18-48", "cp_type": "jis208" }
       ]
     },
     "radical": {
       "rad_value": [
-        { "content": 86, "rad_type": "classical" }
+        { "value": 86, "rad_type": "classical" }
       ]
     },
     "misc": {
       "grade": 1,
       "stroke_count": [4],
       "variant": [
-        { "content": "1-16-60", "var_type": "jis212" }
+        { "value": "1-16-60", "var_type": "jis212" }
       ],
       "freq": 574,
       "jlpt": 4
     },
     "dic_number": {
       "dic_ref": [
-        { "content": 2743, "dr_type": "nelson_c" },
-        { "content": 3394, "dr_type": "nelson_n" },
-        { "content": 3463, "dr_type": "halpern_njecd" },
-        { "content": 4273, "dr_type": "halpern_kkd" },
-        { "content": 2159, "dr_type": "halpern_kkld" },
-        { "content": 2911, "dr_type": "halpern_kkld_2ed" },
-        { "content": 161, "dr_type": "heisig" },
-        { "content": 173, "dr_type": "heisig6" },
-        { "content": 432, "dr_type": "gakken" },
-        { "content": 52, "dr_type": "oneill_names" },
-        { "content": 15, "dr_type": "oneill_kk" },
-        { "content": 18850, "dr_type": "moro", "m_vol": 7, "m_page": 359 },
-        { "content": 8, "dr_type": "henshall" },
-        { "content": 20, "dr_type": "sh_kk" },
-        { "content": 20, "dr_type": "sh_kk2" },
-        { "content": 13, "dr_type": "sakade" },
-        { "content": 69, "dr_type": "jf_cards" },
-        { "content": 15, "dr_type": "henshall3" },
-        { "content": 27, "dr_type": "tutt_cards" },
-        { "content": 18, "dr_type": "kanji_in_context" },
-        { "content": 1, "dr_type": "busy_people" },
-        { "content": 1260, "dr_type": "kodansha_compact" },
-        { "content": 163, "dr_type": "maniette" }
+        { "value": 2743, "dr_type": "nelson_c" },
+        { "value": 3394, "dr_type": "nelson_n" },
+        { "value": 3463, "dr_type": "halpern_njecd" },
+        { "value": 4273, "dr_type": "halpern_kkd" },
+        { "value": 2159, "dr_type": "halpern_kkld" },
+        { "value": 2911, "dr_type": "halpern_kkld_2ed" },
+        { "value": 161, "dr_type": "heisig" },
+        { "value": 173, "dr_type": "heisig6" },
+        { "value": 432, "dr_type": "gakken" },
+        { "value": 52, "dr_type": "oneill_names" },
+        { "value": 15, "dr_type": "oneill_kk" },
+        { "value": 18850, "dr_type": "moro", "m_vol": 7, "m_page": 359 },
+        { "value": 8, "dr_type": "henshall" },
+        { "value": 20, "dr_type": "sh_kk" },
+        { "value": 20, "dr_type": "sh_kk2" },
+        { "value": 13, "dr_type": "sakade" },
+        { "value": 69, "dr_type": "jf_cards" },
+        { "value": 15, "dr_type": "henshall3" },
+        { "value": 27, "dr_type": "tutt_cards" },
+        { "value": 18, "dr_type": "kanji_in_context" },
+        { "value": 1, "dr_type": "busy_people" },
+        { "value": 1260, "dr_type": "kodansha_compact" },
+        { "value": 163, "dr_type": "maniette" }
       ]
     },
     "query_code": {
       "q_code": [
-        { "content": "4-4-4", "qc_type": "skip" },
-        {"content": "4d0.1", "qc_type": "sh_desc"},
-        {"content": "9080.0", "qc_type": "four_corner"},
-        {"content": "1162", "qc_type": "deroo"},
-        {"content": "1-1-3", "qc_type": "skip", "skip_misclass": "posn"}]
+        { "value": "4-4-4", "qc_type": "skip" },
+        {"value": "4d0.1", "qc_type": "sh_desc"},
+        {"value": "9080.0", "qc_type": "four_corner"},
+        {"value": "1162", "qc_type": "deroo"},
+        {"value": "1-1-3", "qc_type": "skip", "skip_misclass": "posn"}]
     },
     "reading_meaning": {
       "rmgroup": [
         {
           "reading": [
-            { "content": "huo3", "r_type": "pinyin" },
-            { "content": "hwa", "r_type": "korean_r" },
-            { "content": "화", "r_type": "korean_h" },
-            { "content": "Hỏa", "r_type": "vietnam" },
-            { "content": "カ", "r_type": "ja_on" },
-            { "content": "ひ", "r_type": "ja_kun" },
-            { "content": "-び", "r_type": "ja_kun" },
-            { "content": "ほ-", "r_type": "ja_kun" }
+            { "value": "huo3", "r_type": "pinyin" },
+            { "value": "hwa", "r_type": "korean_r" },
+            { "value": "화", "r_type": "korean_h" },
+            { "value": "Hỏa", "r_type": "vietnam" },
+            { "value": "カ", "r_type": "ja_on" },
+            { "value": "ひ", "r_type": "ja_kun" },
+            { "value": "-び", "r_type": "ja_kun" },
+            { "value": "ほ-", "r_type": "ja_kun" }
           ],
           "meaning": [
-            { "content": "fire" },
-            { "content": "feu", "m_lang": "fr" },
-            { "content": "fuego", "m_lang": "es" },
-            { "content": "flama", "m_lang": "es" },
-            { "content": "llama", "m_lang": "es" },
-            { "content": "fogo", "m_lang": "pt" }
+            { "value": "fire" },
+            { "value": "feu", "m_lang": "fr" },
+            { "value": "fuego", "m_lang": "es" },
+            { "value": "flama", "m_lang": "es" },
+            { "value": "llama", "m_lang": "es" },
+            { "value": "fogo", "m_lang": "pt" }
           ]
         }
       ]
@@ -85,13 +85,13 @@
     "literal": "空",
     "codepoint": {
       "cp_value": [
-        { "content": "7a7a", "cp_type": "ucs" },
-        { "content": "1-22-85", "cp_type": "jis208" }
+        { "value": "7a7a", "cp_type": "ucs" },
+        { "value": "1-22-85", "cp_type": "jis208" }
       ]
     },
     "radical": {
       "rad_value": [
-        { "content": 116, "rad_type": "classical" }
+        { "value": 116, "rad_type": "classical" }
       ]
     },
     "misc": {
@@ -102,83 +102,83 @@
     },
     "dic_number": {
       "dic_ref": [
-        { "content": 3317, "dr_type": "nelson_c" },
-        { "content": 4192, "dr_type": "nelson_n" },
-        { "content": 2227, "dr_type": "halpern_njecd" },
-        { "content": 2767, "dr_type": "halpern_kkd" },
-        { "content": 1418, "dr_type": "halpern_kkld" },
-        { "content": 1913, "dr_type": "halpern_kkld_2ed" },
-        { "content": 1317, "dr_type": "heisig" },
-        { "content": 1414, "dr_type": "heisig6" },
-        { "content": 233, "dr_type": "gakken" },
-        { "content": 723, "dr_type": "oneill_names" },
-        { "content": 184, "dr_type": "oneill_kk" },
-        { "content": 25415, "dr_type": "moro", "m_vol": 8, "m_page": 643 },
-        { "content": 15, "dr_type": "henshall" },
-        { "content": 140, "dr_type": "sh_kk" },
-        { "content": 140, "dr_type": "sh_kk2" },
-        { "content": 65, "dr_type": "sakade" },
-        { "content": 77, "dr_type": "jf_cards" },
-        { "content": 66, "dr_type": "henshall3" },
-        { "content": 73, "dr_type": "tutt_cards" },
-        { "content": 304, "dr_type": "crowley" },
-        { "content": 461, "dr_type": "kanji_in_context" },
-        { "content": 2, "dr_type": "busy_people" },
-        { "content": 1452, "dr_type": "kodansha_compact" },
-        { "content": 1327, "dr_type": "maniette" }
+        { "value": 3317, "dr_type": "nelson_c" },
+        { "value": 4192, "dr_type": "nelson_n" },
+        { "value": 2227, "dr_type": "halpern_njecd" },
+        { "value": 2767, "dr_type": "halpern_kkd" },
+        { "value": 1418, "dr_type": "halpern_kkld" },
+        { "value": 1913, "dr_type": "halpern_kkld_2ed" },
+        { "value": 1317, "dr_type": "heisig" },
+        { "value": 1414, "dr_type": "heisig6" },
+        { "value": 233, "dr_type": "gakken" },
+        { "value": 723, "dr_type": "oneill_names" },
+        { "value": 184, "dr_type": "oneill_kk" },
+        { "value": 25415, "dr_type": "moro", "m_vol": 8, "m_page": 643 },
+        { "value": 15, "dr_type": "henshall" },
+        { "value": 140, "dr_type": "sh_kk" },
+        { "value": 140, "dr_type": "sh_kk2" },
+        { "value": 65, "dr_type": "sakade" },
+        { "value": 77, "dr_type": "jf_cards" },
+        { "value": 66, "dr_type": "henshall3" },
+        { "value": 73, "dr_type": "tutt_cards" },
+        { "value": 304, "dr_type": "crowley" },
+        { "value": 461, "dr_type": "kanji_in_context" },
+        { "value": 2, "dr_type": "busy_people" },
+        { "value": 1452, "dr_type": "kodansha_compact" },
+        { "value": 1327, "dr_type": "maniette" }
       ]
     },
     "query_code": {
       "q_code": [
-        { "content": "2-3-5", "qc_type": "skip" },
-        { "content": "3m5.12", "qc_type": "sh_desc" },
-        { "content": "3010.1", "qc_type": "four_corner" },
-        { "content": "772", "qc_type": "deroo" },
-        { "content": "2-5-3", "qc_type": "skip", "skip_misclass": "posn" }
+        { "value": "2-3-5", "qc_type": "skip" },
+        { "value": "3m5.12", "qc_type": "sh_desc" },
+        { "value": "3010.1", "qc_type": "four_corner" },
+        { "value": "772", "qc_type": "deroo" },
+        { "value": "2-5-3", "qc_type": "skip", "skip_misclass": "posn" }
       ]
     },
     "reading_meaning": {
       "rmgroup": [
         {
           "reading": [
-            { "content": "kong1", "r_type": "pinyin" },
-            { "content": "kong4", "r_type": "pinyin" },
-            { "content": "gong", "r_type": "korean_r" },
-            { "content": "공", "r_type": "korean_h" },
-            { "content": "Không", "r_type": "vietnam" },
-            { "content": "Khống", "r_type": "vietnam" },
-            { "content": "Khổng", "r_type": "vietnam" },
-            { "content": "クウ", "r_type": "ja_on" },
-            { "content": "そら", "r_type": "ja_kun" },
-            { "content": "あ.く", "r_type": "ja_kun" },
-            { "content": "あ.き", "r_type": "ja_kun" },
-            { "content": "あ.ける", "r_type": "ja_kun" },
-            { "content": "から", "r_type": "ja_kun" },
-            { "content": "す.く", "r_type": "ja_kun" },
-            { "content": "す.かす", "r_type": "ja_kun" },
-            { "content": "むな.しい", "r_type": "ja_kun" }
+            { "value": "kong1", "r_type": "pinyin" },
+            { "value": "kong4", "r_type": "pinyin" },
+            { "value": "gong", "r_type": "korean_r" },
+            { "value": "공", "r_type": "korean_h" },
+            { "value": "Không", "r_type": "vietnam" },
+            { "value": "Khống", "r_type": "vietnam" },
+            { "value": "Khổng", "r_type": "vietnam" },
+            { "value": "クウ", "r_type": "ja_on" },
+            { "value": "そら", "r_type": "ja_kun" },
+            { "value": "あ.く", "r_type": "ja_kun" },
+            { "value": "あ.き", "r_type": "ja_kun" },
+            { "value": "あ.ける", "r_type": "ja_kun" },
+            { "value": "から", "r_type": "ja_kun" },
+            { "value": "す.く", "r_type": "ja_kun" },
+            { "value": "す.かす", "r_type": "ja_kun" },
+            { "value": "むな.しい", "r_type": "ja_kun" }
           ],
           "meaning": [
-            { "content": "empty" },
-            { "content": "sky" },
-            { "content": "void" },
-            { "content": "vacant" },
-            { "content": "vacuum" },
-            { "content": "vide", "m_lang": "fr" },
-            { "content": "ciel", "m_lang": "fr" },
-            { "content": "vacant", "m_lang": "fr" },
-            { "content": "creux", "m_lang": "fr" },
-            { "content": "cielo", "m_lang": "es" },
-            { "content": "atmósfera", "m_lang": "es" },
-            { "content": "vacío", "m_lang": "es" },
-            { "content": "vacante", "m_lang": "es" },
-            { "content": "quedarse vacío", "m_lang": "es" },
-            { "content": "vaciar", "m_lang": "es" },
-            { "content": "esvaziar", "m_lang": "pt" },
-            { "content": "ceú", "m_lang": "pt" },
-            { "content": "desocupado", "m_lang": "pt" },
-            { "content": "vazio", "m_lang": "pt" },
-            { "content": "vácuo", "m_lang": "pt" }
+            { "value": "empty" },
+            { "value": "sky" },
+            { "value": "void" },
+            { "value": "vacant" },
+            { "value": "vacuum" },
+            { "value": "vide", "m_lang": "fr" },
+            { "value": "ciel", "m_lang": "fr" },
+            { "value": "vacant", "m_lang": "fr" },
+            { "value": "creux", "m_lang": "fr" },
+            { "value": "cielo", "m_lang": "es" },
+            { "value": "atmósfera", "m_lang": "es" },
+            { "value": "vacío", "m_lang": "es" },
+            { "value": "vacante", "m_lang": "es" },
+            { "value": "quedarse vacío", "m_lang": "es" },
+            { "value": "vaciar", "m_lang": "es" },
+            { "value": "esvaziar", "m_lang": "pt" },
+            { "value": "ceú", "m_lang": "pt" },
+            { "value": "desocupado", "m_lang": "pt" },
+            { "value": "vazio", "m_lang": "pt" },
+            { "value": "vácuo", "m_lang": "pt" }
           ]
         }
       ],
@@ -189,13 +189,13 @@
     "literal": "水",
     "codepoint": {
       "cp_value": [
-        { "content": "6c34", "cp_type": "ucs" },
-        { "content": "1-31-69", "cp_type": "jis208" }
+        { "value": "6c34", "cp_type": "ucs" },
+        { "value": "1-31-69", "cp_type": "jis208" }
       ]
     },
     "radical": {
       "rad_value": [
-        { "content": 85, "rad_type": "classical" }
+        { "value": 85, "rad_type": "classical" }
       ]
     },
     "misc": {
@@ -206,58 +206,58 @@
     },
     "dic_number": {
       "dic_ref": [
-        { "content": 2482, "dr_type": "nelson_c" },
-        { "content": 3030, "dr_type": "nelson_n" },
-        { "content": 10, "dr_type": "halpern_njecd" },
-        { "content": 10, "dr_type": "halpern_kkd" },
-        { "content": 3, "dr_type": "halpern_kkld" },
-        { "content": 3, "dr_type": "halpern_kkld_2ed" },
-        { "content": 130, "dr_type": "heisig" },
-        { "content": 137, "dr_type": "heisig6" },
-        { "content": 144, "dr_type": "gakken" },
-        { "content": 54, "dr_type": "oneill_names" },
-        { "content": 16, "dr_type": "oneill_kk" },
-        { "content": 17083, "dr_type": "moro", "m_vol": 6, "m_page": 854 },
-        { "content": 40, "dr_type": "henshall" },
-        { "content": 21, "dr_type": "sh_kk" },
-        { "content": 21, "dr_type": "sh_kk2" },
-        { "content": 14, "dr_type": "sakade" },
-        { "content": 68, "dr_type": "jf_cards" },
-        { "content": 16, "dr_type": "henshall3" },
-        { "content": 31, "dr_type": "tutt_cards" },
-        { "content": 166, "dr_type": "crowley" },
-        { "content": 19, "dr_type": "kanji_in_context" },
-        { "content": 1, "dr_type": "busy_people" },
-        { "content": 1151, "dr_type": "kodansha_compact" },
-        { "content": 132, "dr_type": "maniette" }
+        { "value": 2482, "dr_type": "nelson_c" },
+        { "value": 3030, "dr_type": "nelson_n" },
+        { "value": 10, "dr_type": "halpern_njecd" },
+        { "value": 10, "dr_type": "halpern_kkd" },
+        { "value": 3, "dr_type": "halpern_kkld" },
+        { "value": 3, "dr_type": "halpern_kkld_2ed" },
+        { "value": 130, "dr_type": "heisig" },
+        { "value": 137, "dr_type": "heisig6" },
+        { "value": 144, "dr_type": "gakken" },
+        { "value": 54, "dr_type": "oneill_names" },
+        { "value": 16, "dr_type": "oneill_kk" },
+        { "value": 17083, "dr_type": "moro", "m_vol": 6, "m_page": 854 },
+        { "value": 40, "dr_type": "henshall" },
+        { "value": 21, "dr_type": "sh_kk" },
+        { "value": 21, "dr_type": "sh_kk2" },
+        { "value": 14, "dr_type": "sakade" },
+        { "value": 68, "dr_type": "jf_cards" },
+        { "value": 16, "dr_type": "henshall3" },
+        { "value": 31, "dr_type": "tutt_cards" },
+        { "value": 166, "dr_type": "crowley" },
+        { "value": 19, "dr_type": "kanji_in_context" },
+        { "value": 1, "dr_type": "busy_people" },
+        { "value": 1151, "dr_type": "kodansha_compact" },
+        { "value": 132, "dr_type": "maniette" }
       ]
     },
     "query_code": {
       "q_code": [
-        { "content": "1-1-3", "qc_type": "skip" },
-        { "content": "3a0.1", "qc_type": "sh_desc" },
-        { "content": "1223.0", "qc_type": "four_corner" },
-        { "content": "1142", "qc_type": "deroo" },
-        { "content": "4-4-3", "qc_type": "skip", "skip_misclass": "posn" }
+        { "value": "1-1-3", "qc_type": "skip" },
+        { "value": "3a0.1", "qc_type": "sh_desc" },
+        { "value": "1223.0", "qc_type": "four_corner" },
+        { "value": "1142", "qc_type": "deroo" },
+        { "value": "4-4-3", "qc_type": "skip", "skip_misclass": "posn" }
       ]
     },
     "reading_meaning": {
       "rmgroup": [
         {
           "reading": [
-            { "content": "shui3", "r_type": "pinyin" },
-            { "content": "su", "r_type": "korean_r" },
-            { "content": "수", "r_type": "korean_h" },
-            { "content": "Thủy", "r_type": "vietnam" },
-            { "content": "スイ", "r_type": "ja_on" },
-            { "content": "みず", "r_type": "ja_kun" },
-            { "content": "みず-", "r_type": "ja_kun" }
+            { "value": "shui3", "r_type": "pinyin" },
+            { "value": "su", "r_type": "korean_r" },
+            { "value": "수", "r_type": "korean_h" },
+            { "value": "Thủy", "r_type": "vietnam" },
+            { "value": "スイ", "r_type": "ja_on" },
+            { "value": "みず", "r_type": "ja_kun" },
+            { "value": "みず-", "r_type": "ja_kun" }
           ],
           "meaning": [
-            { "content": "water" },
-            { "content": "eau", "m_lang": "fr" },
-            { "content": "agua", "m_lang": "es" },
-            { "content": "água", "m_lang": "pt" }
+            { "value": "water" },
+            { "value": "eau", "m_lang": "fr" },
+            { "value": "agua", "m_lang": "es" },
+            { "value": "água", "m_lang": "pt" }
           ]
         }
       ],
@@ -270,13 +270,13 @@
     "literal": "土",
     "codepoint": {
       "cp_value": [
-        { "content": "571f", "cp_type": "ucs" },
-        { "content": "1-37-58", "cp_type": "jis208" }
+        { "value": "571f", "cp_type": "ucs" },
+        { "value": "1-37-58", "cp_type": "jis208" }
       ]
     },
     "radical": {
       "rad_value": [
-        { "content": 32, "rad_type": "classical" }
+        { "value": 32, "rad_type": "classical" }
       ]
     },
     "misc": {
@@ -287,72 +287,72 @@
     },
     "dic_number": {
       "dic_ref": [
-        { "content": 1050, "dr_type": "nelson_c" },
-        { "content": 966, "dr_type": "nelson_n" },
-        { "content": 3403, "dr_type": "halpern_njecd" },
-        { "content": 4211, "dr_type": "halpern_kkd" },
-        { "content": 2127, "dr_type": "halpern_kkld" },
-        { "content": 2875, "dr_type": "halpern_kkld_2ed" },
-        { "content": 150, "dr_type": "heisig" },
-        { "content": 161, "dr_type": "heisig6" },
-        { "content": 316, "dr_type": "gakken" },
-        { "content": 42, "dr_type": "oneill_names" },
-        { "content": 19, "dr_type": "oneill_kk" },
-        { "content": 4867, "dr_type": "moro", "m_vol": 3, "m_page": 108 },
-        { "content": 60, "dr_type": "henshall" },
-        { "content": 24, "dr_type": "sh_kk" },
-        { "content": 24, "dr_type": "sh_kk2" },
-        { "content": 17, "dr_type": "sakade" },
-        { "content": 37, "dr_type": "jf_cards" },
-        { "content": 19, "dr_type": "henshall3" },
-        { "content": 22, "dr_type": "tutt_cards" },
-        { "content": 360, "dr_type": "crowley" },
-        { "content": 22, "dr_type": "kanji_in_context" },
-        { "content": 1, "dr_type": "busy_people" },
-        { "content": 347, "dr_type": "kodansha_compact" },
-        { "content": 152, "dr_type": "maniette" }
+        { "value": 1050, "dr_type": "nelson_c" },
+        { "value": 966, "dr_type": "nelson_n" },
+        { "value": 3403, "dr_type": "halpern_njecd" },
+        { "value": 4211, "dr_type": "halpern_kkd" },
+        { "value": 2127, "dr_type": "halpern_kkld" },
+        { "value": 2875, "dr_type": "halpern_kkld_2ed" },
+        { "value": 150, "dr_type": "heisig" },
+        { "value": 161, "dr_type": "heisig6" },
+        { "value": 316, "dr_type": "gakken" },
+        { "value": 42, "dr_type": "oneill_names" },
+        { "value": 19, "dr_type": "oneill_kk" },
+        { "value": 4867, "dr_type": "moro", "m_vol": 3, "m_page": 108 },
+        { "value": 60, "dr_type": "henshall" },
+        { "value": 24, "dr_type": "sh_kk" },
+        { "value": 24, "dr_type": "sh_kk2" },
+        { "value": 17, "dr_type": "sakade" },
+        { "value": 37, "dr_type": "jf_cards" },
+        { "value": 19, "dr_type": "henshall3" },
+        { "value": 22, "dr_type": "tutt_cards" },
+        { "value": 360, "dr_type": "crowley" },
+        { "value": 22, "dr_type": "kanji_in_context" },
+        { "value": 1, "dr_type": "busy_people" },
+        { "value": 347, "dr_type": "kodansha_compact" },
+        { "value": 152, "dr_type": "maniette" }
       ]
     },
     "query_code": {
       "q_code": [
-        { "content": "4-3-2", "qc_type": "skip" },
-        { "content": "3b0.1", "qc_type": "sh_desc" },
-        { "content": "4010.0", "qc_type": "four_corner" },
-        { "content": "1472", "qc_type": "deroo" }
+        { "value": "4-3-2", "qc_type": "skip" },
+        { "value": "3b0.1", "qc_type": "sh_desc" },
+        { "value": "4010.0", "qc_type": "four_corner" },
+        { "value": "1472", "qc_type": "deroo" }
       ]
     },
     "reading_meaning": {
       "rmgroup": [
         {
           "reading": [
-            { "content": "tu3", "r_type": "pinyin" },
-            { "content": "to", "r_type": "korean_r" },
-            { "content": "du", "r_type": "korean_r" },
-            { "content": "토", "r_type": "korean_h" },
-            { "content": "두", "r_type": "korean_h" },
-            { "content": "Thổ", "r_type": "vietnam" },
-            { "content": "Độ", "r_type": "vietnam" },
-            { "content": "Đỗ", "r_type": "vietnam" },
-            { "content": "ド", "r_type": "ja_on" },
-            { "content": "ト", "r_type": "ja_on" },
-            { "content": "つち", "r_type": "ja_kun" }
+            { "value": "tu3", "r_type": "pinyin" },
+            { "value": "to", "r_type": "korean_r" },
+            { "value": "du", "r_type": "korean_r" },
+            { "value": "토", "r_type": "korean_h" },
+            { "value": "두", "r_type": "korean_h" },
+            { "value": "Thổ", "r_type": "vietnam" },
+            { "value": "Độ", "r_type": "vietnam" },
+            { "value": "Đỗ", "r_type": "vietnam" },
+            { "value": "ド", "r_type": "ja_on" },
+            { "value": "ト", "r_type": "ja_on" },
+            { "value": "つち", "r_type": "ja_kun" }
           ],
           "meaning": [
-            { "content": "soil" },
-            { "content": "earth" },
-            { "content": "ground" },
-            { "content": "Turkey" },
-            { "content": "sol", "m_lang": "fr" },
-            { "content": "terre", "m_lang": "fr" },
-            { "content": "terrain", "m_lang": "fr" },
-            { "content": "Turquie", "m_lang": "fr" },
-            { "content": "suelo", "m_lang": "es" },
-            { "content": "tierra", "m_lang": "es" },
-            { "content": "Turquía", "m_lang": "es" },
-            { "content": "solo", "m_lang": "pt" },
-            { "content": "terra", "m_lang": "pt" },
-            { "content": "chão", "m_lang": "pt" },
-            { "content": "Turquia", "m_lang": "pt" }
+            { "value": "soil" },
+            { "value": "earth" },
+            { "value": "ground" },
+            { "value": "Turkey" },
+            { "value": "sol", "m_lang": "fr" },
+            { "value": "terre", "m_lang": "fr" },
+            { "value": "terrain", "m_lang": "fr" },
+            { "value": "Turquie", "m_lang": "fr" },
+            { "value": "suelo", "m_lang": "es" },
+            { "value": "tierra", "m_lang": "es" },
+            { "value": "Turquía", "m_lang": "es" },
+            { "value": "solo", "m_lang": "pt" },
+            { "value": "terra", "m_lang": "pt" },
+            { "value": "chão", "m_lang": "pt" },
+            { "value": "Turquia", "m_lang": "pt" }
           ]
         }
       ],
@@ -363,92 +363,92 @@
     "literal": "風",
     "codepoint": {
       "cp_value": [
-        { "content": "98a8", "cp_type": "ucs" },
-        { "content": "1-41-87", "cp_type": "jis208" }
+        { "value": "98a8", "cp_type": "ucs" },
+        { "value": "1-41-87", "cp_type": "jis208" }
       ]
     },
     "radical": {
       "rad_value": [
-        { "content": 182, "rad_type": "classical" }
+        { "value": 182, "rad_type": "classical" }
       ]
     },
     "misc": {
       "grade": 2,
       "stroke_count": [9],
       "variant": [
-        { "content": "1-19-11", "var_type": "jis212" },
-        { "content": "1-72-39", "var_type": "jis212" }
+        { "value": "1-19-11", "var_type": "jis212" },
+        { "value": "1-72-39", "var_type": "jis212" }
       ],
       "freq": 558,
       "jlpt": 3
     },
     "dic_number": {
       "dic_ref": [
-        { "content": 5148, "dr_type": "nelson_c" },
-        { "content": 6663, "dr_type": "nelson_n" },
-        { "content": 3007, "dr_type": "halpern_njecd" },
-        { "content": 3730, "dr_type": "halpern_kkd" },
-        { "content": 1908, "dr_type": "halpern_kkld" },
-        { "content": 2591, "dr_type": "halpern_kkld_2ed" },
-        { "content": 524, "dr_type": "heisig" },
-        { "content": 563, "dr_type": "heisig6" },
-        { "content": 246, "dr_type": "gakken" },
-        { "content": 986, "dr_type": "oneill_names" },
-        { "content": 134, "dr_type": "oneill_kk" },
-        { "content": 43756, "dr_type": "moro", "m_vol": 12, "m_page": 324 },
-        { "content": 198, "dr_type": "henshall" },
-        { "content": 29, "dr_type": "sh_kk" },
-        { "content": 29, "dr_type": "sh_kk2" },
-        { "content": 132, "dr_type": "sakade" },
-        { "content": 278, "dr_type": "jf_cards" },
-        { "content": 217, "dr_type": "henshall3" },
-        { "content": 187, "dr_type": "tutt_cards" },
-        { "content": 316, "dr_type": "crowley" },
-        { "content": 465, "dr_type": "kanji_in_context" },
-        { "content": 3, "dr_type": "busy_people" },
-        { "content": 171, "dr_type": "kodansha_compact" },
-        { "content": 530, "dr_type": "maniette" }
+        { "value": 5148, "dr_type": "nelson_c" },
+        { "value": 6663, "dr_type": "nelson_n" },
+        { "value": 3007, "dr_type": "halpern_njecd" },
+        { "value": 3730, "dr_type": "halpern_kkd" },
+        { "value": 1908, "dr_type": "halpern_kkld" },
+        { "value": 2591, "dr_type": "halpern_kkld_2ed" },
+        { "value": 524, "dr_type": "heisig" },
+        { "value": 563, "dr_type": "heisig6" },
+        { "value": 246, "dr_type": "gakken" },
+        { "value": 986, "dr_type": "oneill_names" },
+        { "value": 134, "dr_type": "oneill_kk" },
+        { "value": 43756, "dr_type": "moro", "m_vol": 12, "m_page": 324 },
+        { "value": 198, "dr_type": "henshall" },
+        { "value": 29, "dr_type": "sh_kk" },
+        { "value": 29, "dr_type": "sh_kk2" },
+        { "value": 132, "dr_type": "sakade" },
+        { "value": 278, "dr_type": "jf_cards" },
+        { "value": 217, "dr_type": "henshall3" },
+        { "value": 187, "dr_type": "tutt_cards" },
+        { "value": 316, "dr_type": "crowley" },
+        { "value": 465, "dr_type": "kanji_in_context" },
+        { "value": 3, "dr_type": "busy_people" },
+        { "value": 171, "dr_type": "kodansha_compact" },
+        { "value": 530, "dr_type": "maniette" }
       ]
     },
     "query_code": {
       "q_code": [
-        { "content": "3-2-7", "qc_type": "skip" },
-        { "content": "2s7.1", "qc_type": "sh_desc" },
-        { "content": "7721.0", "qc_type": "four_corner" },
-        { "content": "3656", "qc_type": "deroo" }
+        { "value": "3-2-7", "qc_type": "skip" },
+        { "value": "2s7.1", "qc_type": "sh_desc" },
+        { "value": "7721.0", "qc_type": "four_corner" },
+        { "value": "3656", "qc_type": "deroo" }
       ]
     },
     "reading_meaning": {
       "rmgroup": [
         {
           "reading": [
-            { "content": "feng1", "r_type": "pinyin" },
-            { "content": "pung", "r_type": "korean_r" },
-            { "content": "풍", "r_type": "korean_h" },
-            { "content": "Phong", "r_type": "vietnam" },
-            { "content": "フウ", "r_type": "ja_on" },
-            { "content": "フ", "r_type": "ja_on" },
-            { "content": "かぜ", "r_type": "ja_kun" },
-            { "content": "かざ-", "r_type": "ja_kun" }
+            { "value": "feng1", "r_type": "pinyin" },
+            { "value": "pung", "r_type": "korean_r" },
+            { "value": "풍", "r_type": "korean_h" },
+            { "value": "Phong", "r_type": "vietnam" },
+            { "value": "フウ", "r_type": "ja_on" },
+            { "value": "フ", "r_type": "ja_on" },
+            { "value": "かぜ", "r_type": "ja_kun" },
+            { "value": "かざ-", "r_type": "ja_kun" }
           ],
           "meaning": [
-            { "content": "wind" },
-            { "content": "air" },
-            { "content": "style" },
-            { "content": "manner" },
-            { "content": "vent", "m_lang": "fr" },
-            { "content": "air", "m_lang": "fr" },
-            { "content": "style", "m_lang": "fr" },
-            { "content": "manière", "m_lang": "fr" },
-            { "content": "viento", "m_lang": "es" },
-            { "content": "aire", "m_lang": "es" },
-            { "content": "hábito", "m_lang": "es" },
-            { "content": "estilo", "m_lang": "es" },
-            { "content": "conducta", "m_lang": "es" },
-            { "content": "vento", "m_lang": "pt" },
-            { "content": "ar", "m_lang": "pt" },
-            { "content": "estilo", "m_lang": "pt" },
-            { "content": "maneira", "m_lang": "pt" }
+            { "value": "wind" },
+            { "value": "air" },
+            { "value": "style" },
+            { "value": "manner" },
+            { "value": "vent", "m_lang": "fr" },
+            { "value": "air", "m_lang": "fr" },
+            { "value": "style", "m_lang": "fr" },
+            { "value": "manière", "m_lang": "fr" },
+            { "value": "viento", "m_lang": "es" },
+            { "value": "aire", "m_lang": "es" },
+            { "value": "hábito", "m_lang": "es" },
+            { "value": "estilo", "m_lang": "es" },
+            { "value": "conducta", "m_lang": "es" },
+            { "value": "vento", "m_lang": "pt" },
+            { "value": "ar", "m_lang": "pt" },
+            { "value": "estilo", "m_lang": "pt" },
+            { "value": "maneira", "m_lang": "pt" }
           ]
         }
       ],

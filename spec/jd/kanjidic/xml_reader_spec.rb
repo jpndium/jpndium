@@ -31,13 +31,13 @@ RSpec.describe JD::Kanjidic::XmlReader do
     <cp_value cp_type="type1">value1</cp_value>
   XML
 
-  cp_value = { content: "value1", cp_type: "type1" }
+  cp_value = { value: "value1", cp_type: "type1" }
 
   cp_value2_xml = <<~XML
     <cp_value cp_type="type2">value2</cp_value>
   XML
 
-  cp_value2 = { content: "value2", cp_type: "type2" }
+  cp_value2 = { value: "value2", cp_type: "type2" }
 
   describe "#read_cp_value" do
     subject(:actual) { reader.read_cp_value(el(xml)) }
@@ -72,13 +72,13 @@ RSpec.describe JD::Kanjidic::XmlReader do
     <rad_value rad_type="type1">1</rad_value>
   XML
 
-  rad_value = { content: 1, rad_type: "type1" }
+  rad_value = { value: 1, rad_type: "type1" }
 
   rad_value2_xml = <<~XML
     <rad_value rad_type="type2">2</rad_value>
   XML
 
-  rad_value2 = { content: 2, rad_type: "type2" }
+  rad_value2 = { value: 2, rad_type: "type2" }
 
   describe "#read_rad_value" do
     subject(:actual) { reader.read_rad_value(el(xml)) }
@@ -113,13 +113,13 @@ RSpec.describe JD::Kanjidic::XmlReader do
     <variant var_type="type1">variant1</variant>
   XML
 
-  variant = { content: "variant1", var_type: "type1" }
+  variant = { value: "variant1", var_type: "type1" }
 
   variant2_xml = <<~XML
     <variant var_type="type2">variant2</variant>
   XML
 
-  variant2 = { content: "variant2", var_type: "type2" }
+  variant2 = { value: "variant2", var_type: "type2" }
 
   describe "#read_variant" do
     subject(:actual) { reader.read_variant(el(xml)) }
@@ -167,13 +167,13 @@ RSpec.describe JD::Kanjidic::XmlReader do
     <dic_ref dr_type="type1">12</dic_ref>
   XML
 
-  dic_ref = { content: 12, dr_type: "type1" }
+  dic_ref = { value: 12, dr_type: "type1" }
 
   dic_ref_moro_xml = <<~XML
     <dic_ref dr_type="moro" m_vol="12" m_page="34">34</dic_ref>
   XML
 
-  dic_ref_moro = { content: 34, dr_type: "moro", m_vol: 12, m_page: 34 }
+  dic_ref_moro = { value: 34, dr_type: "moro", m_vol: 12, m_page: 34 }
 
   describe "#read_dic_ref" do
     subject(:actual) { reader.read_dic_ref(el(xml)) }
@@ -216,14 +216,14 @@ RSpec.describe JD::Kanjidic::XmlReader do
     <q_code qc_type="type">code</q_code>
   XML
 
-  q_code = { content: "code", qc_type: "type" }
+  q_code = { value: "code", qc_type: "type" }
 
   q_code_skip_misclass_xml = <<~XML
     <q_code qc_type="type" skip_misclass="stroke_count">code</q_code>
   XML
 
   q_code_skip_misclass = {
-    content: "code",
+    value: "code",
     qc_type: "type",
     skip_misclass: "stroke_count"
   }
@@ -269,14 +269,14 @@ RSpec.describe JD::Kanjidic::XmlReader do
     <reading r_type="type">reading</reading>
   XML
 
-  reading = { content: "reading", r_type: "type" }
+  reading = { value: "reading", r_type: "type" }
 
   reading_ja_on_xml = <<~XML
     <reading r_type="ja_on" on_type="kan" r_status="jy">reading</reading>
   XML
 
   reading_ja_on = {
-    content: "reading",
+    value: "reading",
     r_type: "ja_on",
     on_type: "kan",
     r_status: "jy"
@@ -286,7 +286,7 @@ RSpec.describe JD::Kanjidic::XmlReader do
     <reading r_type="ja_kun" r_status="jy">reading</reading>
   XML
 
-  reading_ja_kun = { content: "reading", r_type: "ja_kun", r_status: "jy" }
+  reading_ja_kun = { value: "reading", r_type: "ja_kun", r_status: "jy" }
 
   describe "#read_reading" do
     subject(:actual) { reader.read_reading(el(xml)) }
@@ -318,13 +318,13 @@ RSpec.describe JD::Kanjidic::XmlReader do
     <meaning m_lang="lang">meaning1</meaning>
   XML
 
-  meaning = { content: "meaning1", m_lang: "lang" }
+  meaning = { value: "meaning1", m_lang: "lang" }
 
   meaning2_xml = <<~XML
     <meaning>meaning2</meaning>
   XML
 
-  meaning2 = { content: "meaning2" }
+  meaning2 = { value: "meaning2" }
 
   describe "#read_meaning" do
     subject(:actual) { reader.read_meaning(el(xml)) }
@@ -362,12 +362,12 @@ RSpec.describe JD::Kanjidic::XmlReader do
 
   rmgroup2 = {
     reading: [
-      { content: "reading3", r_type: "type3" },
-      { content: "reading4", r_type: "type4" }
+      { value: "reading3", r_type: "type3" },
+      { value: "reading4", r_type: "type4" }
     ],
     meaning: [
-      { content: "meaning3" },
-      { content: "meaning4", m_lang: "lang" }
+      { value: "meaning3" },
+      { value: "meaning4", m_lang: "lang" }
     ]
   }
 
