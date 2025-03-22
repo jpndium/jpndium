@@ -11,7 +11,7 @@ module JD
         @element_name = "character"
       end
 
-      def read_one(element)
+      def read_element(element)
         compact({
           literal: find_content(element, "literal")&.first,
           codepoint: read_codepoint(find_first(element, "codepoint")),

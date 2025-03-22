@@ -422,8 +422,8 @@ RSpec.describe JD::Kanjidic::XmlReader do
     reading_meaning:
   }
 
-  describe "#read_one" do
-    subject(:actual) { reader.read_one(el(xml)) }
+  describe "#read_element" do
+    subject(:actual) { reader.read_element(el(xml)) }
 
     let(:xml) { character_xml }
 
