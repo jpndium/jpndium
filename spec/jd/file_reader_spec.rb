@@ -56,6 +56,18 @@ RSpec.describe JD::FileReader do
     it "yields each read line" do
       reader.read_each(lines) { |actual| expect(actual).to eq(value) }
     end
+
+    context "when the read line is nil" do
+      before do
+        allow(reader).to receive(:read_line).and_return(nil)
+      end
+
+      it "skips the line" do
+        actual_values = []
+        reader.read_each(lines) { |actual| actual_values << actual }
+        expect(actual_values).to be_empty
+      end
+    end
   end
 
   describe "#read_line" do
