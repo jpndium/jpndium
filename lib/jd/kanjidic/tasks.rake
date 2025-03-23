@@ -3,7 +3,7 @@
 require "json"
 require "open-uri"
 require "zlib"
-require_relative "xml_reader"
+require_relative "reader"
 
 namespace :kanjidic do
   kanjidic_url = "http://www.edrdg.org/kanjidic/kanjidic2.xml.gz"
@@ -35,11 +35,10 @@ namespace :kanjidic do
   desc "Update kanjidic data file"
   task update: [kanjidic_xml, kanjidic_dir] do
     puts "Updating kanjidic ..."
+    reader = JD::Kanjidic::Reader.new
     File.open(kanjidic_jsonl, "w") do |jsonl|
-      File.open(kanjidic_xml) do |xml|
-        JD::Kanjidic::XmlReader.new.read_file(xml) do |character|
-          jsonl.write(JSON.dump(character), "\n")
-        end
+      reader.read_file(kanjidic_xml) do |character|
+        jsonl.write(JSON.dump(character), "\n")
       end
     end
   end

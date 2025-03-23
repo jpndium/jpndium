@@ -5,7 +5,7 @@ require_relative "../xml_reader"
 module JD
   module Kanjidic
     # Reads character elements from a KANJIDIC2 XML file.
-    class XmlReader < JD::XmlReader
+    class Reader < JD::XmlReader
       def initialize
         super
         @element_name = "character"

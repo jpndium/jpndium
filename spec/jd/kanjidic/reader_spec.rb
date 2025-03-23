@@ -2,9 +2,9 @@
 
 require "json"
 require "nokogiri"
-require "jd/kanjidic/xml_reader"
+require "jd/kanjidic/reader"
 
-RSpec.describe JD::Kanjidic::XmlReader do
+RSpec.describe JD::Kanjidic::Reader do
   let(:reader) { described_class.new }
 
   def el(content)
