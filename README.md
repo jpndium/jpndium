@@ -13,6 +13,7 @@ git submodule update --init
 ```
 
 The following data modules are available:
+- [data/chiseids](https://gitlab.com/mrpudn/jd-chiseids)
 - [data/kanjidic](https://gitlab.com/mrpudn/jd-kanjidic)
 
 ## License

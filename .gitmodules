@@ -1,3 +1,6 @@
+[submodule "data/chiseids"]
+	path = data/chiseids
+	url = git@gitlab.com:mrpudn/jd-chiseids.git
 [submodule "data/kanjidic"]
 	path = data/kanjidic
 	url = git@gitlab.com:mrpudn/jd-kanjidic.git
