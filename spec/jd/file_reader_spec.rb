@@ -16,6 +16,7 @@ RSpec.describe JD::FileReader do
 
   describe "#read_file" do
     before do
+      allow(File).to receive(:open).and_call_original
       allow(File).to receive(:open).with(path).and_yield(lines)
     end
 
