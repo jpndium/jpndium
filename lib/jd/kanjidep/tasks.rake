@@ -22,7 +22,10 @@ namespace :kanjidep do
   kanjidep_jsonl = File.join(kanjidep_dir, "data.jsonl")
 
   desc "Build kanjidep data file"
-  task build: %w[chiseids:update update]
+  task build: %w[chiseids:update clean update]
+
+  desc "Clean up kanjidic temporary files"
+  task :clean
 
   desc "Update kanjidep data file"
   task update: [chiseids_jsonl, kanjidep_dir] do
