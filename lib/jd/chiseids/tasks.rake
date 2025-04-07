@@ -43,7 +43,7 @@ namespace :chiseids do
   chiseids_dir = File.join(data_dir, "chiseids")
   directory chiseids_dir => data_dir
 
-  data_jsonl = File.join(chiseids_dir, "data.jsonl")
+  chiseids_jsonl = File.join(chiseids_dir, "data.jsonl")
 
   desc "Build chiseids data file"
   task build: %w[clean update]
@@ -58,11 +58,11 @@ namespace :chiseids do
   task update: [*archive_files, chiseids_dir] do
     puts "Updating chiseids ..."
     reader = JD::Chiseids::Reader.new
-    File.open(data_jsonl, "w") do |jsonl|
+    File.open(chiseids_jsonl, "w") do |chiseids|
       archive_files.each do |path|
         filename = File.basename(path)
         reader.read_file(path) do |row|
-          jsonl.write(JSON.dump({ filename:, **row }), "\n")
+          chiseids.write(JSON.dump({ filename:, **row }), "\n")
         end
       end
     end
