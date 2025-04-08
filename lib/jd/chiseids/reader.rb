@@ -6,6 +6,8 @@ module JD
   module Chiseids
     # Reads CHISE-IDS ideograph files.
     class Reader < JD::FileReader
+      protected
+
       def read_line(line)
         return nil if line.start_with?(";;")
 

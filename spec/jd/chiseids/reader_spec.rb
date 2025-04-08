@@ -13,14 +13,14 @@ RSpec.describe JD::Chiseids::Reader do
 
   describe "#read_line" do
     it "reads a line" do
-      expect(reader.read_line(line)).to eq(row)
+      expect(reader.read(lines)).to match_array(rows)
     end
 
     context "when the line is a comment" do
       let(:line) { ";; this is a comment" }
 
       it "returns nil" do
-        expect(reader.read_line(";; this is a comment")).to be_nil
+        expect(reader.read(lines)).to be_empty
       end
     end
 
@@ -31,7 +31,7 @@ RSpec.describe JD::Chiseids::Reader do
       end
 
       it "reads only the first three values" do
-        expect(reader.read_line(line)).to eq(row)
+        expect(reader.read(lines)).to match_array(rows)
       end
     end
 
@@ -39,7 +39,7 @@ RSpec.describe JD::Chiseids::Reader do
       let(:line) { "#{[*row.values, 'foobar'].join("\t")}\n" }
 
       it "reads only the first three values" do
-        expect(reader.read_line(line)).to eq(row)
+        expect(reader.read(lines)).to match_array(rows)
       end
     end
   end

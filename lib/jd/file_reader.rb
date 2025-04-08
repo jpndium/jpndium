@@ -3,6 +3,14 @@
 module JD
   # Reads lines from a file.
   class FileReader
+    def self.read_file(...)
+      new.read_file(...)
+    end
+
+    def self.read(...)
+      new.read(...)
+    end
+
     def read_file(path, &)
       File.open(path) { |file| read(file, &) }
     end
@@ -14,6 +22,14 @@ module JD
         read_all(stream)
       end
     end
+
+    protected
+
+    def read_line(_line)
+      raise NoMethodError, "#{self.class} must implement #{__method__}"
+    end
+
+    private
 
     def read_all(stream)
       values = []
@@ -29,10 +45,6 @@ module JD
 
         yield value
       end
-    end
-
-    def read_line(_line)
-      raise NoMethodError, "#{self.class} must implement #{__method__}"
     end
   end
 end

@@ -8,65 +8,44 @@ RSpec.describe JD::FileReader do
   let(:values) { Array.new(3, value) }
   let(:lines) { Array.new(3, "line") }
 
-  let(:reader) do
+  def stub_reader
     reader = described_class.new
     allow(reader).to receive(:read_line).and_return(value)
-    reader
+    allow(described_class).to receive(:new).and_return(reader)
   end
 
   describe "#read_file" do
     before do
       allow(File).to receive(:open).and_call_original
       allow(File).to receive(:open).with(path).and_yield(lines)
+      stub_reader
     end
 
     context "when given a block" do
       it "yields each read line" do
-        reader.read_file(path) { |actual| expect(actual).to eq(value) }
+        described_class.read_file(path) { |actual| expect(actual).to eq(value) }
       end
     end
 
     context "when not given a block" do
       it "returns all read lines" do
-        expect(reader.read_file(path)).to match_array(values)
+        expect(described_class.read_file(path)).to match_array(values)
       end
     end
   end
 
   describe "#read" do
+    before { stub_reader }
+
     context "when given a block" do
       it "yields each read line" do
-        reader.read(lines) { |actual| expect(actual).to eq(value) }
+        described_class.read(lines) { |actual| expect(actual).to eq(value) }
       end
     end
 
     context "when not given a block" do
       it "returns all read lines" do
-        expect(reader.read(lines)).to match_array(values)
-      end
-    end
-  end
-
-  describe "#read_all" do
-    it "returns all read lines" do
-      expect(reader.read_all(lines)).to match_array(values)
-    end
-  end
-
-  describe "#read_each" do
-    it "yields each read line" do
-      reader.read_each(lines) { |actual| expect(actual).to eq(value) }
-    end
-
-    context "when the read line is nil" do
-      before do
-        allow(reader).to receive(:read_line).and_return(nil)
-      end
-
-      it "skips the line" do
-        actual_values = []
-        reader.read_each(lines) { |actual| actual_values << actual }
-        expect(actual_values).to be_empty
+        expect(described_class.read(lines)).to match_array(values)
       end
     end
   end
@@ -74,7 +53,7 @@ RSpec.describe JD::FileReader do
   describe "#read_line" do
     it "must be implemented" do
       expected_message = "JD::FileReader must implement read_line"
-      expect { described_class.new.read_line(nil) }
+      expect { described_class.new.send(:read_line, nil) }
         .to raise_error(NoMethodError, expected_message)
     end
   end

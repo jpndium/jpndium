@@ -25,7 +25,7 @@ RSpec.describe JD::XmlReader do
 
   describe "#read_each" do
     it "yields each read element", :aggregate_failures do
-      reader.read_each(stream) { |v| expect(v).to eq(value) }
+      reader.read(stream) { |v| expect(v).to eq(value) }
       elements.each do |element|
         expect(reader).to have_received(:read_element).with(element)
       end
@@ -41,7 +41,7 @@ RSpec.describe JD::XmlReader do
   describe "#read_element" do
     it "must be implemented" do
       expected_message = "JD::XmlReader must implement read_element"
-      expect { described_class.new.read_element(nil) }
+      expect { described_class.new.send(:read_element, nil) }
         .to raise_error(NoMethodError, expected_message)
     end
   end
