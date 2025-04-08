@@ -14,11 +14,18 @@ module JD
       CHARACTERS
       JOINABLE_FIELDS = %i[pattern composition dependencies dependents].freeze
 
-      def from_chiseids(path)
-        chiseids = jsonl_reader.read_file(path)
-        characters = read_characters(chiseids)
-        resolver = JD::Kanjidep::DependencyResolver.resolve(characters)
-        characters.each do |character|
+      def initialize(chiseids)
+        @chiseids = chiseids
+      end
+
+      def self.read(chiseids)
+        new(chiseids).read
+      end
+
+      def read
+        load_characters
+        resolver = JD::Kanjidep::DependencyResolver.resolve(@characters)
+        @characters.each do |character|
           add_dependency_fields(character, resolver)
           update_joinable_fields(character)
         end
@@ -26,8 +33,8 @@ module JD
 
       private
 
-      def read_characters(chiseids)
-        chiseids.map do |row|
+      def load_characters
+        @characters = @chiseids.map do |row|
           pattern = row["ids"].chars
             .select { |character| PREFIXES.include?(character) }
           composition = split_ids(clean_ids(row["ids"]))
@@ -94,10 +101,6 @@ module JD
         JOINABLE_FIELDS.each do |field|
           character[field] = character[field].join(" ")
         end
-      end
-
-      def jsonl_reader
-        @jsonl_reader ||= JD::JsonlReader.new
       end
     end
   end

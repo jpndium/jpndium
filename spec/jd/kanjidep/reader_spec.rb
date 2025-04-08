@@ -3,14 +3,8 @@
 require "jd/kanjidep/reader"
 
 RSpec.describe JD::Kanjidep::Reader do
-  path = "chiseids.jsonl"
-
-  let(:reader) { described_class.new }
   let(:chiseids) do
     [{ character: "A", ids: "⿰火水⿱土風" }]
-  end
-  let(:lines) do
-    chiseids.map { |row| JSON.dump(row) }
   end
   let(:resolver) do
     resolver = double
@@ -23,22 +17,20 @@ RSpec.describe JD::Kanjidep::Reader do
     resolver
   end
   let(:kanjidep) do
-    reader
-      .from_chiseids(path)
+    described_class
+      .read(JSON.parse(JSON.dump(chiseids)))
       .each_with_object({}) do |character, hash|
         hash[character[:character]] = character
       end
   end
 
   before do
-    allow(File).to receive(:open).and_call_original
-    allow(File).to receive(:open).with(path).and_yield(lines)
     allow(JD::Kanjidep::DependencyResolver)
       .to receive(:resolve)
       .and_return(resolver)
   end
 
-  describe "#from_chiseids" do
+  describe "#read" do
     let(:chiseids) do
       [{ character: "A", ids: "⿰火水⿱土風" }]
     end

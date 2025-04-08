@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "json"
+require_relative "../jsonl_reader"
 require_relative "reader"
 
 namespace :kanjidep do
@@ -25,9 +26,9 @@ namespace :kanjidep do
   desc "Update kanjidep data file"
   task update: ["chiseids:update", chiseids_jsonl, kanjidep_dir] do
     puts "Updating kanjidep ..."
-    reader = JD::Kanjidep::Reader.new
+    chiseids = JD::JsonlReader.read_file(chiseids_jsonl)
     File.open(kanjidep_jsonl, "w") do |kanjidep|
-      reader.from_chiseids(chiseids_jsonl).each do |row|
+      JD::Kanjidep::Reader.read(chiseids).each do |row|
         kanjidep.write(JSON.dump(row), "\n")
       end
     end
