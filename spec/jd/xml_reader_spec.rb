@@ -3,9 +3,9 @@
 require "jd/xml_reader"
 
 RSpec.describe JD::XmlReader do
-  stream = "stream"
-  elements = [1, 2, 3]
-  value = "value"
+  let(:stream) { "stream" }
+  let(:elements) { [1, 2, 3] }
+  let(:value) { "value" }
 
   let(:reader) do
     reader = described_class.new

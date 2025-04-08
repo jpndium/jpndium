@@ -40,9 +40,8 @@ RSpec.describe JD::Kanjidic::Reader do
   cp_value2 = { value: "value2", cp_type: "type2" }
 
   describe "#read_cp_value" do
-    subject(:actual) { reader.read_cp_value(el(xml)) }
-
     let(:xml) { cp_value_xml }
+    let(:actual) { reader.read_cp_value(el(xml)) }
 
     it_behaves_like "an XML element reader" do
       let(:expected) { cp_value }
@@ -59,9 +58,8 @@ RSpec.describe JD::Kanjidic::Reader do
   codepoint = { cp_value: [cp_value, cp_value2] }
 
   describe "#read_codepoint" do
-    subject(:actual) { reader.read_codepoint(el(xml)) }
-
     let(:xml) { codepoint_xml }
+    let(:actual) { reader.read_codepoint(el(xml)) }
 
     it_behaves_like "an XML element reader" do
       let(:expected) { codepoint }
@@ -81,9 +79,8 @@ RSpec.describe JD::Kanjidic::Reader do
   rad_value2 = { value: 2, rad_type: "type2" }
 
   describe "#read_rad_value" do
-    subject(:actual) { reader.read_rad_value(el(xml)) }
-
     let(:xml) { rad_value_xml }
+    let(:actual) { reader.read_rad_value(el(xml)) }
 
     it_behaves_like "an XML element reader" do
       let(:expected) { rad_value }
@@ -100,9 +97,8 @@ RSpec.describe JD::Kanjidic::Reader do
   radical = { rad_value: [rad_value, rad_value2] }
 
   describe "#read_radical" do
-    subject(:actual) { reader.read_radical(el(xml)) }
-
     let(:xml) { radical_xml }
+    let(:actual) { reader.read_radical(el(xml)) }
 
     it_behaves_like "an XML element reader" do
       let(:expected) { radical }
@@ -122,9 +118,8 @@ RSpec.describe JD::Kanjidic::Reader do
   variant2 = { value: "variant2", var_type: "type2" }
 
   describe "#read_variant" do
-    subject(:actual) { reader.read_variant(el(xml)) }
-
     let(:xml) { variant_xml }
+    let(:actual) { reader.read_variant(el(xml)) }
 
     it_behaves_like "an XML element reader" do
       let(:expected) { variant }
@@ -154,9 +149,8 @@ RSpec.describe JD::Kanjidic::Reader do
   }
 
   describe "#read_misc" do
-    subject(:actual) { reader.read_misc(el(xml)) }
-
     let(:xml) { misc_xml }
+    let(:actual) { reader.read_misc(el(xml)) }
 
     it_behaves_like "an XML element reader" do
       let(:expected) { misc }
@@ -176,9 +170,8 @@ RSpec.describe JD::Kanjidic::Reader do
   dic_ref_moro = { value: 34, dr_type: "moro", m_vol: 12, m_page: 34 }
 
   describe "#read_dic_ref" do
-    subject(:actual) { reader.read_dic_ref(el(xml)) }
-
     let(:xml) { dic_ref_xml }
+    let(:actual) { reader.read_dic_ref(el(xml)) }
 
     it_behaves_like "an XML element reader" do
       let(:expected) { dic_ref }
@@ -203,9 +196,8 @@ RSpec.describe JD::Kanjidic::Reader do
   dic_number = { dic_ref: [dic_ref, dic_ref_moro] }
 
   describe "#read_dic_number" do
-    subject(:actual) { reader.read_dic_number(el(xml)) }
-
     let(:xml) { dic_number_xml }
+    let(:actual) { reader.read_dic_number(el(xml)) }
 
     it_behaves_like "an XML element reader" do
       let(:expected) { dic_number }
@@ -229,9 +221,8 @@ RSpec.describe JD::Kanjidic::Reader do
   }
 
   describe "#read_q_code" do
-    subject(:actual) { reader.read_q_code(el(xml)) }
-
     let(:xml) { q_code_xml }
+    let(:actual) { reader.read_q_code(el(xml)) }
 
     it_behaves_like "an XML element reader" do
       let(:expected) { q_code }
@@ -256,9 +247,8 @@ RSpec.describe JD::Kanjidic::Reader do
   query_code = { q_code: [q_code, q_code_skip_misclass] }
 
   describe "#read_query_code" do
-    subject(:actual) { reader.read_query_code(el(xml)) }
-
     let(:xml) { query_code_xml }
+    let(:actual) { reader.read_query_code(el(xml)) }
 
     it_behaves_like "an XML element reader" do
       let(:expected) { query_code }
@@ -289,9 +279,8 @@ RSpec.describe JD::Kanjidic::Reader do
   reading_ja_kun = { value: "reading", r_type: "ja_kun", r_status: "jy" }
 
   describe "#read_reading" do
-    subject(:actual) { reader.read_reading(el(xml)) }
-
     let(:xml) { reading_xml }
+    let(:actual) { reader.read_reading(el(xml)) }
 
     it_behaves_like "an XML element reader" do
       let(:expected) { reading }
@@ -327,9 +316,8 @@ RSpec.describe JD::Kanjidic::Reader do
   meaning2 = { value: "meaning2" }
 
   describe "#read_meaning" do
-    subject(:actual) { reader.read_meaning(el(xml)) }
-
     let(:xml) { meaning_xml }
+    let(:actual) { reader.read_meaning(el(xml)) }
 
     it_behaves_like "an XML element reader" do
       let(:expected) { meaning }
@@ -372,9 +360,8 @@ RSpec.describe JD::Kanjidic::Reader do
   }
 
   describe "#read_rmgroup" do
-    subject(:actual) { reader.read_rmgroup(el(xml)) }
-
     let(:xml) { rmgroup_xml }
+    let(:actual) { reader.read_rmgroup(el(xml)) }
 
     it_behaves_like "an XML element reader" do
       let(:expected) { rmgroup }
@@ -391,9 +378,8 @@ RSpec.describe JD::Kanjidic::Reader do
   reading_meaning = { rmgroup: [rmgroup, rmgroup2] }
 
   describe "#read_reading_meaning" do
-    subject(:actual) { reader.read_reading_meaning(el(xml)) }
-
     let(:xml) { reading_meaning_xml }
+    let(:actual) { reader.read_reading_meaning(el(xml)) }
 
     it_behaves_like "an XML element reader" do
       let(:expected) { reading_meaning }
@@ -423,9 +409,8 @@ RSpec.describe JD::Kanjidic::Reader do
   }
 
   describe "#read_element" do
-    subject(:actual) { reader.read_element(el(xml)) }
-
     let(:xml) { character_xml }
+    let(:actual) { reader.read_element(el(xml)) }
 
     it_behaves_like "an XML element reader" do
       let(:expected) { character }
@@ -433,7 +418,7 @@ RSpec.describe JD::Kanjidic::Reader do
   end
 
   describe "#read_file" do
-    subject(:actual) { reader.read_file("spec/jd/kanjidic/kanjidic.xml") }
+    let(:actual) { reader.read_file("spec/jd/kanjidic/kanjidic.xml") }
 
     it "reads an XML file" do
       expected = JSON.load_file(

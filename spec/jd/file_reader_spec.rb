@@ -3,10 +3,10 @@
 require "jd/file_reader"
 
 RSpec.describe JD::FileReader do
-  path = "path"
-  value = "value"
-  values = Array.new(3, value)
-  lines = Array.new(3, "line")
+  let(:path) { "path" }
+  let(:value) { "value" }
+  let(:values) { Array.new(3, value) }
+  let(:lines) { Array.new(3, "line") }
 
   let(:reader) do
     reader = described_class.new

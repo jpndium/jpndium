@@ -3,20 +3,12 @@
 require "jd/jsonl_reader"
 
 RSpec.describe JD::JsonlReader do
-  subject(:reader) { described_class.new }
+  let(:reader) { described_class.new }
 
   describe "#read_file" do
-    path = "hello.jsonl"
-
-    lines = [
-      '{"hello": true}',
-      '{"goodbye": false}'
-    ]
-
-    expected = [
-      { "hello" => true },
-      { "goodbye" => false }
-    ]
+    let(:path) { "hello.jsonl" }
+    let(:lines) { ['{"hello": true}', '{"goodbye": false}'] }
+    let(:expected) { [{ "hello" => true }, { "goodbye" => false }] }
 
     before do
       allow(File).to receive(:open).and_call_original
