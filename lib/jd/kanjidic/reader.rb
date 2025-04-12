@@ -11,6 +11,8 @@ module JD
         @element_name = "character"
       end
 
+      protected
+
       def read_element(element)
         compact({
           literal: find_content(element, "literal")&.first,
@@ -24,6 +26,8 @@ module JD
           )
         })
       end
+
+      private
 
       def read_codepoint(element)
         compact({
