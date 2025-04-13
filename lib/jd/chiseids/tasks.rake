@@ -11,10 +11,8 @@ namespace :chiseids do
   directory tmp_dir
 
   archive_zip = File.join(tmp_dir, "chiseids.zip")
+
   archive_dir = File.join(tmp_dir, "chiseids")
-  directory archive_dir => tmp_dir do
-    Rake::Task["chiseids:download"].execute
-  end
 
   archive_files = [
     "IDS-UCS-Basic.txt",
@@ -55,7 +53,7 @@ namespace :chiseids do
   end
 
   desc "Update chiseids data file"
-  task update: [*archive_files, chiseids_dir] do
+  task update: ["download", *archive_files, chiseids_dir] do
     puts "Updating chiseids ..."
     File.open(chiseids_jsonl, "w") do |chiseids|
       archive_files.each do |path|

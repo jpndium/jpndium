@@ -12,9 +12,7 @@ namespace :kanjidic do
   directory tmp_dir
 
   kanjidic_xml = File.join(tmp_dir, "kanjidic.xml")
-  file kanjidic_xml => tmp_dir do
-    Rake::Task["kanjidic:download"].execute
-  end
+  file kanjidic_xml
 
   data_dir = ENV.fetch("DATA_DIR", "data")
   directory data_dir
@@ -33,7 +31,7 @@ namespace :kanjidic do
   end
 
   desc "Update kanjidic data file"
-  task update: [kanjidic_xml, kanjidic_dir] do
+  task update: ["download", kanjidic_xml, kanjidic_dir] do
     puts "Updating kanjidic ..."
     reader = JD::Kanjidic::Reader.new
     File.open(kanjidic_jsonl, "w") do |kanjidic|
