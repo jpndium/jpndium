@@ -1,0 +1,74 @@
+[
+  {
+    "literal": "literal",
+    "codepoint": {
+      "cp_value": [
+        { "value": "value1", "cp_type": "type1" },
+        { "value": "value2", "cp_type": "type2" }
+      ]
+    },
+    "radical": {
+      "rad_value": [
+        { "value": 1, "rad_type": "type1" },
+        { "value": 2, "rad_type": "type2" }
+      ]
+    },
+    "misc": {
+      "grade": 1,
+      "stroke_count": [2],
+      "variant": [
+        { "value": "variant1", "var_type": "type1" },
+        { "value": "variant2", "var_type": "type2" }
+      ],
+      "freq": 3,
+      "rad_name": ["name1", "name2"],
+      "jlpt": 4
+    },
+    "dic_number": {
+      "dic_ref": [
+        { "value": 12, "dr_type": "type1" },
+        { "value": 34, "dr_type": "moro", "m_vol": 12, "m_page": 34 }
+      ]
+    },
+    "query_code": {
+      "q_code": [
+        { "value": "code", "qc_type": "type" },
+        {
+          "value": "code",
+          "qc_type": "type",
+          "skip_misclass": "stroke_count"
+        }
+      ]
+    },
+    "reading_meaning": {
+      "rmgroup": [
+        {
+          "reading": [
+            { "value": "reading", "r_type": "type" },
+            {
+              "value": "reading",
+              "r_type": "ja_on",
+              "on_type": "kan",
+              "r_status": "jy"
+            },
+            { "value": "reading", "r_type": "ja_kun", "r_status": "jy" }
+          ],
+          "meaning": [
+            { "value": "meaning1", "m_lang": "lang" },
+            { "value": "meaning2" }
+          ]
+        },
+        {
+          "reading": [
+            { "value": "reading3", "r_type": "type3" },
+            { "value": "reading4", "r_type": "type4" }
+          ],
+          "meaning": [
+            { "value": "meaning3" },
+            { "value": "meaning4", "m_lang": "lang" }
+          ]
+        }
+      ]
+    }
+  }
+]
