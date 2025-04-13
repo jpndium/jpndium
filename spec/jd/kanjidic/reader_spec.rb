@@ -3,8 +3,6 @@
 require "jd/kanjidic/reader"
 
 RSpec.describe JD::Kanjidic::Reader do
-  let(:reader) { described_class.new }
-
   let(:xml) do
     codepoint_xml = <<~XML
       <codepoint>
@@ -165,11 +163,9 @@ RSpec.describe JD::Kanjidic::Reader do
     }
   end
 
-  let(:characters) { [character] }
-
   describe ".read" do
     it "returns an element hash" do
-      expect(described_class.read(xml)).to match_array(characters)
+      expect(described_class.read(xml)).to contain_exactly(character)
     end
   end
 end
