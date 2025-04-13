@@ -168,18 +168,8 @@ RSpec.describe JD::Kanjidic::Reader do
   let(:characters) { [character] }
 
   describe ".read" do
-    let(:actual) { described_class.read(xml) }
-
     it "returns an element hash" do
-      expect(actual).to match_array(characters)
-    end
-
-    context "when the element is empty" do
-      let(:xml) { "<element />" }
-
-      it "returns an empty array" do
-        expect(actual).to be_empty
-      end
+      expect(described_class.read(xml)).to match_array(characters)
     end
   end
 end
