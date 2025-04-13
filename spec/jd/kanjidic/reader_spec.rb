@@ -14,9 +14,7 @@ RSpec.describe JD::Kanjidic::Reader do
     end
 
     it "returns characters" do
-      expected.each_with_index do |element, i|
-        expect(element).to eq(actual[i])
-      end
+      expected.each_with_index { |e, i| expect(actual[i]).to eq(e) }
     end
   end
 end
