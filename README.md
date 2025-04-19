@@ -14,6 +14,7 @@ git submodule update --init
 
 The following data modules are available:
 - [data/chiseids](https://gitlab.com/mrpudn/jd-chiseids)
+- [data/jmdictpri](https://gitlab.com/mrpudn/jd-jmdictpri)
 - [data/kanjidep](https://gitlab.com/mrpudn/jd-kanjidep)
 - [data/kanjidic](https://gitlab.com/mrpudn/jd-kanjidic)
 - [data/kanjidicdep](https://gitlab.com/mrpudn/jd-kanjidicdep)
