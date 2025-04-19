@@ -2,7 +2,7 @@
 
 Dir.glob("lib/**/*.rake").each { |path| load path }
 
-data_modules = %w[chiseids kanjidep kanjidic kanjidicdep]
+data_modules = %w[chiseids jmdictpri kanjidep kanjidic kanjidicdep]
 
 task default: :build
 
