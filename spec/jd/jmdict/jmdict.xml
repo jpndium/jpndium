@@ -1,0 +1,84 @@
+<JMdict>
+  <entry>
+    <ent_seq>1234567</ent_seq>
+    <k_ele>
+      <keb>(keb1)</keb>
+      <ke_inf>(ke_inf1)</ke_inf>
+      <ke_inf>(ke_inf2)</ke_inf>
+      <ke_pri>foo1</ke_pri>
+      <ke_pri>bar2</ke_pri>
+      <ke_pri>baz</ke_pri>
+    </k_ele>
+    <k_ele>
+      <keb>(keb2)</keb>
+      <ke_pri>foo12</ke_pri>
+      <ke_pri>bar23</ke_pri>
+    </k_ele>
+    <r_ele>
+      <reb>(reb1)</reb>
+      <re_nokanji />
+      <re_restr>(re_restr1)</re_restr>
+      <re_restr>(re_restr2)</re_restr>
+      <re_inf>(re_inf1)</re_inf>
+      <re_inf>(re_inf2)</re_inf>
+      <re_pri>foo2</re_pri>
+      <re_pri>bar1</re_pri>
+      <re_pri>baz</re_pri>
+    </r_ele>
+    <r_ele>
+      <reb>(reb2)</reb>
+      <re_pri>foo23</re_pri>
+      <re_pri>bar12</re_pri>
+    </r_ele>
+    <sense>
+      <stagk>(stagk1.1)</stagk>
+      <stagk>(stagk1.2)</stagk>
+      <stagr>(stagr1.1)</stagr>
+      <stagr>(stagr1.2)</stagr>
+      <pos>(pos1.1)</pos>
+      <pos>(pos1.2)</pos>
+      <xref>(xref1.1)</xref>
+      <xref>(xref1.2)</xref>
+      <ant>(ant1.1)</ant>
+      <ant>(ant1.2)</ant>
+      <field>(field1.1)</field>
+      <field>(field1.2)</field>
+      <misc>(misc1.1)</misc>
+      <misc>(misc1.2)</misc>
+      <s_inf>(s_inf1.1)</s_inf>
+      <s_inf>(s_inf1.2)</s_inf>
+      <lsource xml:lang="(lang)" ls_type="(ls_type)" ls_wasei="(ls_wasei)">
+        (lsource1.1)
+      </lsource>
+      <lsource>(lsource1.2)</lsource>
+      <dial>(dial1.1)</dial>
+      <dial>(dial1.2)</dial>
+      <gloss xml:lang="(lang)" g_gend="(g_gend)" g_type="(g_type)">
+        (gloss1.1)
+      </gloss>
+      <gloss>(gloss1.2)</gloss>
+    </sense>
+    <sense>
+      <stagk>(stagk2)</stagk>
+      <stagr>(stagr2)</stagr>
+      <pos>(pos2)</pos>
+      <xref>(xref2)</xref>
+      <ant>(ant2)</ant>
+      <field>(field2)</field>
+      <misc>(misc2)</misc>
+      <s_inf>(s_inf2)</s_inf>
+      <lsource xml:lang="eng">(lsource2)</lsource>
+      <dial>(dial2)</dial>
+      <gloss xml:lang="eng">(gloss2)</gloss>
+    </sense>
+  </entry>
+  <entry>
+    <ent_seq>1234568</ent_seq>
+    <r_ele>
+      <reb>(reb3)</reb>
+    </r_ele>
+    <sense>
+      <gloss>(gloss3)</gloss>
+    </sense>
+  </entry>
+</JMdict>

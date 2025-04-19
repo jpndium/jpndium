@@ -1,0 +1,114 @@
+[
+  {
+    "ent_seq": 1234567,
+    "k_ele": [
+      {
+        "keb": "(keb1)",
+        "ke_inf": ["(ke_inf1)", "(ke_inf2)"],
+        "ke_pri": {
+          "foo": 1,
+          "bar": 2
+        }
+      },
+      {
+        "keb": "(keb2)",
+        "ke_pri": {
+          "foo": 12,
+          "bar": 23
+        }
+      }
+    ],
+    "r_ele": [
+      {
+        "reb": "(reb1)",
+        "re_nokanji": true,
+        "re_restr": ["(re_restr1)", "(re_restr2)"],
+        "re_inf": ["(re_inf1)", "(re_inf2)"],
+        "re_pri": {
+          "foo": 2,
+          "bar": 1
+        }
+      },
+      {
+        "reb": "(reb2)",
+        "re_pri": {
+          "foo": 23,
+          "bar": 12
+        }
+      }
+    ],
+    "sense": [
+      {
+        "stagk": ["(stagk1.1)", "(stagk1.2)"],
+        "stagr": ["(stagr1.1)", "(stagr1.2)"],
+        "pos": ["(pos1.1)", "(pos1.2)"],
+        "xref": ["(xref1.1)", "(xref1.2)"],
+        "ant": ["(ant1.1)", "(ant1.2)"],
+        "field": ["(field1.1)", "(field1.2)"],
+        "misc": ["(misc1.1)", "(misc1.2)"],
+        "s_inf": ["(s_inf1.1)", "(s_inf1.2)"],
+        "lsource": [
+          {
+            "value": "(lsource1.1)",
+            "lang": "(lang)",
+            "ls_type": "(ls_type)",
+            "ls_wasei": "(ls_wasei)"
+          },
+          {
+            "value": "(lsource1.2)"
+          }
+        ],
+        "dial": ["(dial1.1)", "(dial1.2)"],
+        "gloss": [
+          {
+            "value": "(gloss1.1)",
+            "lang": "(lang)",
+            "g_gend": "(g_gend)",
+            "g_type": "(g_type)"
+          },
+          {
+            "value": "(gloss1.2)"
+          }
+        ]
+      },
+      {
+        "stagk": ["(stagk2)"],
+        "stagr": ["(stagr2)"],
+        "pos": ["(pos2)"],
+        "xref": ["(xref2)"],
+        "ant": ["(ant2)"],
+        "field": ["(field2)"],
+        "misc": ["(misc2)"],
+        "s_inf": ["(s_inf2)"],
+        "lsource": [
+          {
+            "value": "(lsource2)"
+          }
+        ],
+        "dial": ["(dial2)"],
+        "gloss": [
+          {
+            "value": "(gloss2)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ent_seq": 1234568,
+    "r_ele": [
+      {
+        "reb": "(reb3)"
+      }
+    ],
+    "sense": [
+      {
+        "gloss": [
+          {
+            "value": "(gloss3)"
+          }
+        ]
+      }
+    ]
+  }
+]
