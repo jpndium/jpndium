@@ -29,8 +29,6 @@ module JD
       raise NoMethodError, "#{self.class} must implement #{__method__}"
     end
 
-    private
-
     def read_all(stream)
       values = []
       read_each(stream) { |value| values << value }
