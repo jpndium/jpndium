@@ -3,15 +3,15 @@
     "ent_seq": 1234567,
     "k_ele": [
       {
-        "keb": "(keb1)",
-        "ke_inf": ["(ke_inf1)", "(ke_inf2)"],
+        "keb": "(keb1.1)",
+        "ke_inf": ["(ke_inf1.1)", "(ke_inf1.2)"],
         "ke_pri": {
           "foo": 1,
           "bar": 2
         }
       },
       {
-        "keb": "(keb2)",
+        "keb": "(keb1.2)",
         "ke_pri": {
           "foo": 12,
           "bar": 23
@@ -20,17 +20,17 @@
     ],
     "r_ele": [
       {
-        "reb": "(reb1)",
+        "reb": "(reb1.1)",
         "re_nokanji": true,
-        "re_restr": ["(re_restr1)", "(re_restr2)"],
-        "re_inf": ["(re_inf1)", "(re_inf2)"],
+        "re_restr": ["(re_restr1.1)", "(re_restr1.2)"],
+        "re_inf": ["(re_inf1.1)", "(re_inf1.2)"],
         "re_pri": {
           "foo": 2,
           "bar": 1
         }
       },
       {
-        "reb": "(reb2)",
+        "reb": "(reb1.2)",
         "re_pri": {
           "foo": 23,
           "bar": 12
@@ -72,23 +72,23 @@
         ]
       },
       {
-        "stagk": ["(stagk2)"],
-        "stagr": ["(stagr2)"],
-        "pos": ["(pos2)"],
-        "xref": ["(xref2)"],
-        "ant": ["(ant2)"],
-        "field": ["(field2)"],
-        "misc": ["(misc2)"],
-        "s_inf": ["(s_inf2)"],
+        "stagk": ["(stagk1.3)"],
+        "stagr": ["(stagr1.3)"],
+        "pos": ["(pos1.3)"],
+        "xref": ["(xref1.3)"],
+        "ant": ["(ant1.3)"],
+        "field": ["(field1.3)"],
+        "misc": ["(misc1.3)"],
+        "s_inf": ["(s_inf1.3)"],
         "lsource": [
           {
-            "value": "(lsource2)"
+            "value": "(lsource1.3)"
           }
         ],
-        "dial": ["(dial2)"],
+        "dial": ["(dial1.3)"],
         "gloss": [
           {
-            "value": "(gloss2)"
+            "value": "(gloss1.3)"
           }
         ]
       }
@@ -98,16 +98,7 @@
     "ent_seq": 1234568,
     "r_ele": [
       {
-        "reb": "(reb3)"
-      }
-    ],
-    "sense": [
-      {
-        "gloss": [
-          {
-            "value": "(gloss3)"
-          }
-        ]
+        "reb": "(reb2.1)"
       }
     ]
   }

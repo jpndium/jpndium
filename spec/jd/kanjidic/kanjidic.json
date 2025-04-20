@@ -1,41 +1,41 @@
 [
   {
-    "literal": "literal",
+    "literal": "(literal1)",
     "codepoint": {
       "cp_value": [
-        { "value": "value1", "cp_type": "type1" },
-        { "value": "value2", "cp_type": "type2" }
+        { "value": "(cp_value1.1)", "cp_type": "(cp_type1.1)" },
+        { "value": "(cp_value1.2)", "cp_type": "(cp_type1.2)" }
       ]
     },
     "radical": {
       "rad_value": [
-        { "value": 1, "rad_type": "type1" },
-        { "value": 2, "rad_type": "type2" }
+        { "value": 1, "rad_type": "(rad_type1.1)" },
+        { "value": 2, "rad_type": "(rad_type1.2)" }
       ]
     },
     "misc": {
       "grade": 1,
       "stroke_count": [2],
       "variant": [
-        { "value": "variant1", "var_type": "type1" },
-        { "value": "variant2", "var_type": "type2" }
+        { "value": "(variant1.1)", "var_type": "(var_type1.1)" },
+        { "value": "(variant1.2)", "var_type": "(var_type1.2)" }
       ],
       "freq": 3,
-      "rad_name": ["name1", "name2"],
+      "rad_name": ["(rad_name1.1)", "(rad_name1.2)"],
       "jlpt": 4
     },
     "dic_number": {
       "dic_ref": [
-        { "value": 12, "dr_type": "type1" },
-        { "value": 34, "dr_type": "moro", "m_vol": 12, "m_page": 34 }
+        { "value": 12, "dr_type": "(dr_type1.1)" },
+        { "value": 56, "dr_type": "moro", "m_vol": 12, "m_page": 34 }
       ]
     },
     "query_code": {
       "q_code": [
-        { "value": "code", "qc_type": "type" },
+        { "value": "(q_code1.1)", "qc_type": "(qc_type1.1)" },
         {
-          "value": "code",
-          "qc_type": "type",
+          "value": "(q_code1.2)",
+          "qc_type": "(qc_type1.2)",
           "skip_misclass": "stroke_count"
         }
       ]
@@ -44,28 +44,28 @@
       "rmgroup": [
         {
           "reading": [
-            { "value": "reading", "r_type": "type" },
+            { "value": "(reading1.1)", "r_type": "(r_type1.1)" },
             {
-              "value": "reading",
+              "value": "(reading1.2)",
               "r_type": "ja_on",
               "on_type": "kan",
               "r_status": "jy"
             },
-            { "value": "reading", "r_type": "ja_kun", "r_status": "jy" }
+            { "value": "(reading1.3)", "r_type": "ja_kun", "r_status": "jy" }
           ],
           "meaning": [
-            { "value": "meaning1", "m_lang": "lang" },
-            { "value": "meaning2" }
+            { "value": "(meaning1.1)", "m_lang": "(lang)" },
+            { "value": "(meaning1.2)" }
           ]
         },
         {
           "reading": [
-            { "value": "reading3", "r_type": "type3" },
-            { "value": "reading4", "r_type": "type4" }
+            { "value": "(reading1.4)", "r_type": "(r_type1.2)" },
+            { "value": "(reading1.5)", "r_type": "(r_type1.3)" }
           ],
           "meaning": [
-            { "value": "meaning3" },
-            { "value": "meaning4", "m_lang": "lang" }
+            { "value": "(meaning1.3)" },
+            { "value": "(meaning1.4)", "m_lang": "(lang)" }
           ]
         }
       ]

@@ -1,44 +1,48 @@
-<character>
-  <literal>literal</literal>
-  <codepoint>
-    <cp_value cp_type="type1">value1</cp_value>
-    <cp_value cp_type="type2">value2</cp_value>
-  </codepoint>
-  <radical>
-    <rad_value rad_type="type1">1</rad_value>
-    <rad_value rad_type="type2">2</rad_value>
-  </radical>
-  <misc>
-    <grade>1</grade>
-    <stroke_count>2</stroke_count>
-    <variant var_type="type1">variant1</variant>
-    <variant var_type="type2">variant2</variant>
-    <freq>3</freq>
-    <rad_name>name1</rad_name>
-    <rad_name>name2</rad_name>
-    <jlpt>4</jlpt>
-  </misc>
-  <dic_number>
-    <dic_ref dr_type="type1">12</dic_ref>
-    <dic_ref dr_type="moro" m_vol="12" m_page="34">34</dic_ref>
-  </dic_number>
-  <query_code>
-    <q_code qc_type="type">code</q_code>
-    <q_code qc_type="type" skip_misclass="stroke_count">code</q_code>
-  </query_code>
-  <reading_meaning>
-    <rmgroup>
-      <reading r_type="type">reading</reading>
-      <reading r_type="ja_on" on_type="kan" r_status="jy">reading</reading>
-      <reading r_type="ja_kun" r_status="jy">reading</reading>
-      <meaning m_lang="lang">meaning1</meaning>
-      <meaning>meaning2</meaning>
-    </rmgroup>
-    <rmgroup>
-      <reading r_type="type3">reading3</reading>
-      <reading r_type="type4">reading4</reading>
-      <meaning>meaning3</meaning>
-      <meaning m_lang="lang">meaning4</meaning>
-    </rmgroup>
-  </reading_meaning>
-</character>
+<kanjidic2>
+  <character>
+    <literal>(literal1)</literal>
+    <codepoint>
+      <cp_value cp_type="(cp_type1.1)">(cp_value1.1)</cp_value>
+      <cp_value cp_type="(cp_type1.2)">(cp_value1.2)</cp_value>
+    </codepoint>
+    <radical>
+      <rad_value rad_type="(rad_type1.1)">1</rad_value>
+      <rad_value rad_type="(rad_type1.2)">2</rad_value>
+    </radical>
+    <misc>
+      <grade>1</grade>
+      <stroke_count>2</stroke_count>
+      <variant var_type="(var_type1.1)">(variant1.1)</variant>
+      <variant var_type="(var_type1.2)">(variant1.2)</variant>
+      <freq>3</freq>
+      <rad_name>(rad_name1.1)</rad_name>
+      <rad_name>(rad_name1.2)</rad_name>
+      <jlpt>4</jlpt>
+    </misc>
+    <dic_number>
+      <dic_ref dr_type="(dr_type1.1)">12</dic_ref>
+      <dic_ref dr_type="moro" m_vol="12" m_page="34">56</dic_ref>
+    </dic_number>
+    <query_code>
+      <q_code qc_type="(qc_type1.1)">(q_code1.1)</q_code>
+      <q_code qc_type="(qc_type1.2)" skip_misclass="stroke_count">
+        (q_code1.2)
+      </q_code>
+    </query_code>
+    <reading_meaning>
+      <rmgroup>
+        <reading r_type="(r_type1.1)">(reading1.1)</reading>
+        <reading r_type="ja_on" on_type="kan" r_status="jy">(reading1.2)</reading>
+        <reading r_type="ja_kun" r_status="jy">(reading1.3)</reading>
+        <meaning m_lang="(lang)">(meaning1.1)</meaning>
+        <meaning>(meaning1.2)</meaning>
+      </rmgroup>
+      <rmgroup>
+        <reading r_type="(r_type1.2)">(reading1.4)</reading>
+        <reading r_type="(r_type1.3)">(reading1.5)</reading>
+        <meaning>(meaning1.3)</meaning>
+        <meaning m_lang="(lang)">(meaning1.4)</meaning>
+      </rmgroup>
+    </reading_meaning>
+  </character>
+</kanjidic2>

@@ -35,7 +35,7 @@
       <xref>(xref1.1)</xref>
       <xref>(xref1.2)</xref>
       <trans_det xml:lang="(lang)">(trans_det1.1)</trans_det>
-      <trans_det>(trans_det1.2)</trans_det>
+      <trans_det xml:lang="eng">(trans_det1.2)</trans_det>
     </trans>
   </entry>
   <entry>
