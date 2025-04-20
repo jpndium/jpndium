@@ -20,7 +20,8 @@ RSpec.describe JD::XmlReader do
   end
 
   before do
-    allow(Nokogiri).to receive(:XML).with(stream).and_return(document)
+    allow(Nokogiri)
+      .to receive(:XML).with(stream, nil, "UTF-8").and_return(document)
   end
 
   describe "#read_each" do

@@ -25,7 +25,7 @@ module JD
     private
 
     def read_each(stream)
-      document = Nokogiri::XML(stream)
+      document = Nokogiri::XML(stream, nil, "UTF-8")
       elements = document.search(@element_name)
       elements.each { |element| yield read_element(element) }
     end
