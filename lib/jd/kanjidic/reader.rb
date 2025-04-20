@@ -31,7 +31,7 @@ module JD
 
       def read_codepoint(element)
         compact({
-          cp_value: find_map(element, "cp_value") { |e| read_cp_value(e) }
+          cp_value: find_map(element, "cp_value", &method(:read_cp_value))
         })
       end
 
@@ -44,7 +44,7 @@ module JD
 
       def read_radical(element)
         compact({
-          rad_value: find_map(element, "rad_value") { |e| read_rad_value(e) }
+          rad_value: find_map(element, "rad_value", &method(:read_rad_value))
         })
       end
 
@@ -59,7 +59,7 @@ module JD
         compact({
           grade: find_first_content(element, "grade")&.to_i,
           stroke_count: find_content(element, "stroke_count")&.map(&:to_i),
-          variant: find_map(element, "variant") { |e| read_variant(e) },
+          variant: find_map(element, "variant", &method(:read_variant)),
           freq: find_first_content(element, "freq")&.to_i,
           rad_name: find_content(element, "rad_name"),
           jlpt: find_first_content(element, "jlpt")&.to_i
@@ -75,7 +75,7 @@ module JD
 
       def read_dic_number(element)
         compact({
-          dic_ref: find_map(element, "dic_ref") { |e| read_dic_ref(e) }
+          dic_ref: find_map(element, "dic_ref", &method(:read_dic_ref))
         })
       end
 
@@ -90,7 +90,7 @@ module JD
 
       def read_query_code(element)
         compact({
-          q_code: find_map(element, "q_code") { |e| read_q_code(e) }
+          q_code: find_map(element, "q_code", &method(:read_q_code))
         })
       end
 
@@ -104,15 +104,15 @@ module JD
 
       def read_reading_meaning(element)
         compact({
-          rmgroup: find_map(element, "rmgroup") { |e| read_rmgroup(e) },
+          rmgroup: find_map(element, "rmgroup", &method(:read_rmgroup)),
           nanori: find_content(element, "nanori")
         })
       end
 
       def read_rmgroup(element)
         compact({
-          reading: find_map(element, "reading") { |e| read_reading(e) },
-          meaning: find_map(element, "meaning") { |e| read_meaning(e) }
+          reading: find_map(element, "reading", &method(:read_reading)),
+          meaning: find_map(element, "meaning", &method(:read_meaning))
         })
       end
 
