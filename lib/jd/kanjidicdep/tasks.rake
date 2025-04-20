@@ -7,13 +7,13 @@ namespace :kanjidicdep do
   data_dir = ENV.fetch("DATA_DIR", "data")
   directory data_dir
 
-  kanjidep_dir = File.join(data_dir, "kanjidep")
-  kanjidep_jsonl = File.join(kanjidep_dir, "data.jsonl")
-  file kanjidep_jsonl => kanjidep_dir
-
   kanjidic_dir = File.join(data_dir, "kanjidic")
   kanjidic_jsonl = File.join(kanjidic_dir, "data.jsonl")
   file kanjidic_jsonl => kanjidic_dir
+
+  kanjidep_dir = File.join(data_dir, "kanjidep")
+  kanjidep_jsonl = File.join(kanjidep_dir, "data.jsonl")
+  file kanjidep_jsonl => kanjidep_dir
 
   kanjidicdep_dir = File.join(data_dir, "kanjidicdep")
   directory kanjidicdep_dir => data_dir
@@ -27,19 +27,18 @@ namespace :kanjidicdep do
   task :clean
 
   update_dependencies = [
-    "kanjidep:update",
-    kanjidep_jsonl,
     "kanjidic:update",
     kanjidic_jsonl,
+    "kanjidep:update",
+    kanjidep_jsonl,
     kanjidicdep_dir
   ]
 
   desc "Update kanjidicdep data file"
   task update: update_dependencies do
     puts "Updating kanjidicdep ..."
-    jsonl_reader = JD::JsonlReader.new
-    kanjidep = File.open(kanjidep_jsonl) { |file| jsonl_reader.read(file) }
-    kanjidic = File.open(kanjidic_jsonl) { |file| jsonl_reader.read(file) }
+    kanjidic = JD::JsonlReader.read_file(kanjidic_jsonl)
+    kanjidep = JD::JsonlReader.read_file(kanjidep_jsonl)
     File.open(kanjidicdep_jsonl, "w") do |kanjidicdep|
       JD::Kanjidicdep::Reader.read(kanjidic, kanjidep).each do |row|
         kanjidicdep.write(JSON.dump(row), "\n")

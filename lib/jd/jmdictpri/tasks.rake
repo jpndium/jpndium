@@ -28,9 +28,8 @@ namespace :jmdictpri do
   desc "Update jmdictpri data file"
   task update: ["jmdict:download", jmdict_xml, jmdictpri_dir] do
     puts "Updating jmdictpri ..."
-    reader = JD::Jmdictpri::Reader.new
     File.open(jmdictpri_jsonl, "w") do |jmdictpri|
-      reader.read_file(jmdict_xml) do |row|
+      JD::Jmdictpri::Reader.read_file(jmdict_xml) do |row|
         jmdictpri.write(JSON.dump(row), "\n")
       end
     end

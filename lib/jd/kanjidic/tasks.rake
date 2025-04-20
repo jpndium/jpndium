@@ -33,9 +33,8 @@ namespace :kanjidic do
   desc "Update kanjidic data file"
   task update: ["download", kanjidic_xml, kanjidic_dir] do
     puts "Updating kanjidic ..."
-    reader = JD::Kanjidic::Reader.new
     File.open(kanjidic_jsonl, "w") do |kanjidic|
-      reader.read_file(kanjidic_xml) do |row|
+      JD::Kanjidic::Reader.read_file(kanjidic_xml) do |row|
         kanjidic.write(JSON.dump(row), "\n")
       end
     end

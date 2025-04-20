@@ -12,7 +12,6 @@ namespace :jmnedict do
   directory tmp_dir
 
   jmnedict_xml = File.join(tmp_dir, "jmnedict.xml")
-  file jmnedict_xml
 
   desc "Clean up jmnedict temporary files"
   task :clean do
