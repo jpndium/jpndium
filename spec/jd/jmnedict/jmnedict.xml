@@ -1,0 +1,47 @@
+<JMnedict>
+  <entry>
+    <ent_seq>1234567</ent_seq>
+    <k_ele>
+      <keb>(keb1.1)</keb>
+      <ke_inf>(ke_inf1.1)</ke_inf>
+      <ke_inf>(ke_inf1.2)</ke_inf>
+      <ke_pri>foo1</ke_pri>
+      <ke_pri>bar2</ke_pri>
+      <ke_pri>baz</ke_pri>
+    </k_ele>
+    <k_ele>
+      <keb>(keb1.2)</keb>
+      <ke_pri>foo12</ke_pri>
+      <ke_pri>bar23</ke_pri>
+    </k_ele>
+    <r_ele>
+      <reb>(reb1.1)</reb>
+      <re_restr>(re_restr1.1)</re_restr>
+      <re_restr>(re_restr1.2)</re_restr>
+      <re_inf>(re_inf1.1)</re_inf>
+      <re_inf>(re_inf1.2)</re_inf>
+      <re_pri>foo2</re_pri>
+      <re_pri>bar1</re_pri>
+      <re_pri>baz</re_pri>
+    </r_ele>
+    <r_ele>
+      <reb>(reb1.2)</reb>
+      <re_pri>foo23</re_pri>
+      <re_pri>bar12</re_pri>
+    </r_ele>
+    <trans>
+      <name_type>(name_type1.1)</name_type>
+      <name_type>(name_type1.2)</name_type>
+      <xref>(xref1.1)</xref>
+      <xref>(xref1.2)</xref>
+      <trans_det xml:lang="(lang)">(trans_det1.1)</trans_det>
+      <trans_det>(trans_det1.2)</trans_det>
+    </trans>
+  </entry>
+  <entry>
+    <ent_seq>1234568</ent_seq>
+    <r_ele>
+      <reb>(reb2.1)</reb>
+    </r_ele>
+  </entry>
+</JMnedict>

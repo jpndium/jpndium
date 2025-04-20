@@ -1,0 +1,63 @@
+[
+  {
+    "ent_seq": 1234567,
+    "k_ele": [
+      {
+        "keb": "(keb1.1)",
+        "ke_inf": ["(ke_inf1.1)", "(ke_inf1.2)"],
+        "ke_pri": {
+          "foo": 1,
+          "bar": 2
+        }
+      },
+      {
+        "keb": "(keb1.2)",
+        "ke_pri": {
+          "foo": 12,
+          "bar": 23
+        }
+      }
+    ],
+    "r_ele": [
+      {
+        "reb": "(reb1.1)",
+        "re_restr": ["(re_restr1.1)", "(re_restr1.2)"],
+        "re_inf": ["(re_inf1.1)", "(re_inf1.2)"],
+        "re_pri": {
+          "foo": 2,
+          "bar": 1
+        }
+      },
+      {
+        "reb": "(reb1.2)",
+        "re_pri": {
+          "foo": 23,
+          "bar": 12
+        }
+      }
+    ],
+    "trans": [
+      {
+        "name_type": ["(name_type1.1)", "(name_type1.2)"],
+        "xref": ["(xref1.1)", "(xref1.2)"],
+        "trans_det": [
+          {
+            "value": "(trans_det1.1)",
+            "lang": "(lang)"
+          },
+          {
+            "value": "(trans_det1.2)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ent_seq": 1234568,
+    "r_ele": [
+      {
+        "reb": "(reb2.1)"
+      }
+    ]
+  }
+]
