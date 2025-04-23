@@ -51,11 +51,11 @@ namespace :chiseids do
   desc "Update chiseids data file"
   task update: ["download", *archive_files, chiseids_dir] do
     puts "Updating chiseids ..."
-    File.open(chiseids_jsonl, "w") do |chiseids|
+    JD::JsonlWriter.open(chiseids_jsonl) do |chiseids|
       archive_files.each do |path|
         filename = File.basename(path)
         JD::Chiseids::Reader.read_file(path) do |row|
-          chiseids.write(JSON.dump({ filename:, **row }), "\n")
+          chiseids.write({ filename:, **row })
         end
       end
     end

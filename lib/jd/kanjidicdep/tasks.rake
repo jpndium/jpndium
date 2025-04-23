@@ -36,10 +36,9 @@ namespace :kanjidicdep do
     puts "Updating kanjidicdep ..."
     kanjidic = JD::JsonlReader.read_file(kanjidic_jsonl)
     kanjidep = JD::JsonlReader.read_file(kanjidep_jsonl)
-    File.open(kanjidicdep_jsonl, "w") do |kanjidicdep|
-      JD::Kanjidicdep::Reader.read(kanjidic, kanjidep).each do |row|
-        kanjidicdep.write(JSON.dump(row), "\n")
-      end
+    JD::JsonlWriter.open(kanjidicdep_jsonl) do |kanjidicdep|
+      write = kanjidicdep.method(:write)
+      JD::Kanjidicdep::Reader.read(kanjidic, kanjidep).each(&write)
     end
   end
 end

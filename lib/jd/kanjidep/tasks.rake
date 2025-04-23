@@ -23,10 +23,8 @@ namespace :kanjidep do
   task update: ["chiseids:update", chiseids_jsonl, kanjidep_dir] do
     puts "Updating kanjidep ..."
     chiseids = JD::JsonlReader.read_file(chiseids_jsonl)
-    File.open(kanjidep_jsonl, "w") do |kanjidep|
-      JD::Kanjidep::Reader.read(chiseids).each do |row|
-        kanjidep.write(JSON.dump(row), "\n")
-      end
+    JD::JsonlWriter.open(kanjidep_jsonl) do |kanjidep|
+      JD::Kanjidep::Reader.read(chiseids).each(&kanjidep.method(:write))
     end
   end
 end
