@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require "json"
-require "jd/jmnedict/reader"
-
 RSpec.describe JD::Jmnedict::Reader do
   describe ".read" do
     let(:actual) { described_class.read_file("spec/jd/jmnedict/jmnedict.xml") }

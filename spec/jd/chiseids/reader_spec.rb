@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "jd/chiseids/reader"
-
 RSpec.describe JD::Chiseids::Reader do
   let(:row) do
     { codepoint: "U+6CC9", character: "泉", ids: "⿱白水" }

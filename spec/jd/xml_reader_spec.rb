@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "jd/xml_reader"
-
 RSpec.describe JD::XmlReader do
   let(:stream) { "stream" }
   let(:elements) { [1, 2, 3] }

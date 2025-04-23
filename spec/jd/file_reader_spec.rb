@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "jd/file_reader"
-
 RSpec.describe JD::FileReader do
   let(:path) { "path" }
   let(:value) { "value" }

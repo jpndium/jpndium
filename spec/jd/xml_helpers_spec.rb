@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require "nokogiri"
-require "jd/xml_helpers"
-
 RSpec.describe JD::XmlHelpers do
   include described_class
 

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "jd/kanjidep/dependency_resolver"
-
 RSpec.describe JD::Kanjidep::DependencyResolver do
   let(:characters) do
     [

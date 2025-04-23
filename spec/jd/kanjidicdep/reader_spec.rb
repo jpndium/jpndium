@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "jd/kanjidicdep/reader"
-
 RSpec.describe JD::Kanjidicdep::Reader do
   let(:kanjidic_kanji) { %w[A B D E G] }
   let(:kanjidic) do

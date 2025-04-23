@@ -6,6 +6,8 @@ SimpleCov.start do
   add_filter "spec"
 end
 
+require "jd"
+
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     # Create custom descriptions from expectation chains

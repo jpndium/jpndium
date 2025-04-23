@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "jd/jsonl_reader"
-
 RSpec.describe JD::JsonlReader do
   let(:reader) { described_class.new }
 

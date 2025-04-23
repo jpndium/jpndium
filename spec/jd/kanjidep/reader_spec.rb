@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "jd/kanjidep/reader"
-
 RSpec.describe JD::Kanjidep::Reader do
   let(:chiseids) do
     [{ character: "A", ids: "⿰火水⿱土風" }]
