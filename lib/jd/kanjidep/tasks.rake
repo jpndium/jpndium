@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require "json"
-require_relative "../jsonl_reader"
-require_relative "reader"
-
 namespace :kanjidep do
   data_dir = ENV.fetch("DATA_DIR", "data")
   directory data_dir

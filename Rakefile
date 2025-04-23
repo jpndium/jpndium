@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
+require "json"
+require "open-uri"
+require "zlib"
+require_relative "lib/jd"
+
 Dir.glob("lib/**/*.rake").each { |path| load path }
 
 data_modules = %w[chiseids jmdictpri jmnedictpri kanjidep kanjidic kanjidicdep]

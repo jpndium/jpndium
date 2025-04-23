@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require "json"
-require "open-uri"
-require "zlib"
-require_relative "reader"
-
 namespace :jmnedict do
   jmnedict_url = "http://ftp.edrdg.org/pub/Nihongo/JMnedict.xml.gz"
 

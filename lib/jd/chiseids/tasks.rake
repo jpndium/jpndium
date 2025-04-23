@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require "open-uri"
-require "json"
-require_relative "reader"
-
 namespace :chiseids do
   archive_url = "https://github.com/chise/ids/archive/refs/heads/master.zip"
 

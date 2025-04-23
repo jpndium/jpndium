@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require "json"
-require "open-uri"
-require "zlib"
-require_relative "reader"
-
 namespace :jmnedictpri do
   tmp_dir = ENV.fetch("TMP_DIR", "tmp")
 

@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require "json"
-require "open-uri"
-require "zlib"
-require_relative "reader"
-
 namespace :kanjidic do
   kanjidic_url = "http://www.edrdg.org/kanjidic/kanjidic2.xml.gz"
 
