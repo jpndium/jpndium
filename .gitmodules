@@ -1,6 +1,9 @@
 [submodule "data/chiseids"]
 	path = data/chiseids
 	url = git@gitlab.com:mrpudn/jd-chiseids.git
+[submodule "data/jmdict"]
+	path = data/jmdict
+	url = git@gitlab.com:mrpudn/jd-jmdict.git
 [submodule "data/jmdictpri"]
 	path = data/jmdictpri
 	url = git@gitlab.com:mrpudn/jd-jmdictpri.git
