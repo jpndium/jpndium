@@ -16,6 +16,7 @@ The following data modules are available:
 - [data/chiseids](https://gitlab.com/mrpudn/jd-chiseids)
 - [data/jmdict](https://gitlab.com/mrpudn/jd-jmdict)
 - [data/jmdictpri](https://gitlab.com/mrpudn/jd-jmdictpri)
+- [data/jmnedict](https://gitlab.com/mrpudn/jd-jmnedict)
 - [data/jmnedictpri](https://gitlab.com/mrpudn/jd-jmnedictpri)
 - [data/kanjidep](https://gitlab.com/mrpudn/jd-kanjidep)
 - [data/kanjidic](https://gitlab.com/mrpudn/jd-kanjidic)
