@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "file_reader"
-
 module JD
   # Reads lines from a jsonl file.
   class JsonlReader < JD::FileReader

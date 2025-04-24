@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../xml_reader"
-
 module JD
   module Kanjidic
     # Reads character elements from a KANJIDIC2 XML file.

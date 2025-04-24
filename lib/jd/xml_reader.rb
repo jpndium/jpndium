@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require "nokogiri"
-require_relative "file_reader"
-require_relative "xml_helpers"
-
 module JD
   # Reads elements from an XML file.
   class XmlReader < JD::FileReader

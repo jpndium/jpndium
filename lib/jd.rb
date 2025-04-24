@@ -2,6 +2,18 @@
 
 require "json"
 require "nokogiri"
-
-Dir.glob("jd/**/*.rb", base: File.dirname(__FILE__))
-  .each { |path| require_relative path }
+require_relative "jd/file_reader"
+require_relative "jd/jsonl_reader"
+require_relative "jd/jsonl_writer"
+require_relative "jd/xml_helpers"
+require_relative "jd/xml_reader"
+require_relative "jd/chiseids/reader"
+require_relative "jd/jmdict/reader"
+require_relative "jd/jmdictpri/priority_filter"
+require_relative "jd/jmdictpri/reader"
+require_relative "jd/jmnedict/reader"
+require_relative "jd/jmnedictpri/reader"
+require_relative "jd/kanjidep/dependency_resolver"
+require_relative "jd/kanjidep/reader"
+require_relative "jd/kanjidic/reader"
+require_relative "jd/kanjidicdep/reader"

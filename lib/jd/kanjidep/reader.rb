@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require "json"
-require_relative "../jsonl_reader"
-require_relative "dependency_resolver"
-
 module JD
   module Kanjidep
     # Reads chiseids jsonl files and derives dependency information for each

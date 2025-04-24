@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../xml_reader"
-
 module JD
   module Jmnedict
     # Reads character elements from a JMnedict XML file.
