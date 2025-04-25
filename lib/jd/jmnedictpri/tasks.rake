@@ -23,10 +23,9 @@ namespace :jmnedictpri do
   desc "Update jmnedictpri data file"
   task update: ["jmnedict:download", jmnedict_xml, jmnedictpri_dir] do
     puts "Updating jmnedictpri ..."
-    File.open(jmnedictpri_jsonl, "w") do |jmnedictpri|
-      JD::Jmnedictpri::Reader.read_file(jmnedict_xml) do |row|
-        jmnedictpri.write(JSON.dump(row), "\n")
-      end
+    JD::JsonlWriter.open(jmnedictpri_jsonl) do |jmnedictpri|
+      write = jmnedictpri.method(:write)
+      JD::Jmnedictpri::Reader.read_file(jmnedict_xml, &write)
     end
   end
 end
