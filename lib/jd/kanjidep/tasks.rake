@@ -24,7 +24,7 @@ namespace :kanjidep do
     puts "Updating kanjidep ..."
     chiseids = JD::JsonlReader.read_file(chiseids_jsonl)
     JD::JsonlWriter.open(kanjidep_jsonl) do |kanjidep|
-      JD::Kanjidep::Reader.read(chiseids).each(&kanjidep.method(:write))
+      JD::Kanji::DependencyReader.read(chiseids).each(&kanjidep.method(:write))
     end
   end
 end

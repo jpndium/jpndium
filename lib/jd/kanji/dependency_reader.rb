@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module JD
-  module Kanjidep
+  module Kanji
     # Reads chiseids jsonl files and derives dependency information for each
     # Ideographic Description Sequence (IDS).
-    class Reader
+    class DependencyReader
       PREFIXES = <<~CHARACTERS.split.freeze
         ⿰ ⿱ ⿲ ⿳ ⿴ ⿵ ⿶ ⿷ ⿼ ⿸ ⿹ ⿺ ⿽ ⿻ ⿾ ⿿
       CHARACTERS
@@ -20,7 +20,7 @@ module JD
 
       def read
         load_characters
-        resolver = JD::Kanjidep::DependencyResolver.resolve(@characters)
+        resolver = JD::Kanji::DependencyResolver.resolve(@characters)
         @characters.each do |character|
           add_dependency_fields(character, resolver)
           update_joinable_fields(character)

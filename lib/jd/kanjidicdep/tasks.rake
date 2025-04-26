@@ -38,7 +38,7 @@ namespace :kanjidicdep do
     kanjidep = JD::JsonlReader.read_file(kanjidep_jsonl)
     JD::JsonlWriter.open(kanjidicdep_jsonl) do |kanjidicdep|
       write = kanjidicdep.method(:write)
-      JD::Kanjidicdep::Reader.read(kanjidic, kanjidep).each(&write)
+      JD::Kanjidic::DependencyReader.read(kanjidic, kanjidep).each(&write)
     end
   end
 end

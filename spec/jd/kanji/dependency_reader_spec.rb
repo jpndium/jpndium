@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe JD::Kanjidep::Reader do
+RSpec.describe JD::Kanji::DependencyReader do
   let(:chiseids) do
     [{ character: "A", ids: "⿰火水⿱土風" }]
   end
@@ -23,7 +23,7 @@ RSpec.describe JD::Kanjidep::Reader do
   end
 
   before do
-    allow(JD::Kanjidep::DependencyResolver)
+    allow(JD::Kanji::DependencyResolver)
       .to receive(:resolve)
       .and_return(resolver)
   end

@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 module JD
-  module Kanjidicdep
+  module Kanjidic
     # Reads rows from kanjidep and removes kanji not present in kanjidic.
-    class Reader
+    class DependencyReader
       def initialize(kanjidic, kanjidep)
         @kanjidic = kanjidic
         @kanjidic_kanji = kanjidic.to_set { |row| row["literal"] }
