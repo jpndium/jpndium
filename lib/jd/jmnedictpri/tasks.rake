@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
 namespace :jmnedictpri do
-  tmp_dir = ENV.fetch("TMP_DIR", "tmp")
-
-  jmnedict_xml = File.join(tmp_dir, "jmnedict.xml")
-  file jmnedict_xml
-
   data_dir = ENV.fetch("DATA_DIR", "data")
   directory data_dir
+
+  jmnedict_dir = File.join(data_dir, "jmnedict")
+  directory jmnedict_dir => data_dir
+
+  jmnedict_data_dir = File.join(jmnedict_dir, "data")
+  directory jmnedict_data_dir => jmnedict_dir
 
   jmnedictpri_dir = File.join(data_dir, "jmnedictpri")
   directory jmnedictpri_dir => data_dir
@@ -18,14 +19,14 @@ namespace :jmnedictpri do
   task build: %w[clean update]
 
   desc "Clean up jmnedictpri temporary files"
-  task clean: %w[jmnedict:clean]
+  task :clean
 
   desc "Update jmnedictpri data file"
-  task update: ["jmnedict:download", jmnedict_xml, jmnedictpri_dir] do
+  task update: ["jmnedict:update", jmnedict_data_dir, jmnedictpri_dir] do
     puts "Updating jmnedictpri ..."
     JD::JsonlWriter.open(jmnedictpri_jsonl) do |jmnedictpri|
       write = jmnedictpri.method(:write)
-      JD::Jmnedictpri::Reader.read_file(jmnedict_xml, &write)
+      JD::Jmnedictpri::Reader.read(jmnedict_data_dir, &write)
     end
   end
 end

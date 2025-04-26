@@ -10,7 +10,7 @@ module JD
 
       protected
 
-      def read_each(stream)
+      def read_file(path)
         super { |entry| yield entry if priority_entry?(entry) }
       end
 
@@ -19,12 +19,12 @@ module JD
       end
 
       def any_ke_pri?(entry)
-        entry[:k_ele]&.each { |el| return true if el.key?(:ke_pri) }
+        entry["k_ele"]&.each { |el| return true if el.key?("ke_pri") }
         false
       end
 
       def any_re_pri?(entry)
-        entry[:r_ele].each { |el| return true if el.key?(:re_pri) }
+        entry["r_ele"]&.each { |el| return true if el.key?("re_pri") }
         false
       end
     end
