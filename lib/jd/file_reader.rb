@@ -25,10 +25,6 @@ module JD
 
     protected
 
-    def read_line(_line)
-      raise NoMethodError, "#{self.class} must implement #{__method__}"
-    end
-
     def read_all(stream)
       values = []
       read_each(stream) { |value| values << value }
@@ -43,6 +39,10 @@ module JD
 
         yield value
       end
+    end
+
+    def read_line(line)
+      line
     end
   end
 end
