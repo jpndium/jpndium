@@ -26,7 +26,7 @@ namespace :jmnedictpri do
     puts "Updating jmnedictpri ..."
     JD::JsonlWriter.open(jmnedictpri_jsonl) do |jmnedictpri|
       write = jmnedictpri.method(:write)
-      JD::Jmnedictpri::Reader.read(jmnedict_data_dir, &write)
+      JD::Jmnedict::PriorityReader.read(jmnedict_data_dir, &write)
     end
   end
 end

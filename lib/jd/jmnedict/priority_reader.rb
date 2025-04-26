@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 module JD
-  module Jmnedictpri
+  module Jmnedict
     # Reads priority entry elements from jmnedict jsonl files.
-    class Reader < JD::Jmdictpri::Reader
+    class PriorityReader < JD::Jmdict::PriorityReader
     end
   end
 end

@@ -25,7 +25,8 @@ namespace :jmdictpri do
   task update: ["jmdict:update", jmdict_data_dir, jmdictpri_dir] do
     puts "Updating jmdictpri ..."
     JD::JsonlWriter.open(jmdictpri_jsonl) do |jmdictpri|
-      JD::Jmdictpri::Reader.read(jmdict_data_dir, &jmdictpri.method(:write))
+      write = jmdictpri.method(:write)
+      JD::Jmdict::PriorityReader.read(jmdict_data_dir, &write)
     end
   end
 end

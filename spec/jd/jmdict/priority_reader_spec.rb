@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe JD::Jmdictpri::Reader do
+RSpec.describe JD::Jmdict::PriorityReader do
   describe ".read" do
     let(:entries) { JSON.load_file("spec/jd/jmdict/jmdict.json") }
     let(:lines) { entries.map(&JSON.method(:dump)) }
