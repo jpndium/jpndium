@@ -8,7 +8,14 @@ require_relative "lib/jd"
 Dir.glob("lib/**/*.rake").each { |path| load path }
 
 data_modules = %w[
-  chiseids jmdict jmdict:pri jmnedict jmnedict:pri kanjidep kanjidic kanjidicdep
+  chiseids
+  jmdict
+  jmdict:pri
+  jmnedict
+  jmnedict:pri
+  kanji:dep
+  kanjidic
+  kanjidic:dep
 ]
 
 task default: :build
