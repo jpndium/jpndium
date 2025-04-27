@@ -60,6 +60,10 @@ kanjidic = "data/kanjidic/data.jsonl".then(&jsonl_read)
 jmdict = "data/jmdict/data/*.jsonl".then(&jsonl_read_glob)
 ```
 
+## Contributing
+
+See: [CONTRIBUTING.md](CONTRIBUTING.md)
+
 ## License
 
 See: [LICENSE](LICENSE)
