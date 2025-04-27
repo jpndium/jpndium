@@ -8,25 +8,51 @@ stages:
   - lint
   - test
 
+.setup_ruby: &setup_ruby
+  - ruby --version
+  - gem --version
+  - bundle --version
+  - bundle install
+
 .ruby:
   image: "ruby:3.4"
   before_script: &ruby_before_script
-    - ruby --version
-    - bundle --version
-    - gem --version
-    - bundle install
+    - apt-get -qy update
+    - apt-get -qy install build-essential curl
+    - *setup_ruby
 
-rubocop:
+.setup_mise: &setup_mise
+  - curl https://mise.run | sh
+  - eval "$(~/.local/bin/mise activate bash --shims)"
+  - mise --version
+
+.setup_python: &setup_python
+  - mise use --global python@3.13.2
+  - python --version
+  - pip --version
+  - pip install --user pipenv
+  - pipenv --version
+  - pipenv install --dev
+
+.ruby_python:
+  extends:
+    - .ruby
+  before_script:
+    - *ruby_before_script
+    - *setup_mise
+    - *setup_python
+
+lint:
   extends:
     - .ruby
   stage: lint
   script:
     - bin/rubocop
 
-rspec:
+test:
   extends:
-    - .ruby
+    - .ruby_python
   stage: test
   script:
-    - bin/rspec
+    - pipenv run bin/rspec
   coverage: "/Line Coverage: (\\d+\\.\\d+)%.*/"
