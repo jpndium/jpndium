@@ -7,6 +7,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+sudachidict-core = "*"
+sudachipy = "*"
 
 [dev-packages]
 ipython = "*"
