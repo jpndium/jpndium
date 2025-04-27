@@ -1,0 +1,13 @@
+[pipenv]
+sort_pipfile = true
+
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+
+[dev-packages]
+
+[requires]

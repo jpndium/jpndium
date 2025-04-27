@@ -4,9 +4,26 @@ A repository of data related to the Japanese language.
 
 ## Getting Started
 
+This project has both [Ruby] and [Python] dependencies. It is recommended that
+you use [Pipenv] to install the Python dependencies.
+
+[Ruby]: https://www.ruby-lang.org
+[Python]: https://www.python.org
+[Pipenv]: https://pipenv.pypa.io
+
 Install Ruby dependencies:
 ```
 bundle install
+```
+
+If you don't have Pipenv installed, you can install it with `pip`:
+```
+pip install --user pipenv
+```
+
+Install Python dependencies:
+```
+pipenv install
 ```
 
 The data created and redistributed by this project is located separately and is
@@ -21,11 +38,6 @@ To update the data in each of these modules to the very latest version, build
 the project with Rake:
 ```
 bin/rake build
-```
-
-To list the available Rake tasks:
-```
-bin/rake -T
 ```
 
 ## Data Modules

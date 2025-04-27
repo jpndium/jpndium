@@ -1,4 +1,13 @@
-#!/usr/bin/env ruby
-# frozen_string_literal: true
+#!/usr/bin/env bash
 
-load Gem.bin_path("rake", "rake")
+command_available() { command -v $1 2>&1 >/dev/null; }
+pipenv_available() { [ "$PIPENV_ACTIVE" != "1" ] && command_available pipenv; }
+bundle_available() { command_available bundle; }
+
+if pipenv_available; then
+  pipenv run bundle exec rake $@
+elif bundle_available; then
+  bundle exec rake $@
+else
+  echo "Error: Neither pipenv nor bundler available!"
+fi

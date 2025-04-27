@@ -8,9 +8,10 @@ this document should help you make your contribution.
 Install development dependencies:
 ```
 bundle install
+pipenv install --dev
 ```
 
-Lint files with [Rubocop]:
+Lint Ruby files with [Rubocop]:
 ```
 bin/rubocop
 ```
@@ -23,6 +24,18 @@ bin/rspec
 ```
 
 [RSpec]: https://rspec.info
+
+Update the data in the data modules with [Rake]:
+```
+bin/rake build
+```
+
+[Rake]: https://ruby.github.io/rake/
+
+For a list of the available Rake tasks run:
+```
+bin/rake -T
+```
 
 ## Conventions
 
