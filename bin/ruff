@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+command_available() { command -v $1 2>&1 >/dev/null; }
+pipenv_available() { [ "$PIPENV_ACTIVE" != "1" ] && command_available pipenv; }
+ruff_available() { command_available ruff; }
+
+if pipenv_available; then
+  pipenv run ruff $@
+elif ruff_available; then
+  ruff $@
+else
+  echo "Error: Neither pipenv nor ruff available!"
+fi

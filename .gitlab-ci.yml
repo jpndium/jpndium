@@ -44,10 +44,12 @@ stages:
 
 lint:
   extends:
-    - .ruby
+    - .ruby_python
   stage: lint
   script:
     - bin/rubocop
+    - pipenv run ruff format --diff
+    - pipenv run ruff check
 
 test:
   extends:

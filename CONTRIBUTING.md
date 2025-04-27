@@ -18,6 +18,14 @@ bin/rubocop
 
 [Rubocop]: https://rubocop.org
 
+Format and lint Python files with [Ruff]:
+```
+bin/ruff format
+bin/ruff check
+```
+
+[Ruff]: https://docs.astral.sh/ruff/
+
 Run the tests with [RSpec]:
 ```
 bin/rspec

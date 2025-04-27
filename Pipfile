@@ -10,5 +10,6 @@ name = "pypi"
 
 [dev-packages]
 ipython = "*"
+ruff = "*"
 
 [requires]
