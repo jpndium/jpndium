@@ -1,6 +1,6 @@
-# jd
+# jpnd
 
-Japanese Data (JD), a repository of data related to the Japanese language.
+A repository of data related to the Japanese language.
 
 ## Getting Started
 
@@ -31,14 +31,14 @@ bin/rake -T
 ## Data Modules
 
 The following data modules are available:
-- [chiseids](https://gitlab.com/mrpudn/jd-chiseids)
-- [jmdict](https://gitlab.com/mrpudn/jd-jmdict)
-- [jmdictpri](https://gitlab.com/mrpudn/jd-jmdictpri)
-- [jmnedict](https://gitlab.com/mrpudn/jd-jmnedict)
-- [jmnedictpri](https://gitlab.com/mrpudn/jd-jmnedictpri)
-- [kanjidep](https://gitlab.com/mrpudn/jd-kanjidep)
-- [kanjidic](https://gitlab.com/mrpudn/jd-kanjidic)
-- [kanjidicdep](https://gitlab.com/mrpudn/jd-kanjidicdep)
+- [chiseids](https://gitlab.com/jpnd/data-chiseids)
+- [jmdict](https://gitlab.com/jpnd/data-jmdict)
+- [jmdictpri](https://gitlab.com/jpnd/data-jmdictpri)
+- [jmnedict](https://gitlab.com/jpnd/data-jmnedict)
+- [jmnedictpri](https://gitlab.com/jpnd/data-jmnedictpri)
+- [kanjidep](https://gitlab.com/jpnd/data-kanjidep)
+- [kanjidic](https://gitlab.com/jpnd/data-kanjidic)
+- [kanjidicdep](https://gitlab.com/jpnd/data-kanjidicdep)
 
 All data in this project is stored in JSON lines (`.jsonl`) format. Each line in
 these files is a JSON object.

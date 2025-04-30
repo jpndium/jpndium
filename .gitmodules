@@ -1,24 +1,24 @@
 [submodule "data/chiseids"]
 	path = data/chiseids
-	url = git@gitlab.com:mrpudn/jd-chiseids.git
+	url = git@gitlab.com:jpnd/data-chiseids.git
 [submodule "data/jmdict"]
 	path = data/jmdict
-	url = git@gitlab.com:mrpudn/jd-jmdict.git
+	url = git@gitlab.com:jpnd/data-jmdict.git
 [submodule "data/jmdictpri"]
 	path = data/jmdictpri
-	url = git@gitlab.com:mrpudn/jd-jmdictpri.git
+	url = git@gitlab.com:jpnd/data-jmdictpri.git
 [submodule "data/jmnedict"]
 	path = data/jmnedict
-	url = git@gitlab.com:mrpudn/jd-jmnedict.git
+	url = git@gitlab.com:jpnd/data-jmnedict.git
 [submodule "data/jmnedictpri"]
 	path = data/jmnedictpri
-	url = git@gitlab.com:mrpudn/jd-jmnedictpri.git
+	url = git@gitlab.com:jpnd/data-jmnedictpri.git
 [submodule "data/kanjidep"]
 	path = data/kanjidep
-	url = git@gitlab.com:mrpudn/jd-kanjidep.git
+	url = git@gitlab.com:jpnd/data-kanjidep.git
 [submodule "data/kanjidic"]
 	path = data/kanjidic
-	url = git@gitlab.com:mrpudn/jd-kanjidic.git
+	url = git@gitlab.com:jpnd/data-kanjidic.git
 [submodule "data/kanjidicdep"]
 	path = data/kanjidicdep
-	url = git@gitlab.com:mrpudn/jd-kanjidicdep.git
+	url = git@gitlab.com:jpnd/data-kanjidicdep.git
