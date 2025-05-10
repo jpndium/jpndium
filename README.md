@@ -61,9 +61,9 @@ echo -e "日本語は日本の言語です。" | bin/rake tokenize_unique
 
 The following data modules are available:
 - [chiseids](https://gitlab.com/jpnd/data-chiseids)
+- [chiseidsdep](https://gitlab.com/jpnd/data-chiseidsdep)
 - [jmdict](https://gitlab.com/jpnd/data-jmdict)
 - [jmnedict](https://gitlab.com/jpnd/data-jmnedict)
-- [kanjidep](https://gitlab.com/jpnd/data-kanjidep)
 - [kanjidic](https://gitlab.com/jpnd/data-kanjidic)
 - [kanjidicdep](https://gitlab.com/jpnd/data-kanjidicdep)
 

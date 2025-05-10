@@ -1,15 +1,15 @@
 [submodule "data/chiseids"]
 	path = data/chiseids
 	url = git@gitlab.com:jpnd/data-chiseids.git
+[submodule "data/chiseidsdep"]
+	path = data/chiseidsdep
+	url = git@gitlab.com:jpnd/data-chiseidsdep.git
 [submodule "data/jmdict"]
 	path = data/jmdict
 	url = git@gitlab.com:jpnd/data-jmdict.git
 [submodule "data/jmnedict"]
 	path = data/jmnedict
 	url = git@gitlab.com:jpnd/data-jmnedict.git
-[submodule "data/kanjidep"]
-	path = data/kanjidep
-	url = git@gitlab.com:jpnd/data-kanjidep.git
 [submodule "data/kanjidic"]
 	path = data/kanjidic
 	url = git@gitlab.com:jpnd/data-kanjidic.git

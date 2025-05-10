@@ -2,20 +2,20 @@
 
 module JD
   module Kanjidic
-    # Reads rows from kanjidep and removes kanji not present in kanjidic.
+    # Reads rows from chiseidsdep and removes kanji not present in kanjidic.
     class DependencyReader
-      def initialize(kanjidic, kanjidep)
+      def initialize(kanjidic, chiseidsdep)
         @kanjidic = kanjidic
         @kanjidic_kanji = kanjidic.to_set { |row| row["literal"] }
-        @kanjidep = kanjidep
+        @chiseidsdep = chiseidsdep
       end
 
-      def self.read(kanjidic, kanjidep)
-        new(kanjidic, kanjidep).read
+      def self.read(kanjidic, chiseidsdep)
+        new(kanjidic, chiseidsdep).read
       end
 
       def read
-        @kanjidep
+        @chiseidsdep
           .select { |row| @kanjidic_kanji.member?(row["character"]) }
           .map { |row| read_row(row) }
       end

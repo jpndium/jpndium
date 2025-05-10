@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe JD::Kanji::DependencyReader do
+RSpec.describe JD::Chiseids::DependencyReader do
   let(:chiseids) do
     [{ character: "A", ids: "⿰火水⿱土風" }]
   end
@@ -14,7 +14,7 @@ RSpec.describe JD::Kanji::DependencyReader do
       )
     resolver
   end
-  let(:kanjidep) do
+  let(:chiseidsdep) do
     described_class
       .read(JSON.parse(JSON.dump(chiseids)))
       .each_with_object({}) do |character, hash|
@@ -23,7 +23,7 @@ RSpec.describe JD::Kanji::DependencyReader do
   end
 
   before do
-    allow(JD::Kanji::DependencyResolver)
+    allow(JD::Chiseids::DependencyResolver)
       .to receive(:resolve)
       .and_return(resolver)
   end
@@ -34,7 +34,7 @@ RSpec.describe JD::Kanji::DependencyReader do
     end
 
     it "sets the pattern to the prefix characters from the IDS" do
-      expect(kanjidep["A"][:pattern]).to eq("⿰ ⿱")
+      expect(chiseidsdep["A"][:pattern]).to eq("⿰ ⿱")
     end
 
     context "when the IDS has no prefix characters" do
@@ -43,7 +43,7 @@ RSpec.describe JD::Kanji::DependencyReader do
       end
 
       it "sets the pattern to an empty array" do
-        expect(kanjidep["A"][:pattern]).to eq("")
+        expect(chiseidsdep["A"][:pattern]).to eq("")
       end
     end
 
@@ -53,7 +53,7 @@ RSpec.describe JD::Kanji::DependencyReader do
       end
 
       it "reads the codepoint as one character" do
-        expect(kanjidep["A"][:composition])
+        expect(chiseidsdep["A"][:composition])
           .to eq("火 &ABC-123A; &DEF-456B; 風")
       end
     end
@@ -68,15 +68,15 @@ RSpec.describe JD::Kanji::DependencyReader do
       end
 
       it "ignores a bracketed character" do
-        expect(kanjidep["A"][:composition]).to eq("鄉 香")
+        expect(chiseidsdep["A"][:composition]).to eq("鄉 香")
       end
 
       it "ignores bracketed text" do
-        expect(kanjidep["B"][:composition]).to eq("鄉 香")
+        expect(chiseidsdep["B"][:composition]).to eq("鄉 香")
       end
 
       it "ignores multiple bracketed text instances" do
-        expect(kanjidep["C"][:composition]).to eq("鄉 香")
+        expect(chiseidsdep["C"][:composition]).to eq("鄉 香")
       end
     end
 
@@ -89,11 +89,11 @@ RSpec.describe JD::Kanji::DependencyReader do
       end
 
       it "ignores a secondary sequence" do
-        expect(kanjidep["A"][:composition]).to eq("开 龍")
+        expect(chiseidsdep["A"][:composition]).to eq("开 龍")
       end
 
       it "ignores all additional sequences" do
-        expect(kanjidep["B"][:composition]).to eq("开 龍")
+        expect(chiseidsdep["B"][:composition]).to eq("开 龍")
       end
     end
 
@@ -106,20 +106,20 @@ RSpec.describe JD::Kanji::DependencyReader do
       end
 
       it "ignores a space character" do
-        expect(kanjidep["A"][:composition]).to eq("𦥑 冖 同 一 丿 且 分")
+        expect(chiseidsdep["A"][:composition]).to eq("𦥑 冖 同 一 丿 且 分")
       end
 
       it "ignores multiple space characters" do
-        expect(kanjidep["B"][:composition]).to eq("𦥑 冖 同 一 丿 且 分")
+        expect(chiseidsdep["B"][:composition]).to eq("𦥑 冖 同 一 丿 且 分")
       end
     end
 
     it "adds dependencies to each character" do
-      expect(kanjidep["A"][:dependencies]).to eq("dependencies")
+      expect(chiseidsdep["A"][:dependencies]).to eq("dependencies")
     end
 
     it "adds dependents to each character" do
-      expect(kanjidep["A"][:dependents]).to eq("dependents")
+      expect(chiseidsdep["A"][:dependents]).to eq("dependents")
     end
   end
 end

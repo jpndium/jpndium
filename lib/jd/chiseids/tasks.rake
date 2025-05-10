@@ -7,9 +7,7 @@ namespace :chiseids do
   directory tmp_dir
 
   archive_zip = File.join(tmp_dir, "chiseids.zip")
-
   archive_dir = File.join(tmp_dir, "chiseids")
-
   archive_files = [
     "IDS-UCS-Basic.txt",
     "IDS-UCS-Ext-A.txt",
@@ -71,5 +69,28 @@ namespace :chiseids do
     puts "Extracting chiseids ..."
     rm_rf archive_dir
     sh %(unzip #{archive_zip} -d #{archive_dir})
+  end
+
+  namespace :dep do
+    chiseidsdep_dir = File.join(data_dir, "chiseidsdep")
+    directory chiseidsdep_dir => data_dir
+
+    chiseidsdep_jsonl = File.join(chiseidsdep_dir, "data.jsonl")
+
+    desc "Build chiseidsdep data file"
+    task build: %w[clean update]
+
+    desc "Clean up chiseidsdep temporary files"
+    task :clean
+
+    desc "Update chiseidsdep data file"
+    task update: ["chiseids:update", chiseids_jsonl, chiseidsdep_dir] do
+      puts "Updating chiseidsdep ..."
+      chiseids = JD::JsonlReader.read_file(chiseids_jsonl)
+      JD::JsonlWriter.open(chiseidsdep_jsonl) do |chiseidsdep|
+        write = chiseidsdep.method(:write)
+        JD::Chiseids::DependencyReader.read(chiseids).each(&write)
+      end
+    end
   end
 end

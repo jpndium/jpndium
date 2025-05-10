@@ -7,7 +7,7 @@ RSpec.describe JD::Kanjidic::DependencyReader do
       { "literal" => kanji }
     end
   end
-  let(:kanjidep) do
+  let(:chiseidsdep) do
     [
       {
         "character" => "A",
@@ -25,7 +25,7 @@ RSpec.describe JD::Kanjidic::DependencyReader do
       }
     ]
   end
-  let(:kanjidicdep) { described_class.read(kanjidic, kanjidep) }
+  let(:kanjidicdep) { described_class.read(kanjidic, chiseidsdep) }
   let(:expected) do
     [
       {

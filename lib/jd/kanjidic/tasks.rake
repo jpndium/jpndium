@@ -44,9 +44,9 @@ namespace :kanjidic do
   end
 
   namespace :dep do
-    kanjidep_dir = File.join(data_dir, "kanjidep")
-    kanjidep_jsonl = File.join(kanjidep_dir, "data.jsonl")
-    file kanjidep_jsonl => kanjidep_dir
+    chiseidsdep_dir = File.join(data_dir, "chiseidsdep")
+    chiseidsdep_jsonl = File.join(chiseidsdep_dir, "data.jsonl")
+    file chiseidsdep_jsonl => chiseidsdep_dir
 
     kanjidicdep_dir = File.join(data_dir, "kanjidicdep")
     directory kanjidicdep_dir => data_dir
@@ -62,8 +62,8 @@ namespace :kanjidic do
     update_dependencies = [
       "kanjidic:update",
       kanjidic_jsonl,
-      "kanji:dep:update",
-      kanjidep_jsonl,
+      "chiseids:dep:update",
+      chiseidsdep_jsonl,
       kanjidicdep_dir
     ]
 
@@ -71,10 +71,10 @@ namespace :kanjidic do
     task update: update_dependencies do
       puts "Updating kanjidicdep ..."
       kanjidic = JD::JsonlReader.read_file(kanjidic_jsonl)
-      kanjidep = JD::JsonlReader.read_file(kanjidep_jsonl)
+      chiseidsdep = JD::JsonlReader.read_file(chiseidsdep_jsonl)
       JD::JsonlWriter.open(kanjidicdep_jsonl) do |kanjidicdep|
         write = kanjidicdep.method(:write)
-        JD::Kanjidic::DependencyReader.read(kanjidic, kanjidep).each(&write)
+        JD::Kanjidic::DependencyReader.read(kanjidic, chiseidsdep).each(&write)
       end
     end
   end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module JD
-  module Kanji
+  module Chiseids
     # Determines kanji dependencies and dependents.
     class DependencyResolver
       attr_reader :dependencies, :dependents
