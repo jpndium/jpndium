@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "json"
+require "open3"
 require "nokogiri"
 require_relative "jd/file_reader"
 require_relative "jd/jsonl_reader"
@@ -12,6 +13,7 @@ require_relative "jd/directory_writer"
 require_relative "jd/jsonl_directory_writer"
 require_relative "jd/xml_helpers"
 require_relative "jd/xml_reader"
+require_relative "jd/tokenizer"
 require_relative "jd/chiseids/reader"
 require_relative "jd/jmdict/reader"
 require_relative "jd/jmdict/priority_reader"
