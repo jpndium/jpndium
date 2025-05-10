@@ -40,6 +40,23 @@ the project with Rake:
 bin/rake build
 ```
 
+### Tokenizer
+
+You can pipe Japanese text to the `tokenize` Rake task to split it into tokens:
+```
+echo -e "日本語は日本の言語です。" | bin/rake tokenize
+```
+
+Use `cat` to tokenize lines of text from a file:
+```
+cat text.txt | bin/rake tokenize
+```
+
+To ignore duplicate tokens use the `tokenize_unique` Rake task instead:
+```
+echo -e "日本語は日本の言語です。" | bin/rake tokenize_unique
+```
+
 ## Data Modules
 
 The following data modules are available:
