@@ -48,26 +48,4 @@ namespace :jmdict do
       JD::Jmdict::Reader.read_file(jmdict_xml, &jmdict.method(:write))
     end
   end
-
-  namespace :pri do
-    jmdictpri_dir = File.join(data_dir, "jmdictpri")
-    directory jmdictpri_dir => data_dir
-
-    jmdictpri_jsonl = File.join(jmdictpri_dir, "data.jsonl")
-
-    desc "Build jmdictpri data file"
-    task build: %w[clean update]
-
-    desc "Clean up jmdictpri temporary files"
-    task :clean
-
-    desc "Update jmdictpri data file"
-    task update: ["jmdict:update", jmdict_data_dir, jmdictpri_dir] do
-      puts "Updating jmdictpri ..."
-      JD::JsonlWriter.open(jmdictpri_jsonl) do |jmdictpri|
-        write = jmdictpri.method(:write)
-        JD::Jmdict::PriorityReader.read(jmdict_data_dir, &write)
-      end
-    end
-  end
 end

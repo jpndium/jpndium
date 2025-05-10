@@ -4,15 +4,9 @@
 [submodule "data/jmdict"]
 	path = data/jmdict
 	url = git@gitlab.com:jpnd/data-jmdict.git
-[submodule "data/jmdictpri"]
-	path = data/jmdictpri
-	url = git@gitlab.com:jpnd/data-jmdictpri.git
 [submodule "data/jmnedict"]
 	path = data/jmnedict
 	url = git@gitlab.com:jpnd/data-jmnedict.git
-[submodule "data/jmnedictpri"]
-	path = data/jmnedictpri
-	url = git@gitlab.com:jpnd/data-jmnedictpri.git
 [submodule "data/kanjidep"]
 	path = data/kanjidep
 	url = git@gitlab.com:jpnd/data-kanjidep.git

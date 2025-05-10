@@ -10,9 +10,7 @@ Dir.glob("lib/**/*.rake").each { |path| load path }
 data_modules = %w[
   chiseids
   jmdict
-  jmdict:pri
   jmnedict
-  jmnedict:pri
   kanji:dep
   kanjidic
   kanjidic:dep
