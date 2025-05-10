@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe JD::DirectoryReader do
+RSpec.describe Jpndium::DirectoryReader do
   let(:paths) do
     3.times.map { |i| "hello/00#{i + 1}.txt" }
   end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module JD
+module Jpndium
   module Chiseids
     # Determines kanji dependencies and dependents.
     class DependencyResolver

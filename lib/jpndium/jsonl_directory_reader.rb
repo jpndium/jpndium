@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module JD
+module Jpndium
   # Reads a directory of jsonl files.
-  class JsonlDirectoryReader < JD::DirectoryReader
+  class JsonlDirectoryReader < Jpndium::DirectoryReader
     def initialize(*, **)
       super(*, file_extension: "jsonl", **)
     end
@@ -16,7 +16,7 @@ module JD
     private
 
     def jsonl_reader
-      @jsonl_reader ||= JD::JsonlReader.new
+      @jsonl_reader ||= Jpndium::JsonlReader.new
     end
   end
 end

@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-module JD
+module Jpndium
   module Kanjidic
     # Reads character elements from a KANJIDIC2 XML file.
-    class Reader < JD::XmlReader
+    class Reader < Jpndium::XmlReader
       def initialize
         super
         @element_name = "character"

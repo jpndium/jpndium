@@ -44,8 +44,9 @@ namespace :jmnedict do
   desc "Update jmnedict data file"
   task update: [:download, jmnedict_xml, :clean_data, jmnedict_data_dir] do
     puts "Updating jmnedict ..."
-    JD::JsonlDirectoryWriter.open(jmnedict_data_dir) do |jmnedict|
-      JD::Jmnedict::Reader.read_file(jmnedict_xml, &jmnedict.method(:write))
+    Jpndium::JsonlDirectoryWriter.open(jmnedict_data_dir) do |jmnedict|
+      write = jmnedict.method(:write)
+      Jpndium::Jmnedict::Reader.read_file(jmnedict_xml, &write)
     end
   end
 end

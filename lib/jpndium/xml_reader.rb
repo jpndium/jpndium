@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-module JD
+module Jpndium
   # Reads elements from an XML file.
-  class XmlReader < JD::FileReader
-    include JD::XmlHelpers
+  class XmlReader < Jpndium::FileReader
+    include Jpndium::XmlHelpers
 
     def initialize
       super

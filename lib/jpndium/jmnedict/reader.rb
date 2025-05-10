@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-module JD
+module Jpndium
   module Jmnedict
     # Reads character elements from a JMnedict XML file.
-    class Reader < JD::XmlReader
+    class Reader < Jpndium::XmlReader
       def initialize
         super
         @element_name = "entry"

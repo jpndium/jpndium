@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module JD
+module Jpndium
   # Reads lines from a jsonl file.
-  class JsonlReader < JD::FileReader
+  class JsonlReader < Jpndium::FileReader
     protected
 
     def read_line(line)

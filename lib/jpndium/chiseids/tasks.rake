@@ -49,10 +49,10 @@ namespace :chiseids do
   desc "Update chiseids data file"
   task update: ["download", *archive_files, chiseids_dir] do
     puts "Updating chiseids ..."
-    JD::JsonlWriter.open(chiseids_jsonl) do |chiseids|
+    Jpndium::JsonlWriter.open(chiseids_jsonl) do |chiseids|
       archive_files.each do |path|
         filename = File.basename(path)
-        JD::Chiseids::Reader.read_file(path) do |row|
+        Jpndium::Chiseids::Reader.read_file(path) do |row|
           chiseids.write({ filename:, **row })
         end
       end
@@ -86,10 +86,10 @@ namespace :chiseids do
     desc "Update chiseidsdep data file"
     task update: ["chiseids:update", chiseids_jsonl, chiseidsdep_dir] do
       puts "Updating chiseidsdep ..."
-      chiseids = JD::JsonlReader.read_file(chiseids_jsonl)
-      JD::JsonlWriter.open(chiseidsdep_jsonl) do |chiseidsdep|
+      chiseids = Jpndium::JsonlReader.read_file(chiseids_jsonl)
+      Jpndium::JsonlWriter.open(chiseidsdep_jsonl) do |chiseidsdep|
         write = chiseidsdep.method(:write)
-        JD::Chiseids::DependencyReader.read(chiseids).each(&write)
+        Jpndium::Chiseids::DependencyReader.read(chiseids).each(&write)
       end
     end
   end

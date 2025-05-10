@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe JD::Tokenizer do
+RSpec.describe Jpndium::Tokenizer do
   let(:tokenizer) { described_class.new }
   let(:unique_tokenizer) { described_class.new(unique: true) }
 

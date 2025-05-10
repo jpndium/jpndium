@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe JD::FileReader do
+RSpec.describe Jpndium::FileReader do
   let(:path) { "path" }
   let(:lines) { Array.new(3, "line") }
 

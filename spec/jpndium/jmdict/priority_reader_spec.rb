@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe JD::Jmdict::PriorityReader do
+RSpec.describe Jpndium::Jmdict::PriorityReader do
   describe ".read" do
-    let(:entries) { JSON.load_file("spec/jd/jmdict/jmdict.json") }
+    let(:entries) { JSON.load_file("spec/jpndium/jmdict/jmdict.json") }
     let(:lines) { entries.map(&JSON.method(:dump)) }
     let(:actual) { described_class.read("data") }
     let(:expected) { [entries[0]] }

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module JD
+module Jpndium
   # Writes lines to a file.
   class FileWriter
     def initialize(path)

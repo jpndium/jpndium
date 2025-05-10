@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-RSpec.describe JD::Jmdict::Reader do
+RSpec.describe Jpndium::Jmdict::Reader do
   describe ".read" do
-    let(:actual) { described_class.read_file("spec/jd/jmdict/jmdict.xml") }
+    let(:actual) { described_class.read_file("spec/jpndium/jmdict/jmdict.xml") }
     let(:expected) do
       JSON.load_file(
-        "spec/jd/jmdict/jmdict.json",
+        "spec/jpndium/jmdict/jmdict.json",
         { symbolize_names: true }
       )
     end

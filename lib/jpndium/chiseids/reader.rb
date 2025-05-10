@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-module JD
+module Jpndium
   module Chiseids
     # Reads CHISE-IDS ideograph files.
-    class Reader < JD::FileReader
+    class Reader < Jpndium::FileReader
       protected
 
       def read_line(line)

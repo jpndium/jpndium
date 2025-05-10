@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module JD
+module Jpndium
   module Chiseids
     # Reads chiseids jsonl files and derives dependency information for each
     # Ideographic Description Sequence (IDS).
@@ -20,7 +20,7 @@ module JD
 
       def read
         load_characters
-        resolver = JD::Chiseids::DependencyResolver.resolve(@characters)
+        resolver = Jpndium::Chiseids::DependencyResolver.resolve(@characters)
         @characters.each do |character|
           add_dependency_fields(character, resolver)
           update_joinable_fields(character)

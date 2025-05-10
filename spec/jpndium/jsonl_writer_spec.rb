@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe JD::JsonlWriter do
+RSpec.describe Jpndium::JsonlWriter do
   let(:path) { "hello.jsonl" }
   let(:file) do
     file = double

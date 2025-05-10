@@ -1,18 +1,18 @@
 [submodule "data/chiseids"]
 	path = data/chiseids
-	url = git@gitlab.com:jpnd/data-chiseids.git
+	url = git@gitlab.com:jpndium/data-chiseids.git
 [submodule "data/chiseidsdep"]
 	path = data/chiseidsdep
-	url = git@gitlab.com:jpnd/data-chiseidsdep.git
+	url = git@gitlab.com:jpndium/data-chiseidsdep.git
 [submodule "data/jmdict"]
 	path = data/jmdict
-	url = git@gitlab.com:jpnd/data-jmdict.git
+	url = git@gitlab.com:jpndium/data-jmdict.git
 [submodule "data/jmnedict"]
 	path = data/jmnedict
-	url = git@gitlab.com:jpnd/data-jmnedict.git
+	url = git@gitlab.com:jpndium/data-jmnedict.git
 [submodule "data/kanjidic"]
 	path = data/kanjidic
-	url = git@gitlab.com:jpnd/data-kanjidic.git
+	url = git@gitlab.com:jpndium/data-kanjidic.git
 [submodule "data/kanjidicdep"]
 	path = data/kanjidicdep
-	url = git@gitlab.com:jpnd/data-kanjidicdep.git
+	url = git@gitlab.com:jpndium/data-kanjidicdep.git

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module JD
+module Jpndium
   # Reads a directory of files.
   class DirectoryReader
     DEFAULT_FILE_EXTENSION = "txt"
@@ -44,7 +44,7 @@ module JD
     private
 
     def file_reader
-      @file_reader ||= JD::FileReader.new
+      @file_reader ||= Jpndium::FileReader.new
     end
   end
 end

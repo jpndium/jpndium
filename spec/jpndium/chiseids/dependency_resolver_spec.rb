@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe JD::Chiseids::DependencyResolver do
+RSpec.describe Jpndium::Chiseids::DependencyResolver do
   let(:characters) do
     [
       { character: "A", composition: [] },

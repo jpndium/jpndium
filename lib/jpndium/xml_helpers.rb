@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module JD
+module Jpndium
   # Helper methods for reading XML elements.
   module XmlHelpers
     protected

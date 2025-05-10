@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module JD
+module Jpndium
   # Tokenizes Japanese text with Sudachi via a python script.
   class Tokenizer
     SCRIPT_NAME = "tokenizer.py"

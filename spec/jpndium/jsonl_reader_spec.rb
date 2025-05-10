@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe JD::JsonlReader do
+RSpec.describe Jpndium::JsonlReader do
   let(:reader) { described_class.new }
 
   describe "#read_file" do

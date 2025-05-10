@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe JD::FileWriter do
+RSpec.describe Jpndium::FileWriter do
   let(:path) { "hello.txt" }
   let(:file) do
     file = double

@@ -6,7 +6,7 @@ SimpleCov.start do
   add_filter "spec"
 end
 
-require "jd"
+require "jpndium"
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

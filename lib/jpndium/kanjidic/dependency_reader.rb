@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module JD
+module Jpndium
   module Kanjidic
     # Reads rows from chiseidsdep and removes kanji not present in kanjidic.
     class DependencyReader

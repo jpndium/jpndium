@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
-RSpec.describe JD::Kanjidic::Reader do
+RSpec.describe Jpndium::Kanjidic::Reader do
   describe ".read" do
-    let(:actual) { described_class.read_file("spec/jd/kanjidic/kanjidic.xml") }
+    let(:actual) do
+      described_class.read_file("spec/jpndium/kanjidic/kanjidic.xml")
+    end
     let(:expected) do
       JSON.load_file(
-        "spec/jd/kanjidic/kanjidic.json",
+        "spec/jpndium/kanjidic/kanjidic.json",
         { symbolize_names: true }
       )
     end

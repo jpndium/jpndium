@@ -28,8 +28,9 @@ namespace :kanjidic do
   desc "Update kanjidic data file"
   task update: ["download", kanjidic_xml, kanjidic_dir] do
     puts "Updating kanjidic ..."
-    JD::JsonlWriter.open(kanjidic_jsonl) do |kanjidic|
-      JD::Kanjidic::Reader.read_file(kanjidic_xml, &kanjidic.method(:write))
+    Jpndium::JsonlWriter.open(kanjidic_jsonl) do |kanjidic|
+      write = kanjidic.method(:write)
+      Jpndium::Kanjidic::Reader.read_file(kanjidic_xml, &write)
     end
   end
 
@@ -70,11 +71,12 @@ namespace :kanjidic do
     desc "Update kanjidicdep data file"
     task update: update_dependencies do
       puts "Updating kanjidicdep ..."
-      kanjidic = JD::JsonlReader.read_file(kanjidic_jsonl)
-      chiseidsdep = JD::JsonlReader.read_file(chiseidsdep_jsonl)
-      JD::JsonlWriter.open(kanjidicdep_jsonl) do |kanjidicdep|
+      kanjidic = Jpndium::JsonlReader.read_file(kanjidic_jsonl)
+      chiseidsdep = Jpndium::JsonlReader.read_file(chiseidsdep_jsonl)
+      Jpndium::JsonlWriter.open(kanjidicdep_jsonl) do |kanjidicdep|
         write = kanjidicdep.method(:write)
-        JD::Kanjidic::DependencyReader.read(kanjidic, chiseidsdep).each(&write)
+        Jpndium::Kanjidic::DependencyReader.read(kanjidic, chiseidsdep)
+          .each(&write)
       end
     end
   end

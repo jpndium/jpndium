@@ -1,6 +1,6 @@
-# jpnd
+# jpndium
 
-A repository of data related to the Japanese language.
+A compendium of data related to the Japanese language.
 
 ## Getting Started
 
@@ -60,12 +60,12 @@ echo -e "日本語は日本の言語です。" | bin/rake tokenize_unique
 ## Data Modules
 
 The following data modules are available:
-- [chiseids](https://gitlab.com/jpnd/data-chiseids)
-- [chiseidsdep](https://gitlab.com/jpnd/data-chiseidsdep)
-- [jmdict](https://gitlab.com/jpnd/data-jmdict)
-- [jmnedict](https://gitlab.com/jpnd/data-jmnedict)
-- [kanjidic](https://gitlab.com/jpnd/data-kanjidic)
-- [kanjidicdep](https://gitlab.com/jpnd/data-kanjidicdep)
+- [chiseids](https://gitlab.com/jpndium/data-chiseids)
+- [chiseidsdep](https://gitlab.com/jpndium/data-chiseidsdep)
+- [jmdict](https://gitlab.com/jpndium/data-jmdict)
+- [jmnedict](https://gitlab.com/jpndium/data-jmnedict)
+- [kanjidic](https://gitlab.com/jpndium/data-kanjidic)
+- [kanjidicdep](https://gitlab.com/jpndium/data-kanjidicdep)
 
 All data in this project is stored in JSON lines (`.jsonl`) format. Each line in
 these files is a JSON object.

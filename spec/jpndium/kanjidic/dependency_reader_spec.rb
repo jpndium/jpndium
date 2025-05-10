@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe JD::Kanjidic::DependencyReader do
+RSpec.describe Jpndium::Kanjidic::DependencyReader do
   let(:kanjidic_kanji) { %w[A B D E G] }
   let(:kanjidic) do
     kanjidic_kanji.map do |kanji|

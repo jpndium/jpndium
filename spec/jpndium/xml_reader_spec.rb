@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe JD::XmlReader do
+RSpec.describe Jpndium::XmlReader do
   let(:stream) { "stream" }
   let(:elements) { [1, 2, 3] }
   let(:value) { "value" }
@@ -39,7 +39,7 @@ RSpec.describe JD::XmlReader do
 
   describe "#read_element" do
     it "must be implemented" do
-      expected_message = "JD::XmlReader must implement read_element"
+      expected_message = "#{described_class.name} must implement read_element"
       expect { described_class.new.send(:read_element, nil) }
         .to raise_error(NoMethodError, expected_message)
     end

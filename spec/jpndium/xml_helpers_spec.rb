@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe JD::XmlHelpers do
+RSpec.describe Jpndium::XmlHelpers do
   include described_class
 
   def el(content)

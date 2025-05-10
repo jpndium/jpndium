@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe JD::Chiseids::Reader do
+RSpec.describe Jpndium::Chiseids::Reader do
   let(:row) do
     { codepoint: "U+6CC9", character: "泉", ids: "⿱白水" }
   end

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module JD
+module Jpndium
   # Writes lines to a directory of jsonl files.
-  class JsonlDirectoryWriter < JD::DirectoryWriter
+  class JsonlDirectoryWriter < Jpndium::DirectoryWriter
     def initialize(*, **)
       super(*, file_extension: "jsonl", **)
     end

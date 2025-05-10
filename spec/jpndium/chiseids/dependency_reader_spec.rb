@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe JD::Chiseids::DependencyReader do
+RSpec.describe Jpndium::Chiseids::DependencyReader do
   let(:chiseids) do
     [{ character: "A", ids: "⿰火水⿱土風" }]
   end
@@ -23,7 +23,7 @@ RSpec.describe JD::Chiseids::DependencyReader do
   end
 
   before do
-    allow(JD::Chiseids::DependencyResolver)
+    allow(Jpndium::Chiseids::DependencyResolver)
       .to receive(:resolve)
       .and_return(resolver)
   end

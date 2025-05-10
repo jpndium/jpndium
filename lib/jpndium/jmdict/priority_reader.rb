@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-module JD
+module Jpndium
   module Jmdict
     # Reads priority entry elements from jmdict jsonl files.
-    class PriorityReader < JD::JsonlDirectoryReader
+    class PriorityReader < Jpndium::JsonlDirectoryReader
       protected
 
       def read_file(path)

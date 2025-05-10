@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe JD::DirectoryWriter do
+RSpec.describe Jpndium::DirectoryWriter do
   let(:directory_path) { "hello" }
   let(:paths) do
     3.times.map { |i| "#{directory_path}/00#{i + 1}.txt" }

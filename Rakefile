@@ -3,7 +3,7 @@
 require "json"
 require "open-uri"
 require "zlib"
-require_relative "lib/jd"
+require_relative "lib/jpndium"
 
 Dir.glob("lib/**/*.rake").each { |path| load path }
 

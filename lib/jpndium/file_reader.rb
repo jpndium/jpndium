@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module JD
+module Jpndium
   # Reads lines from a file.
   class FileReader
     def self.read_file(...)
