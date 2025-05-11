@@ -2,6 +2,9 @@
 
 A compendium of data related to the Japanese language.
 
+![Build Status](https://gitlab.com/jpndium/jpndium/badges/main/pipeline.svg?ignore_skipped=true)
+![Test Coverage](https://gitlab.com/jpndium/jpndium/badges/main/coverage.svg)
+
 ## Getting Started
 
 This project has both [Ruby] and [Python] dependencies. It is recommended that
