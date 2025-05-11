@@ -17,7 +17,7 @@ module Jpndium
       def read
         @chiseidsdep
           .select { |row| @kanjidic_kanji.member?(row["character"]) }
-          .map { |row| read_row(row) }
+          .map(&method(:read_row))
       end
 
       private
@@ -36,7 +36,7 @@ module Jpndium
         text
           .to_s
           .split
-          .select { |character| kanjidic_kanji?(character) }
+          .select(&method(:kanjidic_kanji?))
           .join(" ")
       end
 

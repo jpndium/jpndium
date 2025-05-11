@@ -23,13 +23,11 @@ module Jpndium
     end
 
     def write(value)
-      @file.write(value, "\n")
-      self
+      tap { @file.write(value, "\n") }
     end
 
     def close
-      @file&.close
-      self
+      tap { @file&.close }
     end
   end
 end

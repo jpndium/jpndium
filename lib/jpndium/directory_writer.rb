@@ -34,8 +34,7 @@ module Jpndium
     end
 
     def close
-      @files&.each_value(&:close)
-      self
+      tap { @files&.each_value(&:close) }
     end
 
     protected

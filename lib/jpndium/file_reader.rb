@@ -16,28 +16,20 @@ module Jpndium
     end
 
     def read(stream, &)
-      if block_given?
-        read_each(stream, &)
-      else
-        read_all(stream)
-      end
+      return read_all(stream) unless block_given?
+
+      read_each(stream, &)
     end
 
     protected
 
     def read_all(stream)
-      values = []
-      read_each(stream) { |value| values << value }
-
-      values
+      [].tap { |values| read_each(stream, &values.method(:append)) }
     end
 
     def read_each(stream)
       stream.each do |line|
-        value = read_line(line)
-        next unless value
-
-        yield value
+        read_line(line).tap { |value| yield value if value }
       end
     end
 

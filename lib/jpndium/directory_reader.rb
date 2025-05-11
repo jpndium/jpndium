@@ -15,20 +15,15 @@ module Jpndium
     end
 
     def read(&)
-      if block_given?
-        read_each(&)
-      else
-        read_all
-      end
+      return read_all unless block_given?
+
+      read_each(&)
     end
 
     protected
 
     def read_all
-      values = []
-      read_each { |value| values << value }
-
-      values
+      [].tap { |values| read_each(&values.method(:append)) }
     end
 
     def read_each(&)

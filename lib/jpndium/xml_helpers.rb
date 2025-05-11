@@ -14,7 +14,7 @@ module Jpndium
     end
 
     def find_content(element, path)
-      compact(find_map(element, path) { |e| compact_content(e) })
+      compact(find_map(element, path, &method(:compact_content)))
     end
 
     def find_map(element, path, &)
