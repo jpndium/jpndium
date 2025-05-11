@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "nokogiri", "~> 1.18"
+gem "nokogiri", ">= 1.18.8"
 gem "rake", "~> 13.2"
 
 group :development do
