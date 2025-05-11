@@ -4,7 +4,7 @@ GEM
     ast (2.4.2)
     diff-lcs (1.6.0)
     docile (1.4.1)
-    json (2.10.1)
+    json (2.11.3)
     language_server-protocol (3.17.0.4)
     lint_roller (1.1.0)
     nokogiri (1.18.8-aarch64-linux-gnu)
@@ -85,6 +85,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  json (>= 2.10.2)
   nokogiri (>= 1.18.8)
   rake (~> 13.2)
   rspec (~> 3.13)
