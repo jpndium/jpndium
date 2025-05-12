@@ -10,8 +10,18 @@ module Jpndium
       @unique = unique
     end
 
-    def self.tokenize(input, *, **, &)
-      self.open(*, **).tokenize(input).read_close(&)
+    def self.tokenize(...)
+      return tokenize_all(...) unless block_given?
+
+      tokenize_each(...)
+    end
+
+    def self.tokenize_all(input, *, **)
+      [].tap { |tokens| tokenize_each(input, *, **, &tokens.method(:append)) }
+    end
+
+    def self.tokenize_each(input, *, **, &)
+      self.open(*, **) { |tokenizer| tokenizer.read(&).tokenize(input) }
     end
 
     def self.open(*, **, &)
@@ -25,31 +35,21 @@ module Jpndium
     end
 
     def tokenize(input)
-      if input.is_a?(IO)
-        write_stream(input)
-      elsif input.is_a?(Array)
-        input.each(&method(:write))
-      else
-        write(input)
+      write(input).then { self }
+    end
+
+    def read
+      @reader = Thread.new do
+        readlines(@stdout) { |line| yield JSON.parse(line) }
       end
       self
     end
 
-    def read_close(&)
-      read(&).tap { close }
-    end
-
-    def read(&)
-      close_stdin
-      return nil unless @stdout
-      return read_each(&) if block_given?
-
-      read_all
-    end
-
     def close
       close_stdin
-      terminate_thread.tap { close_stdout }
+      terminate_reader
+      close_stdout
+      terminate_thread
     end
 
     protected
@@ -64,28 +64,40 @@ module Jpndium
       args.join(" ")
     end
 
-    def write_stream(stream)
-      loop { write(stream.readline) }
-    rescue EOFError
-      # ignore
+    def write(input)
+      if input.is_a?(IO)
+        write_stream(input)
+      elsif input.is_a?(Array)
+        write_array(input)
+      else
+        write_string(input)
+      end
     end
 
-    def write(text)
-      @stdin&.write(text, "\n")
+    def write_stream(input)
+      readlines(input, &method(:write_string))
     end
 
-    def read_all
-      [].tap { |values| read_each(&values.method(:append)) }
+    def write_array(input)
+      input.each(&method(:write_string))
     end
 
-    def read_each
-      loop { yield JSON.parse(@stdout.readline.strip) }
+    def write_string(input)
+      @stdin&.write(input, "\n")
+    end
+
+    def readlines(stream)
+      loop { yield stream.readline } if stream
     rescue EOFError
       # ignore
     end
 
     def close_stdin
       @stdin&.close.then { @stdin = nil }
+    end
+
+    def terminate_reader
+      @reader&.value.tap { @reader = nil }
     end
 
     def close_stdout

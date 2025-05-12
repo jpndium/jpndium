@@ -1,8 +1,15 @@
 # frozen_string_literal: true
 
 RSpec.describe Jpndium::Tokenizer do
+  let(:actual) { [] }
   let(:tokenizer) { described_class.new }
+  let(:open_tokenizer) do
+    tokenizer.open.tap { |t| t.read(&actual.method(:append)) }
+  end
   let(:unique_tokenizer) { described_class.new(unique: true) }
+  let(:open_unique_tokenizer) do
+    unique_tokenizer.open.tap { |t| t.read(&actual.method(:append)) }
+  end
 
   text = "国家公務員"
   tokens = [
@@ -96,26 +103,27 @@ RSpec.describe Jpndium::Tokenizer do
 
   describe "#tokenize" do
     it "returns the tokenizer" do
-      expect(tokenizer.open.tokenize(text)).to eq(tokenizer)
+      expect(open_tokenizer.tokenize(text)).to eq(tokenizer)
       tokenizer.close
     end
 
     context "when passed a string" do
       it "tokenizes the string" do
-        expect(tokenizer.open.tokenize(text).read).to eq(tokens)
+        open_tokenizer.tokenize(text).close
+        expect(actual).to eq(tokens)
       end
     end
 
     context "when passed an array of strings" do
       it "tokenizes the array of strings" do
-        actual = tokenizer.open.tokenize([text, text]).read
+        open_tokenizer.tokenize([text, text]).close
         expect(actual).to eq([*tokens, *tokens])
       end
     end
 
     context "when passed an array of strings in unique mode" do
       it "uniquely tokenizes the array of strings" do
-        actual = unique_tokenizer.open.tokenize([text, text]).read
+        open_unique_tokenizer.tokenize([text, text]).close
         expect(actual).to eq(tokens)
       end
     end
@@ -123,7 +131,7 @@ RSpec.describe Jpndium::Tokenizer do
     context "when passed a stream" do
       it "tokenizes each line of the stream" do
         stream = mock_stream([text, text])
-        actual = tokenizer.open.tokenize(stream).read
+        open_tokenizer.tokenize(stream).close
         expect(actual).to eq([*tokens, *tokens])
       end
     end
@@ -131,7 +139,7 @@ RSpec.describe Jpndium::Tokenizer do
     context "when passed a stream in unique mode" do
       it "uniquely tokenizes each line of the stream" do
         stream = mock_stream([text, text])
-        actual = unique_tokenizer.open.tokenize(stream).read
+        open_unique_tokenizer.tokenize(stream).close
         expect(actual).to eq(tokens)
       end
     end
@@ -144,20 +152,21 @@ RSpec.describe Jpndium::Tokenizer do
   end
 
   describe "#read" do
-    it "return tokens" do
-      expect(tokenizer.open.tokenize(text).read).to eq(tokens)
+    it "returns the tokenizer" do
+      expect(tokenizer.read { nil }).to eq(tokenizer)
     end
 
     context "when the tokenizer is not open" do
-      it "returns nil" do
-        expect(tokenizer.read).to be_nil
+      it "does nothing" do
+        expect do
+          tokenizer.read { nil }.tokenize(text).close
+        end.not_to raise_error
       end
     end
 
     context "when a block is passed" do
-      it "yields each token" do
-        actual = []
-        tokenizer.open.tokenize(text).read(&actual.method(:append))
+      it "yields each token to the block" do
+        open_tokenizer.tokenize(text).close
         expect(actual).to eq(tokens)
       end
     end
