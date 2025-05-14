@@ -22,7 +22,6 @@ require_relative "jpndium/tokenizer"
 
 require_relative "jpndium/chiseids/reader"
 require_relative "jpndium/chiseids/dependency_reader"
-require_relative "jpndium/chiseids/dependency_resolver"
 
 require_relative "jpndium/jmdict/reader"
 require_relative "jpndium/jmdict/priority_reader"
