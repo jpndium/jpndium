@@ -17,6 +17,7 @@ require_relative "jpndium/jsonl_directory_writer"
 require_relative "jpndium/xml_helpers"
 require_relative "jpndium/xml_reader"
 
+require_relative "jpndium/dependency_resolver"
 require_relative "jpndium/tokenizer"
 
 require_relative "jpndium/chiseids/reader"

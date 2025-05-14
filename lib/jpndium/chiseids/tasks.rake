@@ -89,7 +89,7 @@ namespace :chiseids do
       chiseids = Jpndium::JsonlReader.read_file(chiseids_jsonl)
       Jpndium::JsonlWriter.open(chiseidsdep_jsonl) do |chiseidsdep|
         write = chiseidsdep.method(:write)
-        Jpndium::Chiseids::DependencyReader.read(chiseids).each(&write)
+        Jpndium::Chiseids::DependencyReader.read(chiseids, &write)
       end
     end
   end

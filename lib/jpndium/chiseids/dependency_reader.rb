@@ -8,39 +8,57 @@ module Jpndium
       PREFIXES = <<~CHARACTERS.split.freeze
         ⿰ ⿱ ⿲ ⿳ ⿴ ⿵ ⿶ ⿷ ⿼ ⿸ ⿹ ⿺ ⿽ ⿻ ⿾ ⿿
       CHARACTERS
-      JOINABLE_FIELDS = %i[pattern composition dependencies dependents].freeze
 
       def initialize(chiseids)
         @chiseids = chiseids
       end
 
-      def self.read(chiseids)
-        new(chiseids).read
+      def self.read(chiseids, &)
+        new(chiseids).read(&)
       end
 
-      def read
-        load_characters
-        resolver = Jpndium::Chiseids::DependencyResolver.resolve(@characters)
-        @characters.each do |character|
-          add_dependency_fields(character, resolver)
-          update_joinable_fields(character)
-        end
+      def read(&)
+        return read_all unless block_given?
+
+        read_each(&)
       end
 
       private
 
-      def load_characters
-        @characters = @chiseids.map do |row|
-          pattern = row["ids"].chars
-            .select { |character| PREFIXES.include?(character) }
-          composition = split_ids(clean_ids(row["ids"]))
-            .reject { |character| character == row["character"] }
-          {
-            character: row["character"],
-            pattern: pattern,
-            composition: composition
-          }
-        end
+      def read_all
+        [].tap { |r| read_each(&r.method(:append)) }
+      end
+
+      def read_each(&)
+        @chiseids.each { |row| yield read_row(row) }
+      end
+
+      def read_row(row)
+        character = row["character"]
+        pattern = row["ids"].chars.select { |c| PREFIXES.include?(c) }
+        resolution = resolutions[character]
+        {
+          character: character,
+          pattern: pattern.join(" "),
+          composition: compositions[character].join(" "),
+          dependencies: resolution[:dependencies].join(" "),
+          dependents: resolution[:dependents].join(" ")
+        }
+      end
+
+      def resolutions
+        @resolutions ||= Jpndium::DependencyResolver
+          .resolve(compositions)
+          .to_h { |resolution| [resolution[:value], resolution] }
+      end
+
+      def compositions
+        @compositions ||= @chiseids
+          .to_h do |row|
+            composition = split_ids(clean_ids(row["ids"]))
+              .reject { |character| character == row["character"] }
+            [row["character"], composition]
+          end
       end
 
       def clean_ids(ids)
@@ -83,20 +101,6 @@ module Jpndium
 
       def split_on_codepoints(ids)
         ids.split(/(&[^;]*;)/)
-      end
-
-      def add_dependency_fields(character, resolver)
-        dependencies = resolver.fetch_dependencies(character[:character])
-        character[:dependencies] = dependencies
-
-        dependents = resolver.fetch_dependents(character[:character])
-        character[:dependents] = dependents
-      end
-
-      def update_joinable_fields(character)
-        JOINABLE_FIELDS.each do |field|
-          character[field] = character[field].join(" ")
-        end
       end
     end
   end
