@@ -39,11 +39,11 @@ module Jpndium
         resolution = resolutions[character]
         {
           character: character,
-          pattern: pattern.join(" "),
-          composition: compositions[character].join(" "),
-          dependencies: resolution[:dependencies].join(" "),
-          dependents: resolution[:dependents].join(" ")
-        }
+          pattern: list_string(pattern),
+          composition: list_string(compositions[character]),
+          dependencies: list_string(resolution[:dependencies]),
+          dependents: list_string(resolution[:dependents])
+        }.compact
       end
 
       def resolutions
@@ -55,7 +55,7 @@ module Jpndium
       def compositions
         @compositions ||= @chiseids
           .to_h do |row|
-            composition = split_ids(clean_ids(row["ids"]))
+            composition = (split_ids(clean_ids(row["ids"])) || [])
               .reject { |character| character == row["character"] }
             [row["character"], composition]
           end
@@ -101,6 +101,12 @@ module Jpndium
 
       def split_on_codepoints(ids)
         ids.split(/(&[^;]*;)/)
+      end
+
+      def list_string(value)
+        return nil if value.nil? || value.empty?
+
+        value.join(" ")
       end
     end
   end

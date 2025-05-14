@@ -4,7 +4,8 @@ RSpec.describe Jpndium::Chiseids::DependencyReader do
   let(:chiseids) do
     [
       { character: "A", ids: "⿰火水⿱土風" },
-      { character: "B", ids: "⿰火A" }
+      { character: "B", ids: "⿰火A" },
+      { character: "C", ids: "" }
     ]
   end
   let(:chiseidsdep) do
@@ -22,7 +23,13 @@ RSpec.describe Jpndium::Chiseids::DependencyReader do
       end
 
       it "sets the pattern to an empty array" do
-        expect(chiseidsdep[0][:pattern]).to eq("")
+        expect(chiseidsdep[0][:pattern]).to be_nil
+      end
+    end
+
+    context "when a character has no pattern" do
+      it "does not set the pattern" do
+        expect(chiseidsdep[2]).not_to have_key(:pattern)
       end
     end
 
@@ -93,12 +100,30 @@ RSpec.describe Jpndium::Chiseids::DependencyReader do
       end
     end
 
+    context "when a character has no composition" do
+      it "does not set the composition" do
+        expect(chiseidsdep[2]).not_to have_key(:composition)
+      end
+    end
+
     it "adds dependencies to each character" do
       expect(chiseidsdep[0][:dependencies]).to eq("火 水 土 風")
     end
 
+    context "when a character has no dependencies" do
+      it "does not set the dependencies" do
+        expect(chiseidsdep[2]).not_to have_key(:dependencies)
+      end
+    end
+
     it "adds dependents to each character" do
       expect(chiseidsdep[0][:dependents]).to eq("B")
+    end
+
+    context "when a character has no dependents" do
+      it "does not set the dependents" do
+        expect(chiseidsdep[2]).not_to have_key(:dependents)
+      end
     end
 
     context "when given a block" do
@@ -123,8 +148,10 @@ RSpec.describe Jpndium::Chiseids::DependencyReader do
             character: "B",
             pattern: "⿰",
             composition: "火 A",
-            dependencies: "火 水 土 風 A",
-            dependents: ""
+            dependencies: "火 水 土 風 A"
+          },
+          {
+            character: "C"
           }
         ]
       end
