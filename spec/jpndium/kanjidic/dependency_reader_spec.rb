@@ -17,11 +17,19 @@ RSpec.describe Jpndium::Kanjidic::DependencyReader do
         "dependents" => "E F"
       },
       {
-        "character" => "C",
+        "character" => "B",
         "pattern" => "(pattern)",
-        "composition" => nil,
-        "dependencies" => nil,
-        "dependents" => nil
+        "composition" => "Z",
+        "dependencies" => "Z",
+        "dependents" => "Z"
+      },
+      {
+        "character" => "C",
+        "pattern" => "(pattern)"
+      },
+      {
+        "character" => "D",
+        "pattern" => "(pattern)"
       }
     ]
   end
@@ -29,11 +37,19 @@ RSpec.describe Jpndium::Kanjidic::DependencyReader do
   let(:expected) do
     [
       {
-        character: "A",
-        pattern: "(pattern)",
-        composition: "B",
-        dependencies: "B D",
-        dependents: "E"
+        "character" => "A",
+        "pattern" => "(pattern)",
+        "composition" => "B",
+        "dependencies" => "B D",
+        "dependents" => "E"
+      },
+      {
+        "character" => "B",
+        "pattern" => "(pattern)"
+      },
+      {
+        "character" => "D",
+        "pattern" => "(pattern)"
       }
     ]
   end

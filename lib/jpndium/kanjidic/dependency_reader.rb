@@ -4,6 +4,8 @@ module Jpndium
   module Kanjidic
     # Reads rows from chiseidsdep and removes kanji not present in kanjidic.
     class DependencyReader
+      FILTER_FIELDS = %w[composition dependencies dependents].freeze
+
       def initialize(kanjidic, chiseidsdep)
         @kanjidic = kanjidic
         @kanjidic_kanji = kanjidic.to_set { |row| row["literal"] }
@@ -23,13 +25,14 @@ module Jpndium
       private
 
       def read_row(row)
-        {
-          character: row["character"],
-          pattern: row["pattern"],
-          composition: keep_kanjidic_kanji(row["composition"]),
-          dependencies: keep_kanjidic_kanji(row["dependencies"]),
-          dependents: keep_kanjidic_kanji(row["dependents"])
-        }
+        row.clone.tap do |clone|
+          FILTER_FIELDS.each do |field|
+            next unless clone.key?(field)
+
+            clone[field] = keep_kanjidic_kanji(clone[field])
+            clone.delete(field) if clone[field].empty?
+          end
+        end
       end
 
       def keep_kanjidic_kanji(text)
