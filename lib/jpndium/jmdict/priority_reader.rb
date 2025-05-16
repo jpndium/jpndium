@@ -3,11 +3,11 @@
 module Jpndium
   module Jmdict
     # Reads priority entry elements from jmdict jsonl files.
-    class PriorityReader < Jpndium::JsonlDirectoryReader
+    class PriorityReader < Jpndium::JsonlReader
       protected
 
-      def read_file(path)
-        super { |entry| yield entry if priority_entry?(entry) }
+      def read_each(...)
+        super { |e| yield e if priority_entry?(e) }
       end
 
       def priority_entry?(entry)

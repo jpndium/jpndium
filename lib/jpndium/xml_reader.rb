@@ -12,18 +12,16 @@ module Jpndium
 
     protected
 
-    undef_method :read_line
+    def read_each(path)
+      File.open(path) do |file|
+        Nokogiri::XML(file, nil, "UTF-8")
+          .search(@element_name)
+          .each { |e| yield read_element(e) }
+      end
+    end
 
     def read_element(_element)
       raise NoMethodError, "#{self.class} must implement #{__method__}"
-    end
-
-    private
-
-    def read_each(stream)
-      document = Nokogiri::XML(stream, nil, "UTF-8")
-      elements = document.search(@element_name)
-      elements.each { |element| yield read_element(element) }
     end
   end
 end

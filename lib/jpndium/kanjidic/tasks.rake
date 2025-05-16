@@ -30,7 +30,7 @@ namespace :kanjidic do
     puts "Updating kanjidic ..."
     Jpndium::JsonlWriter.open(kanjidic_jsonl) do |kanjidic|
       write = kanjidic.method(:write)
-      Jpndium::Kanjidic::Reader.read_file(kanjidic_xml, &write)
+      Jpndium::Kanjidic::Reader.read(kanjidic_xml, &write)
     end
   end
 
@@ -71,8 +71,8 @@ namespace :kanjidic do
     desc "Update kanjidicdep data file"
     task update: update_dependencies do
       puts "Updating kanjidicdep ..."
-      kanjidic = Jpndium::JsonlReader.read_file(kanjidic_jsonl)
-      chiseidsdep = Jpndium::JsonlReader.read_file(chiseidsdep_jsonl)
+      kanjidic = Jpndium::JsonlReader.read(kanjidic_jsonl)
+      chiseidsdep = Jpndium::JsonlReader.read(chiseidsdep_jsonl)
       Jpndium::JsonlWriter.open(kanjidicdep_jsonl) do |kanjidicdep|
         write = kanjidicdep.method(:write)
         Jpndium::Kanjidic::DependencyReader.read(kanjidic, chiseidsdep)

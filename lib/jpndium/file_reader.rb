@@ -1,35 +1,41 @@
 # frozen_string_literal: true
 
 module Jpndium
-  # Reads lines from a file.
+  # Reads lines from files.
   class FileReader
-    def self.read_file(...)
-      new.read_file(...)
+    def self.read_glob(...)
+      new.read_glob(...)
     end
 
     def self.read(...)
       new.read(...)
     end
 
-    def read_file(path, &)
-      File.open(path) { |file| read(file, &) }
+    def read_glob(...)
+      block_given? ? read_glob_each(...) : read_glob_all(...)
     end
 
-    def read(stream, &)
-      return read_all(stream) unless block_given?
-
-      read_each(stream, &)
+    def read(...)
+      block_given? ? read_each(...) : read_all(...)
     end
 
     protected
 
-    def read_all(stream)
-      [].tap { |values| read_each(stream, &values.method(:append)) }
+    def read_glob_all(*, **)
+      [].tap { |l| read_glob_each(*, **, &l.method(:append)) }
     end
 
-    def read_each(stream)
-      stream.each do |line|
-        read_line(line).tap { |value| yield value if value }
+    def read_glob_each(glob, &)
+      Dir.glob(glob) { |p| read_each(p, &) }
+    end
+
+    def read_all(*, **)
+      [].tap { |l| read_each(*, **, &l.method(:append)) }
+    end
+
+    def read_each(path)
+      File.open(path) do |file|
+        file.each { |l| yield read_line(l) }
       end
     end
 

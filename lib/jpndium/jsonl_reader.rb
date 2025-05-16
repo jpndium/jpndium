@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Jpndium
-  # Reads lines from a jsonl file.
+  # Reads lines from jsonl files.
   class JsonlReader < Jpndium::FileReader
     protected
 

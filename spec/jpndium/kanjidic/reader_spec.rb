@@ -3,7 +3,7 @@
 RSpec.describe Jpndium::Kanjidic::Reader do
   describe ".read" do
     let(:actual) do
-      described_class.read_file("spec/jpndium/kanjidic/kanjidic.xml")
+      described_class.read("spec/jpndium/kanjidic/kanjidic.xml")
     end
     let(:expected) do
       JSON.load_file(

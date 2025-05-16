@@ -6,6 +6,10 @@ module Jpndium
     class Reader < Jpndium::FileReader
       protected
 
+      def read_each(...)
+        super { |line| yield line if line }
+      end
+
       def read_line(line)
         return nil if line.start_with?(";;")
 

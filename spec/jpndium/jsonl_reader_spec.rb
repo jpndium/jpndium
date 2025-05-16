@@ -3,7 +3,7 @@
 RSpec.describe Jpndium::JsonlReader do
   let(:reader) { described_class.new }
 
-  describe "#read_file" do
+  describe "#read" do
     let(:path) { "hello.jsonl" }
     let(:lines) { ['{"hello": true}', '{"goodbye": false}'] }
     let(:expected) { [{ "hello" => true }, { "goodbye" => false }] }
@@ -14,7 +14,7 @@ RSpec.describe Jpndium::JsonlReader do
     end
 
     it "parses each JSON line" do
-      expect(reader.read_file(path)).to match_array(expected)
+      expect(reader.read(path)).to match_array(expected)
     end
   end
 end

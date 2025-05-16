@@ -46,7 +46,7 @@ namespace :jmnedict do
     puts "Updating jmnedict ..."
     Jpndium::JsonlDirectoryWriter.open(jmnedict_data_dir) do |jmnedict|
       write = jmnedict.method(:write)
-      Jpndium::Jmnedict::Reader.read_file(jmnedict_xml, &write)
+      Jpndium::Jmnedict::Reader.read(jmnedict_xml, &write)
     end
   end
 end

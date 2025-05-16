@@ -3,7 +3,7 @@
 RSpec.describe Jpndium::Jmnedict::Reader do
   describe ".read" do
     let(:actual) do
-      described_class.read_file("spec/jpndium/jmnedict/jmnedict.xml")
+      described_class.read("spec/jpndium/jmnedict/jmnedict.xml")
     end
     let(:expected) do
       JSON.load_file(

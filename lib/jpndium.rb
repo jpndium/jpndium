@@ -6,12 +6,10 @@ require "nokogiri"
 
 require_relative "jpndium/file_reader"
 require_relative "jpndium/file_writer"
-require_relative "jpndium/directory_reader"
 require_relative "jpndium/directory_writer"
 
 require_relative "jpndium/jsonl_reader"
 require_relative "jpndium/jsonl_writer"
-require_relative "jpndium/jsonl_directory_reader"
 require_relative "jpndium/jsonl_directory_writer"
 
 require_relative "jpndium/xml_helpers"

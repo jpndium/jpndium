@@ -4,7 +4,7 @@ RSpec.describe Jpndium::Jmnedict::PriorityReader do
   describe ".read" do
     let(:entries) { JSON.load_file("spec/jpndium/jmnedict/jmnedict.json") }
     let(:lines) { entries.map(&JSON.method(:dump)) }
-    let(:actual) { described_class.read("data") }
+    let(:actual) { described_class.read_glob("data") }
     let(:expected) { [entries[0]] }
 
     before do
