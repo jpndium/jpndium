@@ -10,4 +10,5 @@ elif ruff_available; then
   ruff $@
 else
   echo "Error: Neither pipenv nor ruff available!"
+  exit 1
 fi

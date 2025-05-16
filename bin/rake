@@ -10,4 +10,5 @@ elif bundle_available; then
   bundle exec rake $@
 else
   echo "Error: Neither pipenv nor bundler available!"
+  exit 1
 fi
