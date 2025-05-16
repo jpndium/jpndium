@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Jpndium::JsonlDirectoryWriter do
+RSpec.describe Jpndium::JsonlSequenceWriter do
   let(:directory_path) { "foobar" }
   let(:path) { "#{directory_path}/001.jsonl" }
   let(:file) do

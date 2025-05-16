@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Jpndium
-  # Writes lines to a directory of files.
-  class DirectoryWriter < Jpndium::FileWriter
+  # Writes lines to a sequence of files.
+  class FileSequenceWriter < Jpndium::FileWriter
     DEFAULT_MAX_LINES = 100_000
     DEFAULT_MAX_DIGITS = 3
     DEFAULT_FILE_EXTENSION = "txt"
