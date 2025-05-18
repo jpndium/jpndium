@@ -35,21 +35,16 @@ RSpec.describe Jpndium::DependencyResolver do
       [
         {
           value: "A",
-          composition: [],
-          dependencies: [],
           dependents: %w[C]
         },
         {
           value: "B",
-          composition: [],
-          dependencies: [],
           dependents: %w[C]
         },
         {
           value: "C",
           composition: %w[A B],
-          dependencies: %w[A B],
-          dependents: []
+          dependencies: %w[A B]
         }
       ]
     end
@@ -87,14 +82,10 @@ RSpec.describe Jpndium::DependencyResolver do
         [
           {
             value: "A",
-            composition: [],
-            dependencies: [],
             dependents: %w[C D E F]
           },
           {
             value: "B",
-            composition: [],
-            dependencies: [],
             dependents: %w[C D E F]
           },
           {
