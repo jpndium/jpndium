@@ -29,3 +29,28 @@ require_relative "jpndium/jmnedict/priority_reader"
 
 require_relative "jpndium/kanjidic/reader"
 require_relative "jpndium/kanjidic/dependency_reader"
+
+# A compendium of data related to the Japanese language.
+module Jpndium
+  class << self
+    def read_jsonl(...)
+      Jpndium::JsonlReader.read(...)
+    end
+
+    def write_jsonl(...)
+      Jpndium::JsonlWriter.open(...)
+    end
+
+    def write_jsonl_sequence(...)
+      Jpndium::JsonlSequenceWriter.open(...)
+    end
+
+    def tokenize_unique(*, **, &)
+      tokenize(*, **, unique: true, &)
+    end
+
+    def tokenize(...)
+      Jpndium::Tokenizer.tokenize(...)
+    end
+  end
+end
