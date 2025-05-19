@@ -19,7 +19,7 @@ namespace :jmdict do
   directory jmdict_data_dir => jmdict_dir
 
   desc "Build jmdict data file"
-  task build: %w[clean update]
+  task build: %w[clean download update]
 
   desc "Clean up jmdict temporary files"
   task :clean do
@@ -42,7 +42,7 @@ namespace :jmdict do
   end
 
   desc "Update jmdict data file"
-  task update: [:download, jmdict_xml, :clean_data, jmdict_data_dir] do
+  task update: [jmdict_xml, :clean_data, jmdict_data_dir] do
     puts "Updating jmdict ..."
     Jpndium::JsonlSequenceWriter.open(jmdict_data_dir) do |jmdict|
       Jpndium::Jmdict::Reader.read(jmdict_xml, &jmdict.method(:write))

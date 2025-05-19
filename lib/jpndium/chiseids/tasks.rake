@@ -38,25 +38,12 @@ namespace :chiseids do
   chiseids_jsonl = File.join(chiseids_dir, "data.jsonl")
 
   desc "Build chiseids data file"
-  task build: %w[clean update]
+  task build: %w[clean download update]
 
   desc "Clean up chiseids temporary files"
   task :clean do
     rm_rf archive_zip
     rm_rf archive_dir
-  end
-
-  desc "Update chiseids data file"
-  task update: ["download", *archive_files, chiseids_dir] do
-    puts "Updating chiseids ..."
-    Jpndium::JsonlWriter.open(chiseids_jsonl) do |chiseids|
-      archive_files.each do |path|
-        filename = File.basename(path)
-        Jpndium::Chiseids::Reader.read(path) do |row|
-          chiseids.write({ filename:, **row })
-        end
-      end
-    end
   end
 
   desc "Download chiseids"
@@ -71,6 +58,19 @@ namespace :chiseids do
     sh %(unzip #{archive_zip} -d #{archive_dir})
   end
 
+  desc "Update chiseids data file"
+  task update: [*archive_files, chiseids_dir] do
+    puts "Updating chiseids ..."
+    Jpndium::JsonlWriter.open(chiseids_jsonl) do |chiseids|
+      archive_files.each do |path|
+        filename = File.basename(path)
+        Jpndium::Chiseids::Reader.read(path) do |row|
+          chiseids.write({ filename:, **row })
+        end
+      end
+    end
+  end
+
   namespace :dep do
     chiseidsdep_dir = File.join(data_dir, "chiseidsdep")
     directory chiseidsdep_dir => data_dir
@@ -78,13 +78,13 @@ namespace :chiseids do
     chiseidsdep_jsonl = File.join(chiseidsdep_dir, "data.jsonl")
 
     desc "Build chiseidsdep data file"
-    task build: %w[clean update]
+    task build: %w[clean chiseids:build update]
 
     desc "Clean up chiseidsdep temporary files"
     task :clean
 
     desc "Update chiseidsdep data file"
-    task update: ["chiseids:update", chiseids_jsonl, chiseidsdep_dir] do
+    task update: [chiseids_jsonl, chiseidsdep_dir] do
       puts "Updating chiseidsdep ..."
       chiseids = Jpndium::JsonlReader.read(chiseids_jsonl)
       Jpndium::JsonlWriter.open(chiseidsdep_jsonl) do |chiseidsdep|

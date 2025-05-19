@@ -18,20 +18,11 @@ namespace :kanjidic do
   kanjidic_jsonl = File.join(kanjidic_dir, "data.jsonl")
 
   desc "Build kanjidic data file"
-  task build: %w[clean update]
+  task build: %w[clean download update]
 
   desc "Clean up kanjidic temporary files"
   task :clean do
     rm_rf kanjidic_xml
-  end
-
-  desc "Update kanjidic data file"
-  task update: ["download", kanjidic_xml, kanjidic_dir] do
-    puts "Updating kanjidic ..."
-    Jpndium::JsonlWriter.open(kanjidic_jsonl) do |kanjidic|
-      write = kanjidic.method(:write)
-      Jpndium::Kanjidic::Reader.read(kanjidic_xml, &write)
-    end
   end
 
   desc "Download kanjidic"
@@ -41,6 +32,15 @@ namespace :kanjidic do
       Zlib::GzipReader.open(stream) do |gz|
         IO.copy_stream(gz, kanjidic_xml)
       end
+    end
+  end
+
+  desc "Update kanjidic data file"
+  task update: [kanjidic_xml, kanjidic_dir] do
+    puts "Updating kanjidic ..."
+    Jpndium::JsonlWriter.open(kanjidic_jsonl) do |kanjidic|
+      write = kanjidic.method(:write)
+      Jpndium::Kanjidic::Reader.read(kanjidic_xml, &write)
     end
   end
 
@@ -55,21 +55,13 @@ namespace :kanjidic do
     kanjidicdep_jsonl = File.join(kanjidicdep_dir, "data.jsonl")
 
     desc "Build kanjidicdep data file"
-    task build: %w[clean update]
+    task build: %w[clean kanjidic:build chiseids:dep:build update]
 
     desc "Clean up kanjidicdep temporary files"
     task :clean
 
-    update_dependencies = [
-      "kanjidic:update",
-      kanjidic_jsonl,
-      "chiseids:dep:update",
-      chiseidsdep_jsonl,
-      kanjidicdep_dir
-    ]
-
     desc "Update kanjidicdep data file"
-    task update: update_dependencies do
+    task update: [kanjidic_jsonl, chiseidsdep_jsonl, kanjidicdep_dir] do
       puts "Updating kanjidicdep ..."
       kanjidic = Jpndium::JsonlReader.read(kanjidic_jsonl)
       chiseidsdep = Jpndium::JsonlReader.read(chiseidsdep_jsonl)

@@ -19,7 +19,7 @@ data_modules = %w[
 task default: :build
 
 desc "Build all data files"
-task build: %i[clean update]
+task build: data_modules.map { |name| "#{name}:build" }
 
 desc "Clean up temporary files"
 task clean: data_modules.map { |name| "#{name}:clean" }
