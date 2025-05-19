@@ -65,7 +65,7 @@ namespace :kanjidic do
       kanjidic = Jpndium.read_jsonl(kanjidic_jsonl)
       chiseidsdep = Jpndium.read_jsonl(chiseidsdep_jsonl)
       Jpndium.write_jsonl(kanjidicdep_jsonl) do |kanjidicdep|
-        Jpndium::Kanjidic::DependencyResolver.read(kanjidic, chiseidsdep)
+        Jpndium::Kanjidic::DependencyResolver.resolve(kanjidic, chiseidsdep)
           .each(&kanjidicdep.method(:write))
       end
     end

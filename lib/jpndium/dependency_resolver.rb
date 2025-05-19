@@ -3,6 +3,8 @@
 module Jpndium
   # Resolves dependency information for value compositions.
   class DependencyResolver
+    attr_reader :compositions
+
     def initialize(compositions)
       @compositions = compositions
     end
@@ -43,8 +45,6 @@ module Jpndium
     def fetch_composition(value)
       compositions.fetch(value, nil).tap { |c| return nil if c&.empty? }
     end
-
-    attr_reader :compositions
 
     def fetch_dependencies(value)
       dependencies.fetch(value, nil)

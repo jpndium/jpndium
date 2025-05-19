@@ -9,10 +9,10 @@ RSpec.describe Jpndium::Chiseids::DependencyResolver do
     ]
   end
   let(:chiseidsdep) do
-    described_class.read(JSON.parse(JSON.dump(chiseids)))
+    described_class.resolve(JSON.parse(JSON.dump(chiseids)))
   end
 
-  describe "#read" do
+  describe "#resolve" do
     it "sets the pattern to the prefix characters from the IDS" do
       expect(chiseidsdep[0][:pattern]).to eq("⿰ ⿱")
     end
@@ -38,7 +38,7 @@ RSpec.describe Jpndium::Chiseids::DependencyResolver do
         [{ character: "A", ids: "⿰火&ABC-123A;⿱&DEF-456B;風" }]
       end
 
-      it "reads the codepoint as one character" do
+      it "treats the codepoint as one character" do
         expect(chiseidsdep[0][:composition])
           .to eq("火 &ABC-123A; &DEF-456B; 風")
       end
@@ -129,7 +129,7 @@ RSpec.describe Jpndium::Chiseids::DependencyResolver do
     context "when given a block" do
       let(:chiseidsdep) do
         [].tap do |actual|
-          described_class.read(
+          described_class.resolve(
             JSON.parse(JSON.dump(chiseids)),
             &actual.method(:append)
           )

@@ -88,7 +88,7 @@ namespace :chiseids do
       chiseids = Jpndium.read_jsonl(chiseids_jsonl)
       Jpndium.write_jsonl(chiseidsdep_jsonl) do |chiseidsdep|
         write = chiseidsdep.method(:write)
-        Jpndium::Chiseids::DependencyResolver.read(chiseids, &write)
+        Jpndium::Chiseids::DependencyResolver.resolve(chiseids, &write)
       end
     end
   end

@@ -2,54 +2,37 @@
 
 module Jpndium
   module Chiseids
-    # Reads chiseids jsonl files and derives dependency information for each
-    # Ideographic Description Sequence (IDS).
-    class DependencyResolver
+    # Resolves chiseids dependency information.
+    class DependencyResolver < Jpndium::DependencyResolver
       PREFIXES = <<~CHARACTERS.split.freeze
         ⿰ ⿱ ⿲ ⿳ ⿴ ⿵ ⿶ ⿷ ⿼ ⿸ ⿹ ⿺ ⿽ ⿻ ⿾ ⿿
       CHARACTERS
 
       def initialize(chiseids)
+        super(nil)
         @chiseids = chiseids
-      end
-
-      def self.read(chiseids, &)
-        new(chiseids).read(&)
-      end
-
-      def read(&)
-        return read_all unless block_given?
-
-        read_each(&)
       end
 
       private
 
-      def read_all
-        [].tap { |r| read_each(&r.method(:append)) }
+      def fetch_resolution(value)
+        super.then do |resolution|
+          character = resolution[:value]
+          {
+            character: character,
+            pattern: list_string(patterns.fetch(character, nil)),
+            composition: list_string(compositions[character]),
+            dependencies: list_string(resolution[:dependencies]),
+            dependents: list_string(resolution[:dependents])
+          }.compact
+        end
       end
 
-      def read_each(&)
-        @chiseids.each { |row| yield read_row(row) }
-      end
-
-      def read_row(row)
-        character = row["character"]
-        pattern = row["ids"].chars.select { |c| PREFIXES.include?(c) }
-        resolution = resolutions[character]
-        {
-          character: character,
-          pattern: list_string(pattern),
-          composition: list_string(compositions[character]),
-          dependencies: list_string(resolution[:dependencies]),
-          dependents: list_string(resolution[:dependents])
-        }.compact
-      end
-
-      def resolutions
-        @resolutions ||= Jpndium::DependencyResolver
-          .resolve(compositions)
-          .to_h { |resolution| [resolution[:value], resolution] }
+      def patterns
+        @patterns ||= @chiseids.to_h do |row|
+          pattern = row["ids"].chars.select(&PREFIXES.method(:include?))
+          [row["character"], pattern]
+        end
       end
 
       def compositions
@@ -63,10 +46,10 @@ module Jpndium
 
       def clean_ids(ids)
         ids
-          .then { |i| keep_only_first_sequence(i) }
-          .then { |i| remove_text_in_brackets(i) }
-          .then { |i| remove_spaces(i) }
-          .then { |i| remove_prefixes(i) }
+          .then(&method(:keep_only_first_sequence))
+          .then(&method(:remove_text_in_brackets))
+          .then(&method(:remove_spaces))
+          .then(&method(:remove_prefixes))
       end
 
       def keep_only_first_sequence(ids)
@@ -82,10 +65,7 @@ module Jpndium
       end
 
       def remove_prefixes(ids)
-        ids
-          .chars
-          .reject { |character| PREFIXES.include?(character) }
-          .join
+        ids.chars.reject(&PREFIXES.method(:include?)).join
       end
 
       def split_ids(ids)

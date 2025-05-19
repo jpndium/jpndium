@@ -2,49 +2,51 @@
 
 module Jpndium
   module Kanjidic
-    # Reads rows from chiseidsdep and removes kanji not present in kanjidic.
-    class DependencyResolver
+    # Resolves kanjidic dependency information using chiseidsdep.
+    class DependencyResolver < Jpndium::DependencyResolver
       FILTER_FIELDS = %w[composition dependencies dependents].freeze
 
       def initialize(kanjidic, chiseidsdep)
+        super(nil)
         @kanjidic = kanjidic
-        @kanjidic_kanji = kanjidic.to_set { |row| row["literal"] }
         @chiseidsdep = chiseidsdep
       end
 
-      def self.read(kanjidic, chiseidsdep)
-        new(kanjidic, chiseidsdep).read
-      end
+      protected
 
-      def read
+      def resolve_each
         @chiseidsdep
-          .select { |row| @kanjidic_kanji.member?(row["character"]) }
-          .map(&method(:read_row))
+          .select(&method(:kanjidic_row?))
+          .each { |r| yield filter_row(r) }
       end
 
-      private
+      def kanjidic_row?(row)
+        kanjidic_kanji?(row["character"])
+      end
 
-      def read_row(row)
-        row.clone.tap do |clone|
-          FILTER_FIELDS.each do |field|
-            next unless clone.key?(field)
-
-            clone[field] = keep_kanjidic_kanji(clone[field])
-            clone.delete(field) if clone[field].empty?
-          end
+      def filter_row(row)
+        row.tap do
+          FILTER_FIELDS.each { |f| filter_field(row, f) }
         end
       end
 
+      def filter_field(row, field)
+        return unless row.key?(field)
+
+        row[field] = keep_kanjidic_kanji(row[field])
+        row.delete(field) if row[field].empty?
+      end
+
       def keep_kanjidic_kanji(text)
-        text
-          .to_s
-          .split
-          .select(&method(:kanjidic_kanji?))
-          .join(" ")
+        text.to_s.split.select(&method(:kanjidic_kanji?)).join(" ")
       end
 
       def kanjidic_kanji?(value)
-        @kanjidic_kanji.member?(value)
+        kanjidic_kanji.member?(value)
+      end
+
+      def kanjidic_kanji
+        @kanjidic_kanji ||= @kanjidic.to_set { |row| row["literal"] }
       end
     end
   end

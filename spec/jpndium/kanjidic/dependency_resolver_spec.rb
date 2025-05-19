@@ -33,7 +33,7 @@ RSpec.describe Jpndium::Kanjidic::DependencyResolver do
       }
     ]
   end
-  let(:kanjidicdep) { described_class.read(kanjidic, chiseidsdep) }
+  let(:kanjidicdep) { described_class.resolve(kanjidic, chiseidsdep) }
   let(:expected) do
     [
       {
@@ -54,7 +54,7 @@ RSpec.describe Jpndium::Kanjidic::DependencyResolver do
     ]
   end
 
-  describe "#read" do
+  describe "#resolve" do
     it "keeps kanji from kanjidic" do
       expect(kanjidicdep).to match_array(expected)
     end
