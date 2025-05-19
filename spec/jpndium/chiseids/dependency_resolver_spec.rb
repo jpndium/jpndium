@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Jpndium::Chiseids::DependencyReader do
+RSpec.describe Jpndium::Chiseids::DependencyResolver do
   let(:chiseids) do
     [
       { character: "A", ids: "⿰火水⿱土風" },

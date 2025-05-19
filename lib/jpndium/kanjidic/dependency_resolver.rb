@@ -3,7 +3,7 @@
 module Jpndium
   module Kanjidic
     # Reads rows from chiseidsdep and removes kanji not present in kanjidic.
-    class DependencyReader
+    class DependencyResolver
       FILTER_FIELDS = %w[composition dependencies dependents].freeze
 
       def initialize(kanjidic, chiseidsdep)

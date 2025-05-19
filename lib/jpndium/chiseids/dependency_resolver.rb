@@ -4,7 +4,7 @@ module Jpndium
   module Chiseids
     # Reads chiseids jsonl files and derives dependency information for each
     # Ideographic Description Sequence (IDS).
-    class DependencyReader
+    class DependencyResolver
       PREFIXES = <<~CHARACTERS.split.freeze
         ⿰ ⿱ ⿲ ⿳ ⿴ ⿵ ⿶ ⿷ ⿼ ⿸ ⿹ ⿺ ⿽ ⿻ ⿾ ⿿
       CHARACTERS

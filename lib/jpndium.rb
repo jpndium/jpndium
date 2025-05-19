@@ -19,7 +19,7 @@ require_relative "jpndium/tokenizer"
 require_relative "jpndium/dependency_resolver"
 
 require_relative "jpndium/chiseids/reader"
-require_relative "jpndium/chiseids/dependency_reader"
+require_relative "jpndium/chiseids/dependency_resolver"
 
 require_relative "jpndium/jmdict/reader"
 require_relative "jpndium/jmdict/priority_reader"
@@ -28,7 +28,7 @@ require_relative "jpndium/jmnedict/reader"
 require_relative "jpndium/jmnedict/priority_reader"
 
 require_relative "jpndium/kanjidic/reader"
-require_relative "jpndium/kanjidic/dependency_reader"
+require_relative "jpndium/kanjidic/dependency_resolver"
 
 # A compendium of data related to the Japanese language.
 module Jpndium
