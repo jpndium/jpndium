@@ -22,7 +22,7 @@ RSpec.describe Jpndium do
   [
     [:read_jsonl, Jpndium::JsonlReader, :read],
     [:write_jsonl, Jpndium::JsonlWriter, :open],
-    [:write_jsonl_sequence, Jpndium::JsonlSequenceWriter, :open],
+    [:sequence_jsonl, Jpndium::JsonlSequenceWriter, :open],
     [:tokenize, Jpndium::Tokenizer, :tokenize],
     [:tokenize_unique, Jpndium::Tokenizer, :tokenize_unique]
   ].each do |name, target_class, target_method|

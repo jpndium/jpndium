@@ -44,7 +44,7 @@ namespace :jmnedict do
   desc "Update jmnedict data file"
   task update: [jmnedict_xml, :clean_data, jmnedict_data_dir] do
     puts "Updating jmnedict ..."
-    Jpndium.write_jsonl_sequence(jmnedict_data_dir) do |jmnedict|
+    Jpndium.sequence_jsonl(jmnedict_data_dir) do |jmnedict|
       Jpndium::Jmnedict::Reader.read(jmnedict_xml, &jmnedict.method(:write))
     end
   end

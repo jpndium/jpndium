@@ -41,7 +41,7 @@ module Jpndium
       Jpndium::JsonlWriter.open(...)
     end
 
-    def write_jsonl_sequence(...)
+    def sequence_jsonl(...)
       Jpndium::JsonlSequenceWriter.open(...)
     end
 
