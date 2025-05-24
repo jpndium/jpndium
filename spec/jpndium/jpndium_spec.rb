@@ -5,6 +5,12 @@ RSpec.describe Jpndium do
   let(:kwargs) { { a: 3, b: 4 } }
   let(:block) { -> {} }
 
+  def expect_forwards(name, target_class, target_method)
+    allow(target_class).to receive(target_method)
+    described_class.send(name, *args, **kwargs, &block)
+    expect(target_class).to have_received_forward(target_method)
+  end
+
   def have_received_forward(*, **)
     have_received(*, **) do |*actual_args, **actual_kwargs, &actual_block|
       expect(actual_args).to match_array(args)
@@ -13,44 +19,17 @@ RSpec.describe Jpndium do
     end
   end
 
-  describe ".read_jsonl" do
-    it "forwards to #{Jpndium::JsonlReader.name}" do
-      allow(Jpndium::JsonlReader).to receive(:read)
-      described_class.read_jsonl(*args, **kwargs, &block)
-      expect(Jpndium::JsonlReader).to have_received_forward(:read)
-    end
-  end
-
-  describe ".write_jsonl" do
-    it "forwards to #{Jpndium::JsonlWriter.name}" do
-      allow(Jpndium::JsonlWriter).to receive(:open)
-      described_class.write_jsonl(*args, **kwargs, &block)
-      expect(Jpndium::JsonlWriter).to have_received_forward(:open)
-    end
-  end
-
-  describe ".write_jsonl_sequence" do
-    it "forwards to #{Jpndium::JsonlSequenceWriter.name}" do
-      allow(Jpndium::JsonlSequenceWriter).to receive(:open)
-      described_class.write_jsonl_sequence(*args, **kwargs, &block)
-      expect(Jpndium::JsonlSequenceWriter).to have_received_forward(:open)
-    end
-  end
-
-  describe ".tokenize" do
-    it "forwards to #{Jpndium::Tokenizer.name}" do
-      allow(Jpndium::Tokenizer).to receive(:tokenize)
-      described_class.tokenize(*args, **kwargs, &block)
-      expect(Jpndium::Tokenizer).to have_received_forward(:tokenize)
-    end
-  end
-
-  describe ".tokenize_unique" do
-    it "forwards to #{Jpndium::Tokenizer.name}" do
-      kwargs[:unique] = true
-      allow(Jpndium::Tokenizer).to receive(:tokenize)
-      described_class.tokenize_unique(*args, **kwargs, &block)
-      expect(Jpndium::Tokenizer).to have_received_forward(:tokenize)
+  [
+    [:read_jsonl, Jpndium::JsonlReader, :read],
+    [:write_jsonl, Jpndium::JsonlWriter, :open],
+    [:write_jsonl_sequence, Jpndium::JsonlSequenceWriter, :open],
+    [:tokenize, Jpndium::Tokenizer, :tokenize],
+    [:tokenize_unique, Jpndium::Tokenizer, :tokenize_unique]
+  ].each do |name, target_class, target_method|
+    describe ".#{name}" do
+      it "forwards to #{target_class.name}.#{target_method}" do
+        expect_forwards(name, target_class, target_method)
+      end
     end
   end
 end

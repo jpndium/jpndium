@@ -10,6 +10,10 @@ module Jpndium
       @unique = unique
     end
 
+    def self.tokenize_unique(*, **, &)
+      tokenize(*, **, unique: true, &)
+    end
+
     def self.tokenize(...)
       return tokenize_all(...) unless block_given?
 

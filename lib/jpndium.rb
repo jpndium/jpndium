@@ -45,8 +45,8 @@ module Jpndium
       Jpndium::JsonlSequenceWriter.open(...)
     end
 
-    def tokenize_unique(*, **, &)
-      tokenize(*, **, unique: true, &)
+    def tokenize_unique(...)
+      Jpndium::Tokenizer.tokenize_unique(...)
     end
 
     def tokenize(...)

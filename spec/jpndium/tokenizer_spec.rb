@@ -263,4 +263,12 @@ RSpec.describe Jpndium::Tokenizer do
       end
     end
   end
+
+  describe ".tokenize_unique" do
+    it "tokenizes in unique mode" do
+      allow(described_class).to receive(:new).and_call_original
+      described_class.tokenize_unique(text)
+      expect(described_class).to have_received(:new).with(unique: true)
+    end
+  end
 end
