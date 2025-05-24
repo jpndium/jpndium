@@ -6,11 +6,9 @@ require "nokogiri"
 
 require_relative "jpndium/file_reader"
 require_relative "jpndium/file_writer"
-require_relative "jpndium/file_sequence_writer"
 
 require_relative "jpndium/jsonl_reader"
 require_relative "jpndium/jsonl_writer"
-require_relative "jpndium/jsonl_sequence_writer"
 
 require_relative "jpndium/xml_helpers"
 require_relative "jpndium/xml_reader"
@@ -42,7 +40,7 @@ module Jpndium
     end
 
     def sequence_jsonl(...)
-      Jpndium::JsonlSequenceWriter.open(...)
+      Jpndium::JsonlWriter.sequence(...)
     end
 
     def tokenize_unique(...)

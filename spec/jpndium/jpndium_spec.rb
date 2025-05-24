@@ -8,10 +8,10 @@ RSpec.describe Jpndium do
   def expect_forwards(name, target_class, target_method)
     allow(target_class).to receive(target_method)
     described_class.send(name, *args, **kwargs, &block)
-    expect(target_class).to have_received_forward(target_method)
+    expect(target_class).to have_forwarded_to(target_method)
   end
 
-  def have_received_forward(*, **)
+  def have_forwarded_to(*, **)
     have_received(*, **) do |*actual_args, **actual_kwargs, &actual_block|
       expect(actual_args).to match_array(args)
       expect(actual_kwargs).to eq(kwargs)
@@ -22,7 +22,7 @@ RSpec.describe Jpndium do
   [
     [:read_jsonl, Jpndium::JsonlReader, :read],
     [:write_jsonl, Jpndium::JsonlWriter, :open],
-    [:sequence_jsonl, Jpndium::JsonlSequenceWriter, :open],
+    [:sequence_jsonl, Jpndium::JsonlWriter, :sequence],
     [:tokenize, Jpndium::Tokenizer, :tokenize],
     [:tokenize_unique, Jpndium::Tokenizer, :tokenize_unique]
   ].each do |name, target_class, target_method|
