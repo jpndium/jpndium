@@ -2,30 +2,17 @@
 
 module Jpndium
   # Resolves dependency information for compositions.
-  class CompositionDependencyResolver
+  class CompositionDependencyResolver < Jpndium::DependencyResolver
     attr_reader :compositions
 
     def initialize(compositions)
+      super()
       @compositions = compositions
-    end
-
-    def self.resolve(*, **, &)
-      new(*, **).resolve(&)
-    end
-
-    def resolve(&)
-      return resolve_all unless block_given?
-
-      resolve_each(&)
     end
 
     protected
 
-    def resolve_all
-      [].tap { |r| resolve_each(&r.method(:append)) }
-    end
-
-    def resolve_each(&)
+    def resolve_each
       values.each { |value| yield fetch_resolution(value) }
     end
 

@@ -14,6 +14,7 @@ require_relative "jpndium/xml_helpers"
 require_relative "jpndium/xml_reader"
 
 require_relative "jpndium/tokenizer"
+require_relative "jpndium/dependency_resolver"
 require_relative "jpndium/composition_dependency_resolver"
 
 require_relative "jpndium/chiseids/reader"
