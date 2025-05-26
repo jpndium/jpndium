@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Jpndium
-  # Resolves dependency information for value compositions.
-  class DependencyResolver
+  # Resolves dependency information for compositions.
+  class CompositionDependencyResolver
     attr_reader :compositions
 
     def initialize(compositions)

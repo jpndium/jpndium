@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Jpndium::DependencyResolver do
+RSpec.describe Jpndium::CompositionDependencyResolver do
   let(:compositions) do
     {
       "A" => [],

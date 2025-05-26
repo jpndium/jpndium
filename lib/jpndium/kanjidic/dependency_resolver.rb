@@ -3,7 +3,7 @@
 module Jpndium
   module Kanjidic
     # Resolves kanjidic dependency information using chiseidsdep.
-    class DependencyResolver < Jpndium::DependencyResolver
+    class DependencyResolver < Jpndium::CompositionDependencyResolver
       FILTER_FIELDS = %w[composition dependencies dependents].freeze
 
       def initialize(kanjidic, chiseidsdep)

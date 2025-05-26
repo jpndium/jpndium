@@ -3,7 +3,7 @@
 module Jpndium
   module Chiseids
     # Resolves chiseids dependency information.
-    class DependencyResolver < Jpndium::DependencyResolver
+    class DependencyResolver < Jpndium::CompositionDependencyResolver
       PREFIXES = <<~CHARACTERS.split.freeze
         ⿰ ⿱ ⿲ ⿳ ⿴ ⿵ ⿶ ⿷ ⿼ ⿸ ⿹ ⿺ ⿽ ⿻ ⿾ ⿿
       CHARACTERS
