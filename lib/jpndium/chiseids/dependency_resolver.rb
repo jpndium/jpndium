@@ -3,29 +3,30 @@
 module Jpndium
   module Chiseids
     # Resolves chiseids dependency information.
-    class DependencyResolver < Jpndium::CompositionDependencyResolver
+    class DependencyResolver < Jpndium::DependencyResolver
       PREFIXES = <<~CHARACTERS.split.freeze
         ⿰ ⿱ ⿲ ⿳ ⿴ ⿵ ⿶ ⿷ ⿼ ⿸ ⿹ ⿺ ⿽ ⿻ ⿾ ⿿
       CHARACTERS
 
       def initialize(chiseids)
-        super(nil)
+        super
         @chiseids = chiseids
       end
 
       private
 
-      def fetch_resolution(value)
-        super.then do |resolution|
-          character = resolution[:value]
-          {
-            character: character,
-            pattern: list_string(patterns.fetch(character, nil)),
-            composition: list_string(compositions[character]),
-            dependencies: list_string(resolution[:dependencies]),
-            dependents: list_string(resolution[:dependents])
-          }.compact
-        end
+      def resolve_each
+        Jpndium::CompositionDependencyResolver
+          .resolve(compositions) do |resolution|
+            character = resolution[:value]
+            yield ({
+              character: character,
+              pattern: list_string(patterns.fetch(character, nil)),
+              composition: list_string(compositions[character]),
+              dependencies: list_string(resolution[:dependencies]),
+              dependents: list_string(resolution[:dependents])
+            }).compact
+          end
       end
 
       def patterns
