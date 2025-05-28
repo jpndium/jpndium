@@ -7,6 +7,9 @@
 [submodule "data/jmdict"]
 	path = data/jmdict
 	url = git@gitlab.com:jpndium/data-jmdict.git
+[submodule "data/jmdictdep"]
+	path = data/jmdictdep
+	url = git@gitlab.com:jpndium/data-jmdictdep.git
 [submodule "data/jmnedict"]
 	path = data/jmnedict
 	url = git@gitlab.com:jpndium/data-jmnedict.git
