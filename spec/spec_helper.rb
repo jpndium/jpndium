@@ -43,3 +43,7 @@ RSpec.configure do |config|
   # Allow setting global seed via `--seed` CLI option
   Kernel.srand config.seed
 end
+
+def receive_and_yield(name, values)
+  receive(name).tap { |r| values.each(&r.method(:and_yield)) }
+end

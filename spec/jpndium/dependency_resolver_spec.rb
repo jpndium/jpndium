@@ -25,10 +25,6 @@ RSpec.describe Jpndium::DependencyResolver do
       allow(resolver).to receive_and_yield(:resolve_each, resolutions)
     end
 
-    def receive_and_yield(name, values)
-      receive(name).tap { |r| values.each(&r.method(:and_yield)) }
-    end
-
     it "returns all resolutions" do
       stub_resolve_each([1, 2, 3])
       expect(resolver.resolve).to contain_exactly(1, 2, 3)
