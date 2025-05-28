@@ -11,6 +11,7 @@ data_modules = %w[
   chiseids
   chiseids:dep
   jmdict
+  jmdict:dep
   jmnedict
   kanjidic
   kanjidic:dep

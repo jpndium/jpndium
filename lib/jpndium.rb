@@ -24,6 +24,7 @@ require_relative "jpndium/chiseids/dependency_resolver"
 
 require_relative "jpndium/jmdict/reader"
 require_relative "jpndium/jmdict/priority_reader"
+require_relative "jpndium/jmdict/dependency_resolver"
 
 require_relative "jpndium/jmnedict/reader"
 require_relative "jpndium/jmnedict/priority_reader"

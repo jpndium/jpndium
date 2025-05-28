@@ -48,4 +48,39 @@ namespace :jmdict do
       Jpndium::Jmdict::Reader.read(jmdict_xml, &jmdict.method(:write))
     end
   end
+
+  namespace :dep do
+    kanjidic_jsonl = File.join(data_dir, "kanjidic/data.jsonl")
+    file kanjidic_jsonl
+
+    jmdictdep_dir = File.join(data_dir, "jmdictdep")
+    directory jmdictdep_dir => data_dir
+
+    jmdictdep_data_dir = File.join(jmdictdep_dir, "data")
+    directory jmdictdep_data_dir => jmdictdep_dir
+
+    jmdict_data_glob = "#{jmdict_data_dir}/*.jsonl"
+
+    desc "Build jmdictdep data file"
+    task build: %w[clean jmdict:build kanjidic:build update]
+
+    desc "Clean up jmdictdep temporary files"
+    task :clean
+
+    desc "Remove jmdictdep data"
+    task :clean_data do
+      rm_rf jmdictdep_data_dir
+    end
+
+    desc "Update jmdictdep data file"
+    task update: [jmdict_data_dir, kanjidic_jsonl, jmdictdep_data_dir] do
+      puts "Updating jmdictdep ..."
+      jmdict = Jpndium::JsonlReader.read_glob(jmdict_data_glob)
+      kanjidic = Jpndium::JsonlReader.read(kanjidic_jsonl)
+      Jpndium::JsonlWriter.sequence(jmdictdep_data_dir) do |jmdictdep|
+        Jpndium::Jmdict::DependencyResolver
+          .resolve(jmdict, kanjidic, &jmdictdep.method(:write))
+      end
+    end
+  end
 end
