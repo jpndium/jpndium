@@ -66,6 +66,7 @@ The following data modules are available:
 - [chiseids](https://gitlab.com/jpndium/data-chiseids)
 - [chiseidsdep](https://gitlab.com/jpndium/data-chiseidsdep)
 - [jmdict](https://gitlab.com/jpndium/data-jmdict)
+- [jmdictdep](https://gitlab.com/jpndium/data-jmdictdep)
 - [jmnedict](https://gitlab.com/jpndium/data-jmnedict)
 - [kanjidic](https://gitlab.com/jpndium/data-kanjidic)
 - [kanjidicdep](https://gitlab.com/jpndium/data-kanjidicdep)
