@@ -16,11 +16,20 @@ module Jpndium
         @jmdict.each do |entry|
           yield ({
             ent_seq: entry["ent_seq"],
-            k_ele: entry["k_ele"]&.map do |k_ele|
-              { keb: k_ele["keb"], **resolutions[k_ele["keb"]] }
-            end
+            k_ele: entry["k_ele"]&.map(&method(:fetch_resolution))
           }).compact
         end
+      end
+
+      def fetch_resolution(k_ele)
+        resolution = resolutions[k_ele["keb"]] || {}
+        {
+          keb: k_ele["keb"],
+          composition: list_string(resolution[:composition]),
+          dependencies: list_string(resolution[:dependencies]),
+          dependents: list_string(resolution[:dependents]),
+          kanji: list_string(resolution[:kanji])
+        }.compact
       end
 
       def resolutions
@@ -43,6 +52,12 @@ module Jpndium
             end
           end
         end
+      end
+
+      def list_string(value)
+        return nil if value.nil? || value.empty?
+
+        value.join(" ")
       end
     end
   end

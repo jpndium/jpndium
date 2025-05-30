@@ -47,15 +47,15 @@ RSpec.describe Jpndium::Jmdict::DependencyResolver do
       k_ele: [
         {
           keb: "AB",
-          composition: %w[A B],
-          dependencies: %w[A B],
-          kanji: %w[A B]
+          composition: "A B",
+          dependencies: "A B",
+          kanji: "A B"
         },
         {
           keb: "C",
-          composition: %w[D E],
-          dependencies: %w[E D],
-          kanji: ["C"]
+          composition: "D E",
+          dependencies: "E D",
+          kanji: "C"
         }
       ]
     },
@@ -64,15 +64,15 @@ RSpec.describe Jpndium::Jmdict::DependencyResolver do
       k_ele: [
         {
           keb: "D",
-          composition: ["E"],
-          dependencies: ["E"],
-          dependents: %w[C E]
+          composition: "E",
+          dependencies: "E",
+          dependents: "C E"
         },
         {
           keb: "E",
-          composition: ["D"],
-          dependencies: ["D"],
-          dependents: %w[C D]
+          composition: "D",
+          dependencies: "D",
+          dependents: "C D"
         }
       ]
     },
