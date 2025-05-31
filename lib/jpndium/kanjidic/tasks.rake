@@ -28,16 +28,34 @@ namespace :kanjidic do
   desc "Download kanjidic"
   task download: tmp_dir do
     puts "Downloading kanjidic ..."
-    URI.parse(kanjidic_url).open do |stream|
-      Zlib::GzipReader.open(stream) do |gz|
-        IO.copy_stream(gz, kanjidic_xml)
+    attempts = 3
+    begin
+      URI.parse(kanjidic_url).open do |stream|
+        Zlib::GzipReader.open(stream) do |gz|
+          IO.copy_stream(gz, kanjidic_xml)
+        end
       end
+    rescue StandardError => e
+      puts "Error: #{e}"
+      attempts -= 1
+      if attempts.positive?
+        puts "Retrying ..."
+        sleep(10)
+        retry
+      end
+      puts "Skipping."
     end
   end
 
   desc "Update kanjidic data file"
-  task update: [kanjidic_xml, kanjidic_dir] do
+  task update: [kanjidic_dir] do
     puts "Updating kanjidic ..."
+    unless File.exist?(kanjidic_xml)
+      puts "Error: #{kanjidic_xml} not found."
+      puts "Skipping."
+      next
+    end
+
     Jpndium.write_jsonl(kanjidic_jsonl) do |kanjidic|
       Jpndium::Kanjidic::Reader.read(kanjidic_xml, &kanjidic.method(:write))
     end

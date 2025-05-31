@@ -28,22 +28,42 @@ namespace :jmdict do
 
   desc "Remove jmdict data"
   task :clean_data do
-    rm_rf jmdict_data_dir
+    rm_rf "#{jmdict_data_dir}/*"
   end
 
   desc "Download jmdict"
   task download: tmp_dir do
     puts "Downloading jmdict ..."
-    URI.parse(jmdict_url).open do |stream|
-      Zlib::GzipReader.open(stream) do |gz|
-        IO.copy_stream(gz, jmdict_xml)
+    attempts = 3
+    begin
+      URI.parse(jmdict_url).open do |stream|
+        Zlib::GzipReader.open(stream) do |gz|
+          IO.copy_stream(gz, jmdict_xml)
+        end
       end
+    rescue StandardError => e
+      puts "Error: #{e}"
+      attempts -= 1
+      if attempts.positive?
+        puts "Retrying ..."
+        sleep(10)
+        retry
+      end
+      puts "Skipping."
     end
   end
 
   desc "Update jmdict data file"
-  task update: [jmdict_xml, :clean_data, jmdict_data_dir] do
+  task update: [jmdict_data_dir] do
     puts "Updating jmdict ..."
+    unless File.exist?(jmdict_xml)
+      puts "Error: #{jmdict_xml} not found."
+      puts "Skipping."
+      next
+    end
+
+    Rake::Task["jmdict:clean_data"].invoke
+
     Jpndium.sequence_jsonl(jmdict_data_dir) do |jmdict|
       Jpndium::Jmdict::Reader.read(jmdict_xml, &jmdict.method(:write))
     end

@@ -49,18 +49,37 @@ namespace :chiseids do
   desc "Download chiseids"
   task download: tmp_dir do
     puts "Downloading chiseids ..."
-    URI.parse(archive_url).open do |stream|
-      IO.copy_stream(stream, archive_zip)
-    end
+    attempts = 3
+    begin
+      URI.parse(archive_url).open do |stream|
+        IO.copy_stream(stream, archive_zip)
+      end
 
-    puts "Extracting chiseids ..."
-    rm_rf archive_dir
-    sh %(unzip #{archive_zip} -d #{archive_dir})
+      puts "Extracting chiseids ..."
+      rm_rf archive_dir
+      sh %(unzip #{archive_zip} -d #{archive_dir})
+    rescue StandardError => e
+      puts "Error: #{e}"
+      attempts -= 1
+      if attempts.positive?
+        puts "Retrying ..."
+        sleep(10)
+        retry
+      end
+      puts "Skipping."
+    end
   end
 
   desc "Update chiseids data file"
-  task update: [*archive_files, chiseids_dir] do
+  task update: [chiseids_dir] do
     puts "Updating chiseids ..."
+    missing = archive_files.reject(&File.method(:exist?))
+    unless missing.empty?
+      puts "Error: #{missing.join(', ')} not found."
+      puts "Skipping."
+      next
+    end
+
     Jpndium.write_jsonl(chiseids_jsonl) do |chiseids|
       archive_files.each do |path|
         Jpndium::Chiseids::Reader.read(path) do |row|
