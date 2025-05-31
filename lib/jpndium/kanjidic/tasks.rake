@@ -22,12 +22,13 @@ namespace :kanjidic do
 
   desc "Clean up kanjidic temporary files"
   task :clean do
+    puts "[kanjidic] Cleaning ..."
     rm_rf kanjidic_xml
   end
 
   desc "Download kanjidic"
   task download: tmp_dir do
-    puts "Downloading kanjidic ..."
+    puts "[kanjidic] Downloading ..."
     attempts = 3
     begin
       URI.parse(kanjidic_url).open do |stream|
@@ -36,23 +37,23 @@ namespace :kanjidic do
         end
       end
     rescue StandardError => e
-      puts "Error: #{e}"
+      puts "[kanjidic] Error: #{e}"
       attempts -= 1
       if attempts.positive?
-        puts "Retrying ..."
+        puts "[kanjidic] Retrying ..."
         sleep(10)
         retry
       end
-      puts "Skipping."
+      puts "[kanjidic] Skipping."
     end
   end
 
   desc "Update kanjidic data file"
   task update: [kanjidic_dir] do
-    puts "Updating kanjidic ..."
+    puts "[kanjidic] Updating ..."
     unless File.exist?(kanjidic_xml)
-      puts "Error: #{kanjidic_xml} not found."
-      puts "Skipping."
+      puts "[kanjidic] Error: #{kanjidic_xml} not found."
+      puts "[kanjidic] Skipping."
       next
     end
 
@@ -75,11 +76,13 @@ namespace :kanjidic do
     task build: %w[clean kanjidic:build chiseids:dep:build update]
 
     desc "Clean up kanjidicdep temporary files"
-    task :clean
+    task :clean do
+      puts "[kanjidicdep] Cleaning ..."
+    end
 
     desc "Update kanjidicdep data file"
     task update: [kanjidic_jsonl, chiseidsdep_jsonl, kanjidicdep_dir] do
-      puts "Updating kanjidicdep ..."
+      puts "[kanjidicdep] Updating ..."
       kanjidic = Jpndium.read_jsonl(kanjidic_jsonl)
       chiseidsdep = Jpndium.read_jsonl(chiseidsdep_jsonl)
       Jpndium.write_jsonl(kanjidicdep_jsonl) do |kanjidicdep|

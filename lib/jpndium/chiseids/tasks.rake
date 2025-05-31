@@ -42,41 +42,42 @@ namespace :chiseids do
 
   desc "Clean up chiseids temporary files"
   task :clean do
+    puts "[chiseids] Cleaning ... "
     rm_rf archive_zip
     rm_rf archive_dir
   end
 
   desc "Download chiseids"
   task download: tmp_dir do
-    puts "Downloading chiseids ..."
+    puts "[chiseids] Downloading ..."
     attempts = 3
     begin
       URI.parse(archive_url).open do |stream|
         IO.copy_stream(stream, archive_zip)
       end
 
-      puts "Extracting chiseids ..."
+      puts "[chiseids] Extracting ..."
       rm_rf archive_dir
       sh %(unzip #{archive_zip} -d #{archive_dir})
     rescue StandardError => e
-      puts "Error: #{e}"
+      puts "[chiseids] Error: #{e}"
       attempts -= 1
       if attempts.positive?
-        puts "Retrying ..."
+        puts "[chiseids] Retrying ..."
         sleep(10)
         retry
       end
-      puts "Skipping."
+      puts "[chiseids] Skipping."
     end
   end
 
   desc "Update chiseids data file"
   task update: [chiseids_dir] do
-    puts "Updating chiseids ..."
+    puts "[chiseids] Updating ..."
     missing = archive_files.reject(&File.method(:exist?))
     unless missing.empty?
-      puts "Error: #{missing.join(', ')} not found."
-      puts "Skipping."
+      puts "[chiseids] Error: #{missing.join(', ')} not found."
+      puts "[chiseids] Skipping."
       next
     end
 
@@ -99,11 +100,13 @@ namespace :chiseids do
     task build: %w[clean chiseids:build update]
 
     desc "Clean up chiseidsdep temporary files"
-    task :clean
+    task :clean do
+      puts "[chiseidsdep] Cleaning ..."
+    end
 
     desc "Update chiseidsdep data file"
     task update: [chiseids_jsonl, chiseidsdep_dir] do
-      puts "Updating chiseidsdep ..."
+      puts "[chiseidsdep] Updating ..."
       chiseids = Jpndium.read_jsonl(chiseids_jsonl)
       Jpndium.write_jsonl(chiseidsdep_jsonl) do |chiseidsdep|
         write = chiseidsdep.method(:write)

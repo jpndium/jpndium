@@ -23,12 +23,13 @@ namespace :jmnedict do
 
   desc "Clean up jmnedict temporary files"
   task :clean do
+    puts "[jmnedict] Cleaning ..."
     rm_rf jmnedict_xml
   end
 
   desc "Download jmnedict"
   task download: tmp_dir do
-    puts "Downloading jmnedict ..."
+    puts "[jmnedict] Downloading ..."
     attempts = 3
     begin
       URI.parse(jmnedict_url).open do |stream|
@@ -37,23 +38,23 @@ namespace :jmnedict do
         end
       end
     rescue StandardError => e
-      puts "Error: #{e}"
+      puts "[jmnedict] Error: #{e}"
       attempts -= 1
       if attempts.positive?
-        puts "Retrying ..."
+        puts "[jmnedict] Retrying ..."
         sleep(10)
         retry
       end
-      puts "Skipping."
+      puts "[jmnedict] Skipping."
     end
   end
 
   desc "Update jmnedict data file"
   task update: [jmnedict_data_dir] do
-    puts "Updating jmnedict ..."
+    puts "[jmnedict] Updating ..."
     unless File.exist?(jmnedict_xml)
-      puts "Error: #{jmnedict_xml} not found."
-      puts "Skipping."
+      puts "[jmnedict] Error: #{jmnedict_xml} not found."
+      puts "[jmnedict] Skipping."
       next
     end
 
@@ -79,11 +80,13 @@ namespace :jmnedict do
     task build: %w[clean jmnedict:build kanjidic:build update]
 
     desc "Clean up jmnedictdep temporary files"
-    task :clean
+    task :clean do
+      puts "[jmnedictdep] Cleaning ..."
+    end
 
     desc "Update jmnedictdep data file"
     task update: [jmnedict_data_dir, kanjidic_jsonl, jmnedictdep_data_dir] do
-      puts "Updating jmnedictdep ..."
+      puts "[jmnedictdep] Updating ..."
       jmnedict = Jpndium::JsonlReader.read_glob(jmnedict_data_glob)
       kanjidic = Jpndium::JsonlReader.read(kanjidic_jsonl)
       rm_rf Dir["#{jmnedictdep_data_dir}/*"]
