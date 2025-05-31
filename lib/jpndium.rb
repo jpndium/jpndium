@@ -28,6 +28,7 @@ require_relative "jpndium/jmdict/dependency_resolver"
 
 require_relative "jpndium/jmnedict/reader"
 require_relative "jpndium/jmnedict/priority_reader"
+require_relative "jpndium/jmnedict/dependency_resolver"
 
 require_relative "jpndium/kanjidic/reader"
 require_relative "jpndium/kanjidic/dependency_resolver"
