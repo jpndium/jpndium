@@ -68,6 +68,7 @@ The following data modules are available:
 - [jmdict](https://gitlab.com/jpndium/data-jmdict)
 - [jmdictdep](https://gitlab.com/jpndium/data-jmdictdep)
 - [jmnedict](https://gitlab.com/jpndium/data-jmnedict)
+- [jmnedictdep](https://gitlab.com/jpndium/data-jmnedictdep)
 - [kanjidic](https://gitlab.com/jpndium/data-kanjidic)
 - [kanjidicdep](https://gitlab.com/jpndium/data-kanjidicdep)
 

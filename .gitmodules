@@ -13,6 +13,9 @@
 [submodule "data/jmnedict"]
 	path = data/jmnedict
 	url = git@gitlab.com:jpndium/data-jmnedict.git
+[submodule "data/jmnedictdep"]
+	path = data/jmnedictdep
+	url = git@gitlab.com:jpndium/data-jmnedictdep.git
 [submodule "data/kanjidic"]
 	path = data/kanjidic
 	url = git@gitlab.com:jpndium/data-kanjidic.git
