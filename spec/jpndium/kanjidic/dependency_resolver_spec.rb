@@ -37,19 +37,19 @@ RSpec.describe Jpndium::Kanjidic::DependencyResolver do
   let(:expected) do
     [
       {
-        "character" => "A",
-        "pattern" => "(pattern)",
-        "composition" => "B",
-        "dependencies" => "B D",
-        "dependents" => "E"
+        literal: "A",
+        pattern: "(pattern)",
+        composition: "B",
+        dependencies: "B D",
+        dependents: "E"
       },
       {
-        "character" => "B",
-        "pattern" => "(pattern)"
+        literal: "B",
+        pattern: "(pattern)"
       },
       {
-        "character" => "D",
-        "pattern" => "(pattern)"
+        literal: "D",
+        pattern: "(pattern)"
       }
     ]
   end
