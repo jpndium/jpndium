@@ -26,11 +26,6 @@ namespace :jmnedict do
     rm_rf jmnedict_xml
   end
 
-  desc "Remove jmnedict data"
-  task :clean_data do
-    rm_rf "#{jmnedict_data_dir}/*"
-  end
-
   desc "Download jmnedict"
   task download: tmp_dir do
     puts "Downloading jmnedict ..."
@@ -62,8 +57,7 @@ namespace :jmnedict do
       next
     end
 
-    Rake::Task["jmnedict:clean_data"].invoke
-
+    rm_rf Dir["#{jmnedict_data_dir}/*"]
     Jpndium.sequence_jsonl(jmnedict_data_dir) do |jmnedict|
       Jpndium::Jmnedict::Reader.read(jmnedict_xml, &jmnedict.method(:write))
     end
@@ -87,16 +81,12 @@ namespace :jmnedict do
     desc "Clean up jmnedictdep temporary files"
     task :clean
 
-    desc "Remove jmnedictdep data"
-    task :clean_data do
-      rm_rf jmnedictdep_data_dir
-    end
-
     desc "Update jmnedictdep data file"
     task update: [jmnedict_data_dir, kanjidic_jsonl, jmnedictdep_data_dir] do
       puts "Updating jmnedictdep ..."
       jmnedict = Jpndium::JsonlReader.read_glob(jmnedict_data_glob)
       kanjidic = Jpndium::JsonlReader.read(kanjidic_jsonl)
+      rm_rf Dir["#{jmnedictdep_data_dir}/*"]
       Jpndium::JsonlWriter.sequence(jmnedictdep_data_dir) do |jmnedictdep|
         Jpndium::Jmnedict::DependencyResolver
           .resolve(jmnedict, kanjidic, &jmnedictdep.method(:write))
