@@ -13,6 +13,7 @@ data_modules = %w[
   jmdict
   jmdict:dep
   jmnedict
+  jmnedict:dep
   kanjidic
   kanjidic:dep
 ]
