@@ -63,14 +63,14 @@ echo -e "日本語は日本の言語です。" | bin/rake tokenize_unique
 ## Data Modules
 
 The following data modules are available:
-- [chiseids](https://gitlab.com/jpndium/data-chiseids)
-- [chiseidsdep](https://gitlab.com/jpndium/data-chiseidsdep)
-- [jmdict](https://gitlab.com/jpndium/data-jmdict)
-- [jmdictdep](https://gitlab.com/jpndium/data-jmdictdep)
-- [jmnedict](https://gitlab.com/jpndium/data-jmnedict)
-- [jmnedictdep](https://gitlab.com/jpndium/data-jmnedictdep)
-- [kanjidic](https://gitlab.com/jpndium/data-kanjidic)
-- [kanjidicdep](https://gitlab.com/jpndium/data-kanjidicdep)
+- [chiseids](https://gitlab.com/jpndium/chiseids)
+- [chiseidsdep](https://gitlab.com/jpndium/chiseidsdep)
+- [jmdict](https://gitlab.com/jpndium/jmdict)
+- [jmdictdep](https://gitlab.com/jpndium/jmdictdep)
+- [jmnedict](https://gitlab.com/jpndium/jmnedict)
+- [jmnedictdep](https://gitlab.com/jpndium/jmnedictdep)
+- [kanjidic](https://gitlab.com/jpndium/kanjidic)
+- [kanjidicdep](https://gitlab.com/jpndium/kanjidicdep)
 
 All data in this project is stored in JSON lines (`.jsonl`) format. Each line in
 these files is a JSON object.

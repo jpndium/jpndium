@@ -1,24 +1,24 @@
 [submodule "data/chiseids"]
 	path = data/chiseids
-	url = git@gitlab.com:jpndium/data-chiseids.git
+	url = git@gitlab.com:jpndium/chiseids.git
 [submodule "data/chiseidsdep"]
 	path = data/chiseidsdep
-	url = git@gitlab.com:jpndium/data-chiseidsdep.git
+	url = git@gitlab.com:jpndium/chiseidsdep.git
 [submodule "data/jmdict"]
 	path = data/jmdict
-	url = git@gitlab.com:jpndium/data-jmdict.git
+	url = git@gitlab.com:jpndium/jmdict.git
 [submodule "data/jmdictdep"]
 	path = data/jmdictdep
-	url = git@gitlab.com:jpndium/data-jmdictdep.git
+	url = git@gitlab.com:jpndium/jmdictdep.git
 [submodule "data/jmnedict"]
 	path = data/jmnedict
-	url = git@gitlab.com:jpndium/data-jmnedict.git
+	url = git@gitlab.com:jpndium/jmnedict.git
 [submodule "data/jmnedictdep"]
 	path = data/jmnedictdep
-	url = git@gitlab.com:jpndium/data-jmnedictdep.git
+	url = git@gitlab.com:jpndium/jmnedictdep.git
 [submodule "data/kanjidic"]
 	path = data/kanjidic
-	url = git@gitlab.com:jpndium/data-kanjidic.git
+	url = git@gitlab.com:jpndium/kanjidic.git
 [submodule "data/kanjidicdep"]
 	path = data/kanjidicdep
-	url = git@gitlab.com:jpndium/data-kanjidicdep.git
+	url = git@gitlab.com:jpndium/kanjidicdep.git
